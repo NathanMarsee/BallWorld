@@ -1,0 +1,104 @@
+BallWorld GDD (Plain Text Edition)
+By “The ball boys”
+CSCD 439-040
+
+
+Table of contents
+Short Design Doc						17-48
+Mechanics										x
+GamePlay										x
+Assets											x
+Game Elements								x
+Level Design								x
+Story											  x
+Timeline										x
+
+
+					-Short Design Doc-
+Summary
+	BallWorld is a physics based rolling ball game in which you traverse terrain by rotation to a scoring zone. With an emphasis on speed over small mechanical puzzle mastery of games such as “ Monkey ball”.  The target audience for this title is males ages 8 - 45 who are familiar with games such as “Sonic”. The scope of this project is a proof of concept containing one finished map.
+
+Gameplay
+	A focus of speed and movement accuracy.
+	Dynamic path choice of player traversal.
+	Time and Pickup(XXX) based scoring system
+	Character Customization
+	LeaderBoards/”Speed ghosts”
+	Multiple Game modes(X,X,X)
+Mechanics 
+	Physics based player character
+	Rotation of the environment to gain speed.
+	Obstacles (Slowing/Killing the player).
+	Ramps & Loop de loops.
+	Boost Platforms
+Game Elements 
+	Obstacles (Slowing/Killing the player).
+	Steep Ramps & Loop de loops.
+	Boost Platforms
+Assets
+	Music - Self Created/Asset
+	FX - Self Created/Asset
+	Player - Self Created/Asset // I think a texture painter might be cool here
+	Maps - Self Created/Generated
+Level design
+	Steep speed generation maps
+	Multiple route choice
+Story	
+	TBD
+
+          -Mechanics-
+
+
+
+
+          -GamePlay-
+
+
+
+           -Assets-
+
+
+
+        -Game Elements-
+
+
+
+        -Level Design-
+
+
+
+            -Story-
+
+
+
+          -Timeline-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
