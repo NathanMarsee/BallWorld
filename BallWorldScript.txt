@@ -1,0 +1,191 @@
+﻿Ethan Guerin
+CSCD 475
+Story Pitch
+April 4th, 2025
+
+
+Ball World
+
+
+1. Overview
+2. Sources and Inspirations
+3. Story Script - First Draft
+   1. How do Logs work?
+   2. Characters and the Roles they play.
+   3. Story in the form of Developer Logs.
+   4. Freedom in Scope.
+4. Gameplay and Story
+   1. Dynamic Difficulty.
+   2. Secret Levels.
+5. Conclusion
+
+
+1. Overview
+
+
+        Our game currently does not have a working title. The members of my team have begun calling our team the “Ball Boys”, since we are creating a game with controls inspired by the Monkey Ball  franchise. The game centers around a sphere, which the players control with a gamepad stick. Momentum and gravity are important to the gameplay, as well as jumps that the player must gauge in order to move forward. 
+        When brainstorming, my group had many great ideas. Different levels and gameplay modes that we could try, these included a basketball-type mode, where the player rolled down a ramp and launched themselves at hoop’s. Another example is an endless-runner mode, where the player is racing through a track, attempting to control their momentum and speed to not crash with oncoming obstacles, or gaps in the track.
+        These ideas, while incredibly creative and interesting to pursue, were not easily connected. How would we go from an endless-runner, to basketball, to a racetrack? What would the central gameplay be? Which mode was strong enough to stand on its own, which we could piggy-back the smaller ideas onto? I began thinking in terms of narrative, how could we explain these levels, was there a way to use these environments to tell some kind of story?
+        The answer was fairly simple, of course there is. Indie gaming is full of rich, subtle, and experimental story-telling. I began thinking about some examples of games that used more creative storytelling, Nathan used a great example of this type of game, the Stanley Parable. 
+  
+
+Source
+
+
+        The Stanley Parable is a game that began as a mod for Half-Life 2. The game stars Stanley, the player-character. The player makes decisions which form the story, this is as simple as walking through one of two doors presented to the players. Later decisions develop more complexity, but the idea that we want to take is the way in which The Stanley Parable  tells its narrative.
+        The game dynamically reacts to the players decisions, this is because the narrator is a character in his own right. The Narrator will mention the players decisions, and even react to them if the story calls for it. Our game will not incorporate decisions, but instead dynamically reacting to the players progress to unlock new levels, secrets, and developer logs which will unveil the story.
+        This idea came from the discussion surrounding our point system. We were undecided at the end of wednesday on which type of point system we were going to use. We ended on the decision that certain game types would reward points depending on the context. An example of this being that a level that is a track, focused on speed, would reward points based on how quickly the player completed the level. Another example would be the basketball level, which would reward more points for shooting more difficult hoops. We figured this part would be simple, but what would we use the points for?
+        We could unlock more secret levels, and with them, developer logs which tell the player the story. This is not unique, and I will explain with more examples, but for our short-scale game, I would argue this idea gives us a level of freedom both creatively and technically that others may not afford.
+
+
+2. Sources and Inspirations
+
+
+        Mentioned above was The Stanley Parable, but my first inspiration for this concept was a YouTube series called Petscop.   
+Source: Wendigoon
+
+
+        Petscop is the story of an indie game created by a man attempting to get revenge on the man who killed his daughter. The game was never complete in the world of Petscop, but a young man named Paul stumbles across the game. The YouTube series follows Paul as he explores the game and slowly unravels the secrets hidden within, and how he is personally connected to the tragedy hidden within. 
+        The game was for the Playstation 1, so the low fidelity of the game is explained by the age. This is a trick often used to hide the limited resources that indie games have, they pretend as though they were created within an earlier decade. Many games have used this, and seen massive market success, an example being Puppet Combo’s Murder House. 
+   
+Source
+
+
+        The game takes place in the 80’s, and looks the part. Using VHS filters and PS1 styled assets, Puppet Combo is able to not only excuse the dated look of the game, but instead turns it into atmosphere. The developers are telling more of the story and enriching the feel of the game's world. 
+        We have many stylistic choices for the game available to us, and narratively, we can find interesting ways to connect these things. Narratively, I had a lot to work with, and I am a horror minded person. Several examples I have given are horror games, but the game that came to mind immediately was Five Nights at Freddy’s. 
+  
+Source
+
+
+        Five Nights at Freddy’s is another indie game, another game using subtle storytelling, and another indie horror game. The biggest thing which separates FNaF from the rest of the genre would be simply its popularity. The series was created by Scott Cawthon, who has also stated in the past how free the story telling method he decided to use was, but also listed some regrets he had that would have made the development process much easier.
+        The series typically does not tell the player the story. The player goes into the game believing that they are a nightguard taking on a low paying job. Throughout the series are puzzles and secrets that the player can solve to discover more story elements. The community came together to solve these puzzles, working through Cawthon’s maze and unraveling the tale he had to tell. 
+        The story of the game is also worth taking note of, a man has killed children and placed them into these animatronics. This is very gruesome and dark, but the answers are never told as straight as I just did. The player must pull themselves deeper into the story. The challenge inherent in discovering the story is why the community is still, to this day, attempting to solve mysteries. 
+        We will take many elements from all of these games and merge them into one. Our story will be about a small dev team, a husband and wife. The two disappeared in 1998, leaving their son Steven behind. The player will later be revealed to be Steven, as an adult, exploring the last game his parents worked on. Another element not taken from one of the mentioned games I would like to incorporate is parody.
+
+
+3. Story Script - First Draft
+
+
+        I would like to make this story a parody of horror elements and tropes. Specifically, I would like to find a balance between actual scare, and light-hearted comedy. I believe this tone would work best for the context we are developing within. Since this is a game for a classroom environment, we should not go too far into the horror elements. We do not wish to actually disturb or traumatize anybody. Instead, we will ride a wave of dread throughout the game, and end on a strong punchline. 
+        
+a. How do Logs work?
+
+
+        The Logs will be unlocked with points. An example of this was already given with the endless-runner and basketball levels, but how will the player actually unlock each secret level? How will the logs be unlocked? These will go hand in hand, an example being:
+
+
+1. The player has 0 points, only one level is available. 
+2. After getting 10 points on that level, the player has unlocked a Log, and after another 10 points, a Secret Level.
+3. The player can decide to read the log, or just continue on to the next level.
+
+
+        This creates a gameplay loop which can pull the player in. With this, even if the player didn’t enjoy the gameplay as much, if they see the notification that they unlocked a “developer log”, they may take a moment to read it, and vice-versa. This is a good mechanism for locking onto whichever element the player finds the most interesting, the gameplay or the mystery. 
+
+
+b. Characters and the Roles they play.
+
+
+        The characters in this story are simple. We have a mother, father and child. I believe keeping our key players to these three is important, as this keeps things compact and simple. The story will be viewed through the eyes of Steven, as he uncovers the truth of his parents' disappearance. 
+
+
+        The first character will be John Balls. John is an indie developer, but something isn’t “right” about John. The first Dev Log can be written by him, explaining how he and his wife came across some money recently, and started their own game studio, “Ball-Sphere Incorporated.” John and his wife, Cynthia Sphere, are making a game called “Ball World.”
+        John Balls is from a powerful and rich family, he always got what he wanted growing up, and if he didn’t, we don’t have records of what happened. John will be an asshole, and we can make this as subtle or blatant as we wish. An idea that I had was that in the first log, John could be bragging about all of his wealth, about how starting the studio is him humbling himself, etc. Then later in the game, Cynthia can reveal in a log that she writes that this game studio is their last shot, they’ve put everything they had into it, and they need to succeed.
+        Cynthia is going to be an interesting character. Out of the dev-due, she will be the actual component one. John will talk big, but Cynthia’s logs will shed light on the reality of the situation. Cynthia also gives us a better point of view, as she can both shed light on reality, and plant the idea that John is unreliable into the player's head. Cynthia can also be used to showcase the effect that developing the game is having on the pair. 
+        Having John begin boisterous, and Cynthia humble, the slow reveal that Cynthia is losing her mind and John is falling deeper into delusion will hit much harder. Eventually, the logs will turn into a bit of a cat and mouse game, John hunting Cynthia throughout the game.
+        Steven, our point of view character, will unlock these logs and write his own. Everytime the player opens a log, a new one will be created. This log will be in a similar folder called “SteveLog” or something similar. These will use the timestamp of when the log was opened, and it will be Steven’s response to the log. This will give the player guidance, and introduces a possible dynamic difficulty. 
+
+
+c. Story in the form of Developer Logs.
+
+
+        In this section, I will write the first draft of the logs, detailing the unlock conditions, and explaining the possible paths towards the next unlock. This entire document is theoretical and subject to change, and this was written before any gameplay decisions were made for the game. I am pitching these as ideas, nothing is set in stone and everything can be made better. 
+
+
+Log #1 - dev_log1.txt
+
+
+        “We did it! The paperwork came through, we are an official corporation! Ball-Sphere is now an official indie studio, and we can start changing the world! 
+        Cynth, as always, was saying we’d never do it, but I knew it! I was right, we’re going places! We got two old machines churnin’ in the garage, and once the baby gets here we have plenty of space for an in-office nursery! That way, Cynth won’t lose any time developing while she takes care of Steve.
+* John Balls, 1996.” 
+
+
+        This is the first log, introducing John to the player, as well as Steve and Cynthia. After unlocking this level, the player will also receive the first log written by Steve. 
+
+
+Log #2 - steve_log1.txt
+
+
+        “Well, I finally went digging around the old garage. Mom and Dad used to work out of here I think, the place smells like dead racoons and disappointment. I never could force myself to come out here, knowing this is where they spent so much time. 
+        Dad’s logs are funny, Grandma never really liked him and I’m starting to understand why. He’s my dad though, and I never even met the guy, so I’ll cut him so slack for now. Gonna keep digging around and see what I find.
+* Steven Balls, [CURRENT_TIMESTAMP]”
+
+
+        After the player unlocks these, they will either unlock another level, or just the next log. This is dependent on whatever we decide in development, but the next log will be written by Cynthia. After either beating the next level, or reaching the next point threshold, the player will unlock the next log. 
+        
+Log #3 - dev_log2.txt
+
+
+        “I’m starting to get worried. John took out another loan to start our studio, but I really cannot understand why he would do that. He took the last loan out and bought a new oven for the garage, so we didn’t ‘waste time’ making food in the house. 
+        I wish he would talk these things over with me, he always just does things without asking. Thankfully, Ball World is actually coming along nicely. I’m having fun making the ramps and playing with gravity, so at least we’ll actually have a game after all of this!
+* Cynthia Sphere, 1996.”
+
+
+        Again, this will unlock another Steve log. 
+
+
+Log #4 - steve_log2.txt
+
+
+        “I’ve read a lot of my Mom’s writing. She really enjoyed writing, I think she’s the one who convinced my Dad to even write his own logs. I bet she convinced him somebody other than me would want to read them some day. 
+        She was so creative, I’m pretty sure Ball World was her idea. And she’s right, she made a pretty fun game.
+* Steven Balls, [CURRENT_TIMESTAMP].”
+
+
+        Now, we have hit an interesting spot. We do not know as of yet what direction we are going in the game. I will present this document to my team, and it will be adjusted as needed as time continues. Now we have the beginnings of the logs, and a basic structure under which they work. 
+        As the player continues throughout the game, the logs will unravel more of the story. Ideally, at some point John reveals he has created a new type of technology for the game. 
+
+
+Log #??? - dev_logX.txt
+
+
+        “I haven’t heard from John in days. After the fight, he locked himself in the garage. I didn’t mean it, I called him a loser. I’ve heard horrible noises out there, I have no idea what he’s doing.
+        He just came to the door, said he wanted to show me something. He said he changed everything, I don’t think I want to see it, whatever it is.
+* Cynthia Sphere, 1997.”
+
+
+        We can ride this wave, introducing more and more to the player until the time for the big reveal at the end of the game. We can essentially go wherever works best from here, this pitch gives us the freedom to adjust as needed. 
+
+
+d. Freedom in Scope.
+
+
+        The best benefit of this story is the freedom it gives us when developing the game. We can either tie the story heavily to the game, having the soundtrack and assets push the creepy atmosphere, or we can ignore it. We can have a game which feels earnest in presentation, and truly feels like the first attempt at a game. 
+        This freedom is useful in having our story and development be as flexible as possible. We can form both the game and the story to thread together as tightly or loosely as we decide. We also have many options for content and development. An example I thought of would be downloading a cart model, placing a sphere inside of it, taking a screenshot and calling it “BallKartRacingLeak.png”. Creatively, we can do whatever we wish, and the ceiling is out of view. 
+
+
+4. Gameplay and Story
+
+
+        I gave a few examples of how our story and gameplay can interact in the previous section, but this section is more for pitching ideas and concepts around the story. 
+
+
+a. Dynamic Difficulty
+
+
+        The difficulty here can be adjusted, allowing for several different playstyles. As mentioned before, the player can unlock the next logs with points, this would be considered the “Hard” difficulty level. Doing this requires mastery of the game mechanics, This is the hardest because it requires practice and understanding of the mechanics. 
+        The next hardest could be in puzzles. On the menu we could have a “Codes” button, which opens a textbox into which the player can type. Inside of the logs will sometimes be passwords. An example would be taking the first letter of every sentence to form the word STEVENB. Once the player enters STEVENB into the textbox, they will unlock the next log. 
+        This format affords us a lot of possibilities in gameplay, and this includes the actual content of the game.
+
+
+b. Secret Levels
+        The game could have levels unlocked either through points or through the aforementioned codes. Many examples have been given, including the basketball mode, endless-runner, etc. This format could easily allow us to contextualize the levels the players unlock. This also gives more opportunities for creativity.
+        One idea I had is the final level. The final level is a race track, but under the set-dressing of a chase scene. John has trapped Cynthia and himself inside the game. Steven must use the ball to escape John, who has taken on a new form. 
+        John Will be depicted as having large eyes, a large toothy grin, and large hands. The chase will include two large hands, smashing the objects around the ball to try and catch the player in their hand. The level could end by sliding into and out of John’s cupped shape hand, to try and escape through a ring/portal. This could be a fun, dramatic conclusion to the story.
+
+
+5. Conclusion
+
+
+        To conclude, I believe that this pitch will help direct us towards an interesting and fun game. I believe incorporating a story like this will allow us to have a clear creative direction to work towards, and the conclusion becomes much clearer using it. I think we can pull off so many tones, so many different ideas can fit inside of this one, that I hope my team decides to move forward with this.
+        That is to say that if this is not the direction we will move towards, that is completely fine. We have a strong basis in our gameplay concepts, and I’m absolutely confident in our ability to create a fun game. I believe that a subtle story can help pull a player in, but I also understand some gamers do not care about the story. 
+         I hope that my story can be both as interesting and non-invasive as we need, and I hope I have convinced you that you’re excited to see what’s coming next.
