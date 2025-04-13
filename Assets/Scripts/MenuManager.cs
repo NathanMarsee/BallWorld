@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public GameObject logsMenu;
+    public GameObject levelSelectMenu;
 
     public void ShowMainMenu()
     {
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
         logsMenu.SetActive(false);
+        levelSelectMenu.SetActive(false);
     }
 
     public void ShowOptionsMenu()
@@ -26,6 +29,23 @@ public class MenuManager : MonoBehaviour
         logsMenu.SetActive(true);
     }
 
+    public void ShowLevelSelectMenu()
+    {
+        mainMenu.SetActive(false);
+        levelSelectMenu.SetActive(true);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        levelSelectMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
+
+    public void LoadSampleScene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
@@ -34,7 +54,6 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        // Placeholder - later you can load a level
-        Debug.Log("Play Game Clicked");
+        ShowLevelSelectMenu(); // Now opens the level select screen
     }
 }
