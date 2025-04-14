@@ -10278,8 +10278,6 @@ MonoBehaviour:
   cam: {fileID: 963194225}
   offset: 0
   move: {x: 0, y: 0}
-  totalAngle: 0
-  thisAngle: {x: 0, y: 0, z: 0, w: 0}
   inputAngle: 0
   finalInputAngle: 0
   inputIntensity: 0

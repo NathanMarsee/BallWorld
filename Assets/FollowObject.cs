@@ -7,9 +7,11 @@ public class FollowObject : MonoBehaviour
     public GameObject target;
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
+{
+    if (target == null && GameObject.FindWithTag("Player") != null)
+        target = GameObject.FindWithTag("Player");
+}
+
 
     // Update is called once per frame
     void LateUpdate()

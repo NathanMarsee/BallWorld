@@ -16,6 +16,16 @@ public class RotateToInputPlusCamera : MonoBehaviour
     {
         controls = new PlayerControls(); // create input instance
     }
+    void Start()
+{
+    if (cam == null)
+    {
+        cam = Camera.main?.gameObject;
+        if (cam == null)
+            Debug.LogWarning("RotateToInputPlusCamera: Camera not assigned and could not find MainCamera.");
+    }
+}
+
 
     void OnEnable()
     {

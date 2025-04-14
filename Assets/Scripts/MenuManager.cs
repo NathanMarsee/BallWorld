@@ -45,6 +45,10 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+    public void LoadExtractionScene()
+    {
+        SceneManager.LoadScene("Extraction");
+    }
 
     public void ExitGame()
     {

@@ -20,10 +20,20 @@ public class BallControl : MonoBehaviour
     //private Vector3 spinDirection;
     // Start is called before the first frame update
     void Start()
+{
+    rb = GetComponent<Rigidbody>();
+    rb.maxAngularVelocity = maxAgularVelocity * 2f;
+
+    if (planeGuide == null)
     {
-        rb = GetComponent<Rigidbody>();
-        rb.maxAngularVelocity = maxAgularVelocity * 2f;
-    }
+        var foundGuide = GameObject.FindObjectOfType<RotateToInputPlusCamera>();
+        if (foundGuide != null)
+            planeGuide = foundGuide.transform;
+        else
+            Debug.LogWarning("BallControl: PlaneGuide not assigned and could not be found.");
+    };
+}
+
 
     // Update is called once per frame
     void FixedUpdate()
