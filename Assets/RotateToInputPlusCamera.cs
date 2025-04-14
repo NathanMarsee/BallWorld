@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class RotateToInputPlusCamera : MonoBehaviour
@@ -6,79 +8,92 @@ public class RotateToInputPlusCamera : MonoBehaviour
     public GameObject cam;
     public float offset;
     public Vector2 move;
+    private Quaternion rotateBy;
+    private bool newDeltaObtained;
+    public float totalAngle;
+    public Quaternion thisAngle;
     public float inputAngle;
     public float finalInputAngle;
     public float inputIntensity;
-
-    private PlayerControls controls;
-
-    void Awake()
-    {
-        controls = new PlayerControls(); // create input instance
-    }
+    // Start is called before the first frame update
     void Start()
-{
-    if (cam == null)
     {
-        cam = Camera.main?.gameObject;
-        if (cam == null)
-            Debug.LogWarning("RotateToInputPlusCamera: Camera not assigned and could not find MainCamera.");
+
     }
-}
-
-
-    void OnEnable()
-    {
-        controls.Enable(); // enable the bindings
-    }
-
-    void OnDisable()
-    {
-        controls.Disable(); // disable on destroy/disable
-    }
-
     void FixedUpdate()
     {
-        Quaternion currentRotation = transform.rotation;
+        thisAngle = transform.rotation;
+        var gamepad = Gamepad.current;
+        if (gamepad == null)
+            return; // No gamepad connected.
 
-        move = controls.Gameplay.Move.ReadValue<Vector2>();
-        Debug.Log($"🎮 Stick Input: {move}");
+        move = gamepad.leftStick.ReadValue();
+        /*if (move.y > 0)
+            move.y *= 0.5f;*/
+        inputIntensity = (move.x * move.x + move.y * move.y);
 
-        if (move.sqrMagnitude < 0.01f)
+        offset = 90 - cam.transform.rotation.eulerAngles.y;
+
+        while (offset < 0)
         {
-            Debug.Log("🧊 Input too small, skipping rotation.");
-            return;
+            offset += 360;
         }
 
-        inputIntensity = move.sqrMagnitude;
-        Debug.Log($"📈 Input Intensity: {inputIntensity}");
+        inputAngle = Mathf.Atan2(-move.y, -move.x);
+        inputAngle *= 180 / Mathf.PI;
+        while (inputAngle < 0)
+        {
+            inputAngle += 360;
+        }
 
-        offset = 90f - cam.transform.rotation.eulerAngles.y;
-        Debug.Log($"🎥 Camera Y Rotation: {cam.transform.rotation.eulerAngles.y}, Offset: {offset}");
-
-        inputAngle = Mathf.Atan2(-move.y, -move.x) * Mathf.Rad2Deg;
-        if (inputAngle < 0)
-            inputAngle += 360f;
-
-        Debug.Log($"🧭 Input Angle: {inputAngle}");
-
-        finalInputAngle = (inputAngle + offset) % 360f;
-        Debug.Log($"📐 Final Input Angle: {finalInputAngle}");
-
-        float finalInputAngleRad = finalInputAngle * Mathf.Deg2Rad;
-
+        finalInputAngle = (inputAngle + offset);
+        float finalInputAngleRad = finalInputAngle * Mathf.PI / 180;
         float finalInputX = Mathf.Pow(inputIntensity, 1.1f) * Mathf.Cos(finalInputAngleRad);
         float finalInputY = Mathf.Pow(inputIntensity, 1.1f) * Mathf.Sin(finalInputAngleRad);
-        Debug.Log($"🎯 Calculated Input: X={finalInputX}, Y={finalInputY}");
 
-        Quaternion targetRotation = new Quaternion(
-            finalInputX / -6f,
-            currentRotation.y,
-            finalInputY / -6f,
-            currentRotation.w
-        );
+        /*float rad = offset * Mathf.PI / 180;
 
-        Debug.Log($"🔄 Applying rotation: {targetRotation.eulerAngles}");
-        transform.rotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime * 10f);
+        totalAngle = Mathf.Atan(rad) + Mathf.Atan2(move.x, move.y);
+
+        move.x = Mathf.Sin(totalAngle);
+        if (move.x == 1)
+        {
+            move.x = 0;
+        }
+
+
+        move.y = Mathf.Cos(totalAngle);
+        if(move.y == 1)
+        {
+            move.y = 0;
+        }*/
+
+
+        //transform.rotation = Quaternion.Slerp(transform.rotation, new Quaternion(move.y / 5, transform.rotation.y, -move.x / 5, transform.rotation.w), Time.time * 0.04f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(finalInputX / -6, transform.rotation.y, finalInputY / -6, transform.rotation.w), Time.deltaTime * 10f);
+        /*Rotate(0, -move.y);
+        if (newDeltaObtained)
+        {
+            //transform.localRotation *= rotateBy;
+
+            newDeltaObtained = false;
+        }*/
     }
+
+    /*public void Rotate(float rotateLeftRight, float rotateUpDown)
+     {
+         //Gets the world vector space for cameras up vector 
+         Vector3 relativeUp = cam.transform.TransformDirection(Vector3.up);
+         //Gets world vector for space cameras right vector
+         Vector3 relativeRight = cam.transform.TransformDirection(Vector3.right);
+ 
+         //Turns relativeUp vector from world to objects local space
+         Vector3 objectRelativeUp = transform.InverseTransformDirection(relativeUp);
+         //Turns relativeRight vector from world to object local space
+         Vector3 objectRelaviveRight = transform.InverseTransformDirection(relativeRight);
+         
+         rotateBy = Quaternion.AngleAxis(rotateLeftRight / gameObject.transform.localScale.x, objectRelativeUp) * Quaternion.AngleAxis(-rotateUpDown / gameObject.transform.localScale.x, objectRelaviveRight);
+         
+         newDeltaObtained = true;
+     }*/
 }
