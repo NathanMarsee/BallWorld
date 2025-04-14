@@ -8,29 +8,39 @@ public class RotateAfterVelocity : MonoBehaviour
     public Quaternion direction;
     private Rigidbody rb;
     private float rotSpeed;
-    // Start is called before the first frame update
+
     void Start()
     {
+        if (target == null)
+        {
+            target = transform.parent?.gameObject;
+            if (target == null)
+            {
+                Debug.LogWarning("RotateAfterVelocity: No target assigned and no parent found.");
+                return;
+            }
+        }
+
         rb = target.GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("RotateAfterVelocity: Target has no Rigidbody!");
+        }
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        //rotations = transform.rotation;
-        //Vector3 direction = Vector3.RotateTowards(transform.rotation.eulerAngles, rb.velocity, Time.deltaTime, 1.0f);
-        /*if (target.GetComponent<Rigidbody>().velocity.magnitude > 0.05)
-        {*/
+        if (rb == null || rb.velocity.sqrMagnitude < 0.001f)
+            return;
+
+        // Calculate rotation speed based on movement magnitude
         rotSpeed = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z) / 1.5f;
 
+        // Only rotate in the horizontal direction
         direction = Quaternion.LookRotation(rb.velocity);
         direction = Quaternion.Euler(0, direction.eulerAngles.y, 0);
+
+        // Smoothly rotate toward movement direction
         transform.localRotation = Quaternion.Lerp(transform.localRotation, direction, Time.deltaTime * rotSpeed);
-        //}
-        /*if (!(Mathf.Abs(rb.velocity.x) < 0.1) && !(Mathf.Abs(rb.velocity.z) < 0.1))
-        {
-            Quaternion direction = Quaternion.LookRotation(rb.velocity);
-            transform.rotation = Quaternion.Lerp(transform.rotation, direction, Time.deltaTime * 2);
-        }*/
     }
 }
