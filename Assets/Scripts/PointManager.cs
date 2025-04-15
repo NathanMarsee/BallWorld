@@ -1,42 +1,74 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class PointManager : MonoBehaviour
 {
-    public TextMeshProUGUI pointsText;
-    private int currentPoints = 0;
-    private const string PlayerPrefsKey = "PlayerPoints";
+    public static PointManager Instance { get; private set; }
 
-    private void Awake()
+    public TMP_Text pointsText;
+    private int playerPoints = 0;
+
+    public int CurrentPoints => playerPoints;
+
+    void Awake()
     {
-        DontDestroyOnLoad(gameObject); // ensure this stays across scenes
-        currentPoints = PlayerPrefs.GetInt(PlayerPrefsKey, 0);
-        UpdateDisplay();
+        // Singleton logic
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: persist across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Prevent duplicates
+        }
     }
 
-    public void AddPoints(int amount)
+    void Start()
     {
-        currentPoints += amount;
-        PlayerPrefs.SetInt(PlayerPrefsKey, currentPoints);
-        PlayerPrefs.Save();
-        UpdateDisplay();
+        LoadPoints();
+        UpdatePointsUI();
+    }
+
+    public void AddPoint()
+    {
+        playerPoints++;
+        SavePoints();
+        UpdatePointsUI();
+        NotifyLogMenu();  // 🔄 Refresh log button state
     }
 
     public void ResetPoints()
     {
-        currentPoints = 0;
-        PlayerPrefs.DeleteKey(PlayerPrefsKey);
-        UpdateDisplay();
+        playerPoints = 0;
+        SavePoints();
+        UpdatePointsUI();
+        NotifyLogMenu();  // 🔄 Refresh log button state
     }
 
-    private void UpdateDisplay()
+    void UpdatePointsUI()
     {
         if (pointsText != null)
-            pointsText.text = $"Points: {currentPoints}";
+            pointsText.text = $"Points: {playerPoints}";
     }
 
-    public int GetPoints()
+    void SavePoints()
     {
-        return currentPoints;
+        PlayerPrefs.SetInt("PlayerPoints", playerPoints);
+        PlayerPrefs.Save();
+    }
+
+    void LoadPoints()
+    {
+        playerPoints = PlayerPrefs.GetInt("PlayerPoints", 0);
+    }
+
+    void NotifyLogMenu()
+    {
+        var logMenu = FindObjectOfType<LogMenuManager>();
+        if (logMenu != null && logMenu.isActiveAndEnabled)
+        {
+            logMenu.RefreshLogList(); // Re-check point requirements and update buttons
+        }
     }
 }

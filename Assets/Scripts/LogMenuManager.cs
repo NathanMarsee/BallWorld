@@ -11,7 +11,7 @@ public class LogMenuManager : MonoBehaviour
     public GameObject logDisplayPanel;
     public TMP_Text logDisplayText;
     public TMP_Text pointsText;
-    public GameObject closeButton; // ✅ Added close button reference
+    public GameObject closeButton;
 
     [Header("Background Elements to Disable")]
     public GameObject logScrollView;
@@ -20,28 +20,38 @@ public class LogMenuManager : MonoBehaviour
     [Header("Log Data")]
     public List<LogEntry> logEntries;
 
-    private int playerPoints = 0;
+    private PointManager pointManager;
 
-    void Start()
+    void OnEnable()
     {
-        ResetLogView(); // ✅ Ensure clean state
-        RefreshLogList();
-        UpdatePointsUI();
-    }
+        // First try singleton access
+        if (PointManager.Instance != null)
+        {
+            pointManager = PointManager.Instance;
+        }
+        else
+        {
+            pointManager = FindObjectOfType<PointManager>();
+        }
 
-    public void SetPlayerPoints(int points)
-    {
-        playerPoints = points;
+        if (pointManager == null)
+        {
+            Debug.LogError("LogMenuManager: No PointManager found in scene.");
+            return;
+        }
+
+        ResetLogView();
         RefreshLogList();
         UpdatePointsUI();
     }
 
     void UpdatePointsUI()
     {
-        pointsText.text = $"Points: {playerPoints}";
+        if (pointManager != null)
+            pointsText.text = $"Points: {pointManager.CurrentPoints}";
     }
 
-    void RefreshLogList()
+    public void RefreshLogList()
     {
         foreach (Transform child in logListParent)
         {
@@ -55,7 +65,7 @@ public class LogMenuManager : MonoBehaviour
 
             Button btn = newButton.GetComponent<Button>();
 
-            if (playerPoints >= log.pointsRequired)
+            if (pointManager.CurrentPoints >= log.pointsRequired)
             {
                 btn.interactable = true;
                 btn.onClick.AddListener(() => ShowLog(log.content));
@@ -63,7 +73,7 @@ public class LogMenuManager : MonoBehaviour
             else
             {
                 btn.interactable = false;
-                newButton.GetComponentInChildren<TMP_Text>().text += $" (Locked)";
+                newButton.GetComponentInChildren<TMP_Text>().text += " (Locked)";
             }
         }
     }
@@ -73,7 +83,6 @@ public class LogMenuManager : MonoBehaviour
         logDisplayText.text = content;
         logDisplayPanel.SetActive(true);
 
-        // Hide scroll view and back button
         if (logScrollView != null) logScrollView.SetActive(false);
         if (backButton != null) backButton.SetActive(false);
         if (closeButton != null) closeButton.SetActive(true);
@@ -84,12 +93,18 @@ public class LogMenuManager : MonoBehaviour
         ResetLogView();
     }
 
-    // ✅ Call this every time LogsPanel is activated
     public void ResetLogView()
     {
         logDisplayPanel.SetActive(false);
         if (closeButton != null) closeButton.SetActive(false);
         if (logScrollView != null) logScrollView.SetActive(true);
         if (backButton != null) backButton.SetActive(true);
+    }
+
+    // Call this when points change to update locked logs
+    public void Refresh()
+    {
+        RefreshLogList();
+        UpdatePointsUI();
     }
 }

@@ -123,8 +123,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8065937388359411136}
         m_TargetAssemblyTypeName: PointManager, Assembly-CSharp
-        m_MethodName: AddPoints
-        m_Mode: 3
+        m_MethodName: AddPoint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6652,10 +6652,10 @@ MonoBehaviour:
   logEntries:
   - title: Test
     content: I am testing the log system!
-    pointsRequired: 0
+    pointsRequired: 5
   - title: Test
     content: I am testing the log system!
-    pointsRequired: 0
+    pointsRequired: 10
 --- !u!1 &4027600831491843002
 GameObject:
   m_ObjectHideFlags: 0
