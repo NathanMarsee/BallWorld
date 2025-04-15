@@ -6650,11 +6650,11 @@ MonoBehaviour:
   logScrollView: {fileID: 4027600829667444075}
   backButton: {fileID: 4027600831304371630}
   logEntries:
-  - title: Test
-    content: I am testing the log system!
+  - title: 5 Points
+    content: This log costs 5 Points.
     pointsRequired: 5
-  - title: Test
-    content: I am testing the log system!
+  - title: 10 Points
+    content: This log costs 10 points.
     pointsRequired: 10
 --- !u!1 &4027600831491843002
 GameObject:
