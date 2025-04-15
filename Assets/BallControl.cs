@@ -44,12 +44,18 @@ public class BallControl : MonoBehaviour
         lastVelocity = rb.velocity.magnitude;
         
         lastAngleVelocity = rb.angularVelocity.magnitude;
+        rb.angularVelocity *= 0.95f;
+        //rb.angularVelocity = new Vector3(rb.angularVelocity.x * 0.99f, rb.angularVelocity.y * 0.9f, rb.angularVelocity.z * 0.99f);
 
         if(transform.position.y < killplane)
         {
             transform.position = new Vector3(0, 0.5f, 0);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+        }
+        if(rb.velocity.magnitude < 0.1)
+        {
+            rb.angularVelocity *= 0.9f;
         }
     }
     void OnCollisionStay()
@@ -60,10 +66,6 @@ public class BallControl : MonoBehaviour
         if (lastVelocity - rb.velocity.magnitude > slowDownRatio * 100 * lastVelocity)
         {
             rb.velocity *= 0.96f;
-        }
-        if (rb.velocity.magnitude < 0.08f)
-        {
-            rb.velocity = Vector3.zero;
         }
         /*if (lastAngleVelocity - rb.angularVelocity.magnitude > slowDownRatio * 100 * lastAngleVelocity)
         {
