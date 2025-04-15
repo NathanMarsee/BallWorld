@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,16 +41,25 @@ public class BallControl : MonoBehaviour
     {
         gravDirection = -planeGuide.up;
         rb.AddForce(gravDirection * gravMag);
-        
+
         lastVelocity = rb.velocity.magnitude;
         
         lastAngleVelocity = rb.angularVelocity.magnitude;
+        //rb.angularVelocity = new Vector3(rb.angularVelocity.x * 0.99f, rb.angularVelocity.y * 0.9f, rb.angularVelocity.z * 0.99f);
 
         if(transform.position.y < killplane)
         {
             transform.position = new Vector3(0, 0.5f, 0);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+        }
+        if(rb.velocity.magnitude < 0.2)
+        {
+            rb.angularVelocity *= 0.98f;
+        }
+        if (rb.angularVelocity.magnitude * rb.angularVelocity.magnitude > Math.Sqrt(rb.velocity.magnitude / 2))
+        {
+            rb.angularVelocity *= 0.99f;
         }
     }
     void OnCollisionStay()
@@ -60,10 +70,6 @@ public class BallControl : MonoBehaviour
         if (lastVelocity - rb.velocity.magnitude > slowDownRatio * 100 * lastVelocity)
         {
             rb.velocity *= 0.96f;
-        }
-        if (rb.velocity.magnitude < 0.08f)
-        {
-            rb.velocity = Vector3.zero;
         }
         /*if (lastAngleVelocity - rb.angularVelocity.magnitude > slowDownRatio * 100 * lastAngleVelocity)
         {

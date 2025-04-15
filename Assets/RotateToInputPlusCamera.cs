@@ -60,7 +60,7 @@ public class RotateToInputPlusCamera : MonoBehaviour
         float finalInputX = Mathf.Pow(inputIntensity, 1.1f) * Mathf.Cos(finalInputAngleRad);
         float finalInputY = Mathf.Pow(inputIntensity, 1.1f) * Mathf.Sin(finalInputAngleRad);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(finalInputX / -6, transform.rotation.y, finalInputY / -6, transform.rotation.w), Time.deltaTime * 10f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(finalInputX / -6, transform.rotation.y, finalInputY / -6, transform.rotation.w), Time.deltaTime * 8f);
     }
     void OnDestroy()
 {
