@@ -1,13 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("Panels")]
     public GameObject mainMenu;
     public GameObject optionsMenu;
     public GameObject logsMenu;
     public GameObject levelSelectMenu;
+
+    [Header("Popup")]
+    public GameObject scorePopup;
+    public TMP_Text popupText;
+    public float popupDuration = 2f;
+
+    private Coroutine popupCoroutine;
 
     public void ShowMainMenu()
     {
@@ -45,9 +54,15 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
     public void LoadExtractionScene()
     {
         SceneManager.LoadScene("Extraction");
+    }
+
+    public void LoadBasketballScene()
+    {
+        SceneManager.LoadScene("Basketball");
     }
 
     public void ExitGame()
@@ -59,5 +74,26 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         ShowLevelSelectMenu(); // Now opens the level select screen
+    }
+
+    // ✅ New method to show the popup
+    public void ShowScorePopup(int points)
+    {
+        if (scorePopup != null && popupText != null)
+        {
+            popupText.text = $"+{points} Points!";
+            scorePopup.SetActive(true);
+
+            if (popupCoroutine != null)
+                StopCoroutine(popupCoroutine);
+
+            popupCoroutine = StartCoroutine(HidePopupAfterDelay(popupDuration));
+        }
+    }
+
+    private System.Collections.IEnumerator HidePopupAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        scorePopup.SetActive(false);
     }
 }

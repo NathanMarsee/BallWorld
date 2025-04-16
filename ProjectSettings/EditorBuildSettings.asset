@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Extraction.unity
     guid: 4d8c35b950bb7bc4d83a0ac13bb2b661
+  - enabled: 1
+    path: Assets/Scenes/Basketball.unity
+    guid: 799172c51a7914844b3560c39b03d07f
   m_configObjects: {}
