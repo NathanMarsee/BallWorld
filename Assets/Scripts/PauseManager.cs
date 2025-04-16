@@ -63,14 +63,14 @@ public class PauseManager : MonoBehaviour
             EnablePauseMenu();
             menuManager?.ShowMainMenu();
             isPaused = true;
-            Time.timeScale = 1f;
+            Time.timeScale = 1.2f;
         }
         else
         {
             DisablePauseMenu();
             CloseAllPanels(); // Clean slate
             isPaused = false;
-            Time.timeScale = 1f;
+            Time.timeScale = 1.2f;
         }
     }
 
@@ -86,7 +86,7 @@ public class PauseManager : MonoBehaviour
     {
         DisablePauseMenu();
         isPaused = false;
-        Time.timeScale = 1f;
+        Time.timeScale = 1.2f;
     }
 
     private void EnablePauseMenu()
