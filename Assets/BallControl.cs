@@ -11,6 +11,9 @@ public class BallControl : MonoBehaviour
     public float gravMag;
     public float killplane;
     public float slowDownRatio;
+    public float minSpeedForMomentum = 15;
+    public float maxSpeedForMomentum = 50;
+    public int collisions;
     /*public float spinMag;
     private float inputIntensity;*/
     //private float offset;
@@ -18,12 +21,14 @@ public class BallControl : MonoBehaviour
     private Vector3 gravDirection;
     private float lastVelocity;
     private float lastAngleVelocity;
+    //private float baseMass;
     //private Vector3 spinDirection;
     // Start is called before the first frame update
     void Start()
-{
-    rb = GetComponent<Rigidbody>();
-    rb.maxAngularVelocity = maxAgularVelocity * 2f;
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.maxAngularVelocity = maxAgularVelocity * 2f;
+        //baseMass = rb.mass;
 
     if (planeGuide == null)
     {
@@ -39,21 +44,31 @@ public class BallControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        gravDirection = -planeGuide.up;
-        rb.AddForce(gravDirection * gravMag);
+
 
         lastVelocity = rb.velocity.magnitude;
-        
+        Vector3 lastVelocityVector = rb.velocity;
         lastAngleVelocity = rb.angularVelocity.magnitude;
         //rb.angularVelocity = new Vector3(rb.angularVelocity.x * 0.99f, rb.angularVelocity.y * 0.9f, rb.angularVelocity.z * 0.99f);
 
-        if(transform.position.y < killplane)
+        gravDirection = -planeGuide.up;
+        Vector3 gravityForce = gravDirection * gravMag;
+        if (collisions == 0)
+            gravityForce = gravityForce * 0.8f;
+        rb.AddForce(gravityForce);
+
+        /*if (rb.velocity.magnitude < lastVelocity && collisions == 0)
+            rb.velocity = rb.velocity + lastVelocityVector;
+        else if (rb.velocity.magnitude < lastVelocity)
+            rb.velocity = rb.velocity + (lastVelocityVector * ((Mathf.Clamp(lastVelocity, minSpeedForMomentum, maxSpeedForMomentum) - minSpeedForMomentum) / (maxSpeedForMomentum - minSpeedForMomentum)));
+        */
+        if (transform.position.y < killplane)
         {
             transform.position = new Vector3(0, 0.5f, 0);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-        if(rb.velocity.magnitude < 0.2)
+        if (rb.velocity.magnitude < 0.2)
         {
             rb.angularVelocity *= 0.98f;
         }
@@ -61,6 +76,17 @@ public class BallControl : MonoBehaviour
         {
             rb.angularVelocity *= 0.99f;
         }
+
+        /*if (rb.velocity.magnitude > minSpeedForMass)
+        {
+            float extraMass = Mathf.Clamp(rb.velocity.magnitude, minSpeedForMass, maxSpeedForMass) - minSpeedForMass;
+            extraMass = extraMass / (maxSpeedForMass - minSpeedForMass);
+            rb.mass = baseMass + extraMass;
+        } else
+        {
+            rb.mass = baseMass;
+        }*/
+
     }
     void OnCollisionStay()
     {
@@ -79,5 +105,14 @@ public class BallControl : MonoBehaviour
         {
             rb.angularVelocity = Vector3.zero;
         }*/
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        collisions++;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        collisions--;
     }
 }

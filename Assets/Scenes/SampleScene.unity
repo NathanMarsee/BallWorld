@@ -2120,6 +2120,9 @@ MonoBehaviour:
   gravMag: 10
   killplane: -200
   slowDownRatio: 0
+  minSpeedForMomentum: 15
+  maxSpeedForMomentum: 50
+  collisions: 0
 --- !u!54 &335841311
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2135,7 +2138,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 2
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!135 &335841312
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5957,7 +5960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &977457362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13883,7 +13886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24fd3c157cf01894e9b2d70bdadcd523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 50
+  power: 35
 --- !u!65 &2057205250
 BoxCollider:
   m_ObjectHideFlags: 0
