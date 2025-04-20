@@ -38,6 +38,16 @@ public class PointManager : MonoBehaviour
         NotifyLogMenu();  // 🔄 Refresh log button state
     }
 
+    public void AddPoints(int amount)
+    {
+        if (amount <= 0) return;
+
+        playerPoints += amount;
+        SavePoints();
+        UpdatePointsUI();
+        NotifyLogMenu();
+    }
+
     public void ResetPoints()
     {
         playerPoints = 0;
