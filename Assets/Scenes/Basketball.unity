@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsToAward: 10
-  delayBeforeRestart: 3
+  delayBeforeRestart: 0.5
 --- !u!1001 &677368306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1168,7 +1168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b37bf8543e56364584c20dbb84118cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 309.9483
+      value: 323.9483
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b37bf8543e56364584c20dbb84118cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1334,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b37bf8543e56364584c20dbb84118cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 345
+      value: 359
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b37bf8543e56364584c20dbb84118cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1469,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b37bf8543e56364584c20dbb84118cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 380
+      value: 394
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7b37bf8543e56364584c20dbb84118cc, type: 3}
       propertyPath: m_LocalRotation.w

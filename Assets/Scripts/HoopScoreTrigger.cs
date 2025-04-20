@@ -5,7 +5,7 @@ public class HoopScoreTrigger : MonoBehaviour
 {
     [Header("Scoring")]
     public int pointsToAward = 10;
-    public float delayBeforeRestart = 3f;
+    public float delayBeforeRestart = 0.1f;
 
     private bool triggered = false;
 
