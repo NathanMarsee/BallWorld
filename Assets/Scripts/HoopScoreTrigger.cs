@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class HoopScoreTrigger : MonoBehaviour
 {
@@ -7,32 +8,39 @@ public class HoopScoreTrigger : MonoBehaviour
     public int pointsToAward = 10;
     public float delayBeforeRestart = 0.1f;
 
+    [Header("Visual Label")]
+    public TextMeshPro pointsLabel;
+
     private bool triggered = false;
+
+    private void Start()
+    {
+        if (pointsLabel != null)
+        {
+            pointsLabel.text = $"{pointsToAward}";
+        }
+        else
+        {
+            Debug.LogWarning("Points label not assigned in inspector.");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;
+        if (!other.CompareTag("Player")) return;
 
-        if (other.CompareTag("Player"))
+        triggered = true;
+
+        PointManager.Instance.AddPoints(pointsToAward);
+
+        MenuManager menu = FindObjectOfType<MenuManager>();
+        if (menu != null)
         {
-            triggered = true;
-
-            // Add points through PointManager
-            for (int i = 0; i < pointsToAward; i++)
-            {
-                PointManager.Instance.AddPoint();
-            }
-
-            // Show score popup using MenuManager
-            MenuManager menu = FindObjectOfType<MenuManager>();
-            if (menu != null)
-            {
-                menu.ShowScorePopup(pointsToAward);
-            }
-
-            // Restart scene after delay
-            Invoke(nameof(RestartLevel), delayBeforeRestart);
+            menu.ShowScorePopup(pointsToAward);
         }
+
+        Invoke(nameof(RestartLevel), delayBeforeRestart);
     }
 
     private void RestartLevel()

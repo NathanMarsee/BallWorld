@@ -67,6 +67,7 @@ public class BallControl : MonoBehaviour
             transform.position = new Vector3(0, 0.5f, 0);
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            SoundManager.Instance?.PlayLevelResetSound();
         }
         if (rb.velocity.magnitude < 0.2)
         {
