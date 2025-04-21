@@ -551,6 +551,28 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[4].title
+      value: Basketball Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[4].content
+      value: Hello, and welcome to Basketball!  Shoot down the ramp, angle yourself,
+        and shoot some hoops! The ball can be controlled with the Left Stick, WASD,
+        or D-Pad. You can shift gravity and manipulate the ball, use this level to
+        practice your angles, build points, and get used to your gravity bending
+        abilities!  Once you master the static hoops, try your hand at hard mode,
+        where the hoops become far more challenging, but are worth far more points!
+        Can you hit all of them? Use these points to unlock dev logs and skins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[4].pointsRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4027600831533040032, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_RootOrder
       value: 3
