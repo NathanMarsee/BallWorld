@@ -49,8 +49,9 @@ public class PointManager : MonoBehaviour
         UpdatePointsUI();
         NotifyLogMenu();
 
+        // Aggregated notification + sound
         SoundManager.Instance?.PlayPointSound();
-        NotificationManager.Instance?.ShowNotification($"You gained {amount} points!");
+        NotificationManager.Instance?.ShowNotification($"You gained {amount} point{(amount == 1 ? "" : "s")}!");
     }
 
     public void ResetPoints()

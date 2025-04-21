@@ -15,7 +15,6 @@ public class HoopScoreTrigger : MonoBehaviour
 
     private void Start()
     {
-        // If the label was assigned, update the text
         if (pointsLabel != null)
         {
             pointsLabel.text = $"{pointsToAward}";
@@ -29,24 +28,19 @@ public class HoopScoreTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;
+        if (!other.CompareTag("Player")) return;
 
-        if (other.CompareTag("Player"))
+        triggered = true;
+
+        PointManager.Instance.AddPoints(pointsToAward);
+
+        MenuManager menu = FindObjectOfType<MenuManager>();
+        if (menu != null)
         {
-            triggered = true;
-
-            for (int i = 0; i < pointsToAward; i++)
-            {
-                PointManager.Instance.AddPoint();
-            }
-
-            MenuManager menu = FindObjectOfType<MenuManager>();
-            if (menu != null)
-            {
-                menu.ShowScorePopup(pointsToAward);
-            }
-
-            Invoke(nameof(RestartLevel), delayBeforeRestart);
+            menu.ShowScorePopup(pointsToAward);
         }
+
+        Invoke(nameof(RestartLevel), delayBeforeRestart);
     }
 
     private void RestartLevel()
