@@ -12,15 +12,14 @@ public class PointManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton logic
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Optional: persist across scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // Prevent duplicates
+            Destroy(gameObject);
         }
     }
 
@@ -35,7 +34,10 @@ public class PointManager : MonoBehaviour
         playerPoints++;
         SavePoints();
         UpdatePointsUI();
-        NotifyLogMenu();  // 🔄 Refresh log button state
+        NotifyLogMenu();
+
+        SoundManager.Instance?.PlayPointSound();
+        NotificationManager.Instance?.ShowNotification("You gained 1 point!");
     }
 
     public void AddPoints(int amount)
@@ -46,6 +48,9 @@ public class PointManager : MonoBehaviour
         SavePoints();
         UpdatePointsUI();
         NotifyLogMenu();
+
+        SoundManager.Instance?.PlayPointSound();
+        NotificationManager.Instance?.ShowNotification($"You gained {amount} points!");
     }
 
     public void ResetPoints()
@@ -53,7 +58,10 @@ public class PointManager : MonoBehaviour
         playerPoints = 0;
         SavePoints();
         UpdatePointsUI();
-        NotifyLogMenu();  // 🔄 Refresh log button state
+        NotifyLogMenu();
+
+        SoundManager.Instance?.PlayPointResetSound();
+        NotificationManager.Instance?.ShowNotification("Points have been reset.");
     }
 
     void UpdatePointsUI()
@@ -78,7 +86,7 @@ public class PointManager : MonoBehaviour
         var logMenu = FindObjectOfType<LogMenuManager>();
         if (logMenu != null && logMenu.isActiveAndEnabled)
         {
-            logMenu.RefreshLogList(); // Re-check point requirements and update buttons
+            logMenu.RefreshLogList();
         }
     }
 }

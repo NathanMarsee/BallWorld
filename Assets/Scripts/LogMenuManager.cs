@@ -24,15 +24,7 @@ public class LogMenuManager : MonoBehaviour
 
     void OnEnable()
     {
-        // First try singleton access
-        if (PointManager.Instance != null)
-        {
-            pointManager = PointManager.Instance;
-        }
-        else
-        {
-            pointManager = FindObjectOfType<PointManager>();
-        }
+        pointManager = PointManager.Instance ?? FindObjectOfType<PointManager>();
 
         if (pointManager == null)
         {
@@ -60,20 +52,22 @@ public class LogMenuManager : MonoBehaviour
 
         foreach (var log in logEntries)
         {
-            GameObject newButton = Instantiate(logButtonPrefab, logListParent);
-            newButton.GetComponentInChildren<TMP_Text>().text = log.title;
-
-            Button btn = newButton.GetComponent<Button>();
-
             if (pointManager.CurrentPoints >= log.pointsRequired)
             {
+                if (!log.unlocked)
+                {
+                    log.unlocked = true;
+
+                    SoundManager.Instance?.PlayUnlockSound();
+                    NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
+                }
+
+                GameObject newButton = Instantiate(logButtonPrefab, logListParent);
+                newButton.GetComponentInChildren<TMP_Text>().text = log.title;
+
+                Button btn = newButton.GetComponent<Button>();
                 btn.interactable = true;
                 btn.onClick.AddListener(() => ShowLog(log.content));
-            }
-            else
-            {
-                btn.interactable = false;
-                newButton.GetComponentInChildren<TMP_Text>().text += " (Locked)";
             }
         }
     }
@@ -101,7 +95,6 @@ public class LogMenuManager : MonoBehaviour
         if (backButton != null) backButton.SetActive(true);
     }
 
-    // Call this when points change to update locked logs
     public void Refresh()
     {
         RefreshLogList();
