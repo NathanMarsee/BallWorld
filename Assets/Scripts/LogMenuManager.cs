@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using System.Linq;
 
 public class LogMenuManager : MonoBehaviour
 {
@@ -17,10 +18,17 @@ public class LogMenuManager : MonoBehaviour
     public GameObject logScrollView;
     public GameObject backButton;
 
+    [Header("Tab Buttons")]
+    public Button tutorialTabButton;
+    public Button johnTabButton;
+    public Button cynthiaTabButton;
+    public Button stevenTabButton;
+
     [Header("Log Data")]
     public List<LogEntry> logEntries;
 
     private PointManager pointManager;
+    private LogCategory currentCategory = LogCategory.Tutorial;
 
     void OnEnable()
     {
@@ -32,9 +40,24 @@ public class LogMenuManager : MonoBehaviour
             return;
         }
 
+        SetupTabButtons();
         ResetLogView();
         RefreshLogList();
         UpdatePointsUI();
+    }
+
+    void SetupTabButtons()
+    {
+        tutorialTabButton.onClick.AddListener(() => ChangeCategory(LogCategory.Tutorial));
+        johnTabButton.onClick.AddListener(() => ChangeCategory(LogCategory.Character_John));
+        cynthiaTabButton.onClick.AddListener(() => ChangeCategory(LogCategory.Character_Cynthia));
+        stevenTabButton.onClick.AddListener(() => ChangeCategory(LogCategory.Character_Steven));
+    }
+
+    void ChangeCategory(LogCategory category)
+    {
+        currentCategory = category;
+        RefreshLogList();
     }
 
     void UpdatePointsUI()
@@ -50,14 +73,15 @@ public class LogMenuManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (var log in logEntries)
+        var filteredLogs = logEntries.Where(log => log.category == currentCategory);
+
+        foreach (var log in filteredLogs)
         {
             if (pointManager.CurrentPoints >= log.pointsRequired)
             {
                 if (!log.unlocked)
                 {
                     log.unlocked = true;
-
                     SoundManager.Instance?.PlayUnlockSound();
                     NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
                 }
@@ -81,6 +105,12 @@ public class LogMenuManager : MonoBehaviour
         if (backButton != null) backButton.SetActive(false);
         if (closeButton != null) closeButton.SetActive(true);
     }
+
+    public void SelectTutorialTab() => ChangeCategory(LogCategory.Tutorial);
+public void SelectJohnTab() => ChangeCategory(LogCategory.Character_John);
+public void SelectCynthiaTab() => ChangeCategory(LogCategory.Character_Cynthia);
+public void SelectStevenTab() => ChangeCategory(LogCategory.Character_Steven);
+
 
     public void CloseLogDisplay()
     {
