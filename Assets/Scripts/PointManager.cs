@@ -69,10 +69,17 @@ public class PointManager : MonoBehaviour
     }
 
     void UpdatePointsUI()
+{
+    if (pointsText != null)
     {
-        if (pointsText != null)
-            pointsText.text = $"Points: {playerPoints}";
+        pointsText.text = $"Points: {playerPoints}";
     }
+    else
+    {
+        Debug.Log("PointManager: pointsText is not assigned in this scene. Skipping UI update.");
+    }
+}
+
 
     void SavePoints()
     {
