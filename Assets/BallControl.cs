@@ -11,8 +11,6 @@ public class BallControl : MonoBehaviour
     public float gravMag;
     public float killplane;
     public float slowDownRatio;
-    public float minSpeedForMomentum = 15;
-    public float maxSpeedForMomentum = 50;
     public int collisions;
     /*public float spinMag;
     private float inputIntensity;*/
@@ -20,7 +18,6 @@ public class BallControl : MonoBehaviour
     //private Vector2 move;
     private Vector3 gravDirection;
     private float lastVelocity;
-    private float lastAngleVelocity;
     //private float baseMass;
     //private Vector3 spinDirection;
     // Start is called before the first frame update
@@ -48,7 +45,6 @@ public class BallControl : MonoBehaviour
 
         lastVelocity = rb.velocity.magnitude;
         Vector3 lastVelocityVector = rb.velocity;
-        lastAngleVelocity = rb.angularVelocity.magnitude;
         //rb.angularVelocity = new Vector3(rb.angularVelocity.x * 0.99f, rb.angularVelocity.y * 0.9f, rb.angularVelocity.z * 0.99f);
 
         gravDirection = -planeGuide.up;
