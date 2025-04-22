@@ -38,6 +38,8 @@ public class PointManager : MonoBehaviour
 
         SoundManager.Instance?.PlayPointSound();
         NotificationManager.Instance?.ShowNotification("You gained 1 point!");
+
+        CheckForUnlocks(); 
     }
 
     public void AddPoints(int amount)
@@ -49,9 +51,10 @@ public class PointManager : MonoBehaviour
         UpdatePointsUI();
         NotifyLogMenu();
 
-        // Aggregated notification + sound
         SoundManager.Instance?.PlayPointSound();
         NotificationManager.Instance?.ShowNotification($"You gained {amount} point{(amount == 1 ? "" : "s")}!");
+
+        CheckForUnlocks(); 
     }
 
     public void ResetPoints()
@@ -81,13 +84,80 @@ public class PointManager : MonoBehaviour
     {
         playerPoints = PlayerPrefs.GetInt("PlayerPoints", 0);
     }
+    public void ResetAllData()
+{
+    PlayerPrefs.DeleteAll();       
+    playerPoints = 0;
+    UpdatePointsUI();              
+
+    NotificationManager.Instance?.ShowNotification("Game data has been reset.");
+    SoundManager.Instance?.PlayPointResetSound();
+
+    FindObjectOfType<LogMenuManager>()?.Refresh();
+}
+
 
     void NotifyLogMenu()
+{
+    var logMenu = FindObjectOfType<LogMenuManager>();
+    if (logMenu != null)
     {
-        var logMenu = FindObjectOfType<LogMenuManager>();
-        if (logMenu != null && logMenu.isActiveAndEnabled)
+        bool changesMade = false;
+
+        foreach (var log in logMenu.logEntries)
         {
-            logMenu.RefreshLogList();
+            if (!log.unlocked && playerPoints >= log.pointsRequired)
+            {
+                log.unlocked = true;
+
+                
+                if (log.pointsRequired > 0)
+                {
+                    NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
+                    SoundManager.Instance?.PlayUnlockSound();
+                }
+
+                changesMade = true;
+            }
+        }
+
+        if (changesMade)
+        {
+            logMenu.RefreshLogList(); 
         }
     }
+}
+
+
+    private void CheckForUnlocks()
+{
+    var logMenu = FindObjectOfType<LogMenuManager>();
+    if (logMenu == null) return;
+
+    bool unlockedAny = false;
+
+    foreach (var log in logMenu.logEntries)
+    {
+        if (!log.unlocked && playerPoints >= log.pointsRequired)
+        {
+            log.unlocked = true;
+
+            logMenu.SaveUnlockedLog(log); 
+
+            if (log.pointsRequired > 0)
+            {
+                NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
+                SoundManager.Instance?.PlayUnlockSound();
+            }
+
+            unlockedAny = true;
+        }
+    }
+
+    if (unlockedAny && logMenu.isActiveAndEnabled)
+    {
+        logMenu.RefreshLogList();
+    }
+}
+
 }

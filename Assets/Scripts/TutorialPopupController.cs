@@ -2,27 +2,27 @@ using UnityEngine;
 
 public class TutorialPopupController : MonoBehaviour
 {
-    public GameObject popupPanel; // Assign your tutorial popup UI here
+    public GameObject popupPanel; 
 
     private const string TutorialShownKey = "LevelTutorialShown";
 
     void Start()
     {
         if (PointManager.Instance != null &&
-            PointManager.Instance.CurrentPoints == 0
-            /* && !PlayerPrefs.HasKey(TutorialShownKey) */) // ← commented out for dev
+            PointManager.Instance.CurrentPoints == 0 &&
+            !PlayerPrefs.HasKey(TutorialShownKey))
         {
             popupPanel.SetActive(true);
-            Time.timeScale = 0f; // ⛔ Pause gameplay
+            Time.timeScale = 0f; 
 
-            // PlayerPrefs.SetInt(TutorialShownKey, 1); // ← disable saving until release
-            // PlayerPrefs.Save();
+            PlayerPrefs.SetInt(TutorialShownKey, 1); 
+            PlayerPrefs.Save();
         }
     }
 
     public void ClosePopup()
     {
         popupPanel.SetActive(false);
-        Time.timeScale = 1f; // ▶️ Resume gameplay
+        Time.timeScale = 1f;
     }
 }
