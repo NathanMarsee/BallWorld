@@ -1141,6 +1141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991608250}
+  - component: {fileID: 991608251}
   m_Layer: 0
   m_Name: TrailRight
   m_TagString: Untagged
@@ -1162,6 +1163,20 @@ Transform:
   m_Father: {fileID: 4978827025352815207}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &991608251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991608249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c103b41df203624687b6fc3c94c0551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4978827025352815207}
+  offset: {x: 1, y: 0, z: 0}
 --- !u!1001 &1076818485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2470,6 +2485,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPlaneGuide: {fileID: 4978827023950612540}
+  defaultZ: -6
+  zoomInZ: -4
+  zoomOutZ: -8
+  zoomSpeed: 3
+  holdThreshold: 0.1
 --- !u!4 &4978827024769461216
 Transform:
   m_ObjectHideFlags: 0
@@ -2639,8 +2659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b993783d3082dc44fa22de283df08492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPoint: {fileID: 261306985}
-  rightPoint: {fileID: 991608250}
+  sideOffset: 0.5
+  verticalOffset: 0
   maxTrailLength: 2
   minSpeed: 2
 --- !u!33 &4978827025352815204
