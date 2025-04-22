@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Extraction.unity
     guid: 4d8c35b950bb7bc4d83a0ac13bb2b661
   - enabled: 1
     path: Assets/Scenes/Basketball.unity
     guid: 799172c51a7914844b3560c39b03d07f
+  - enabled: 1
+    path: Assets/Scenes/InfiniteRunner.unity
+    guid: ed62e989c6437c94b871036d2e9aa570
   m_configObjects: {}

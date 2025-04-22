@@ -55,9 +55,9 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    public void LoadExtractionScene()
+    public void LoadInfiniteRunnerScene()
     {
-        SceneManager.LoadScene("Extraction");
+        SceneManager.LoadScene("InfiniteRunner");
     }
 
     public void LoadBasketballScene()

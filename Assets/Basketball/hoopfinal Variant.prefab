@@ -307,8 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0c06d385f8c3049bbae05ea00a43ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 5
-  verticalBoost: 2
+  bounceForce: 8
+  verticalBoost: 0.2
   bounceSound: {fileID: 8300000, guid: 41d6584f8a455ad42aa7ff54b0d3e43b, type: 3}
   volume: 1
 --- !u!64 &4594080722899296523
