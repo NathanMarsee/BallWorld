@@ -13,6 +13,7 @@ public class LogMenuManager : MonoBehaviour
     public TMP_Text logDisplayText;
     public TMP_Text pointsText;
     public GameObject closeButton;
+    public GameObject logTabBar; // ✅ Added reference for tab bar
 
     [Header("Background Elements to Disable")]
     public GameObject logScrollView;
@@ -97,6 +98,7 @@ public class LogMenuManager : MonoBehaviour
         if (logScrollView != null) logScrollView.SetActive(false);
         if (backButton != null) backButton.SetActive(false);
         if (closeButton != null) closeButton.SetActive(true);
+        if (logTabBar != null) logTabBar.SetActive(false); // ✅ Hide tab bar
     }
 
     public void SelectTutorialTab() => ChangeCategory(LogCategory.Tutorial);
@@ -115,6 +117,7 @@ public class LogMenuManager : MonoBehaviour
         if (closeButton != null) closeButton.SetActive(false);
         if (logScrollView != null) logScrollView.SetActive(true);
         if (backButton != null) backButton.SetActive(true);
+        if (logTabBar != null) logTabBar.SetActive(true); // ✅ Restore tab bar
     }
 
     public void Refresh()
@@ -123,7 +126,6 @@ public class LogMenuManager : MonoBehaviour
         UpdatePointsUI();
     }
 
-    
     private void LoadUnlockedLogs()
     {
         foreach (var log in logEntries)
@@ -133,7 +135,6 @@ public class LogMenuManager : MonoBehaviour
         }
     }
 
-    
     public void SaveUnlockedLog(LogEntry log)
     {
         if (string.IsNullOrEmpty(log.id)) return;

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MenuManager : MonoBehaviour
 {
@@ -16,7 +17,19 @@ public class MenuManager : MonoBehaviour
     public TMP_Text popupText;
     public float popupDuration = 2f;
 
+    [Header("First Selectables")]
+    public GameObject mainMenuFirstButton;
+    public GameObject optionsMenuFirstButton;
+    public GameObject logsMenuFirstButton;
+    public GameObject levelSelectMenuFirstButton;
+
     private Coroutine popupCoroutine;
+
+    private void SetSelected(GameObject button)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(button);
+    }
 
     public void ShowMainMenu()
     {
@@ -24,30 +37,40 @@ public class MenuManager : MonoBehaviour
         optionsMenu.SetActive(false);
         logsMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
+
+        SetSelected(mainMenuFirstButton);
     }
 
     public void ShowOptionsMenu()
     {
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
+
+        SetSelected(optionsMenuFirstButton);
     }
 
     public void ShowLogsMenu()
     {
         mainMenu.SetActive(false);
         logsMenu.SetActive(true);
+
+        SetSelected(logsMenuFirstButton);
     }
 
     public void ShowLevelSelectMenu()
     {
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(true);
+
+        SetSelected(levelSelectMenuFirstButton);
     }
 
     public void ReturnToMainMenu()
     {
         levelSelectMenu.SetActive(false);
         mainMenu.SetActive(true);
+
+        SetSelected(mainMenuFirstButton);
     }
 
     public void LoadSampleScene()
@@ -73,10 +96,9 @@ public class MenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        ShowLevelSelectMenu(); // Now opens the level select screen
+        ShowLevelSelectMenu();
     }
 
-    // ✅ New method to show the popup
     public void ShowScorePopup(int points)
     {
         if (scorePopup != null && popupText != null)
