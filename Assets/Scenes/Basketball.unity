@@ -3952,13 +3952,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeGuide: {fileID: 0}
   maxAgularVelocity: 20
-  gravMag: 9
+  gravMag: 16
   killplane: -140
   slowDownRatio: 0.1
   collisions: 0
-  airSoarMultiplier: 0.9
+  airSoarMultiplier: 0.75
   airPlummetMultiplier: 2
-  airStrafeForce: 40
+  airStrafeForce: 4
   airForwardBoost: 2
   airBackwardFloat: 2
   controlAcceleration: 100
