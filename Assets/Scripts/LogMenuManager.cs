@@ -11,6 +11,8 @@ public class LogMenuManager : MonoBehaviour
     public Transform logListParent;
     public GameObject logDisplayPanel;
     public TMP_Text logDisplayText;
+    public GameObject logsHeader; 
+
     public TMP_Text pointsText;
     public GameObject closeButton;
     public GameObject nextPageButton;
@@ -100,6 +102,7 @@ public class LogMenuManager : MonoBehaviour
         DisplayCurrentPage();
 
         logDisplayPanel.SetActive(true);
+        logsHeader?.SetActive(false);
         logScrollView?.SetActive(false);
         backButton?.SetActive(false);
         closeButton?.SetActive(true);
@@ -149,6 +152,7 @@ public class LogMenuManager : MonoBehaviour
         logScrollView?.SetActive(true);
         backButton?.SetActive(true);
         logTabBar?.SetActive(true);
+        logsHeader?.SetActive(true);
     }
 
     public void Refresh()

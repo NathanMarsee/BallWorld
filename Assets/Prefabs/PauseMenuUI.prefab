@@ -133,6 +133,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &810055318681365895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774739456751163748}
+  m_Layer: 5
+  m_Name: LogPanelContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &774739456751163748
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810055318681365895}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.26455, y: 0.26455, z: 0.26455}
+  m_Children:
+  - {fileID: 8963133017585781468}
+  - {fileID: 4027600829667444072}
+  m_Father: {fileID: 4027600830913241984}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &961508756788773374
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,20 +983,20 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2997821707374040132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.7800035}
+  m_LocalScale: {x: 3.7800035, y: 3.7800035, z: 3.7800035}
   m_Children:
   - {fileID: 8094921826657371286}
   - {fileID: 7568193187437247562}
   - {fileID: 8456547521736999596}
   - {fileID: 6729443796404151281}
-  m_Father: {fileID: 4027600830913241984}
-  m_RootOrder: 3
+  m_Father: {fileID: 774739456751163748}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27}
-  m_SizeDelta: {x: -360, y: 50}
+  m_AnchoredPosition: {x: 0, y: 335.56033}
+  m_SizeDelta: {x: 102.5, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6001849119437145665
 MonoBehaviour:
@@ -1237,6 +1274,11 @@ MonoBehaviour:
   scorePopup: {fileID: 0}
   popupText: {fileID: 0}
   popupDuration: 2
+  mainMenuFirstButton: {fileID: 0}
+  optionsMenuFirstButton: {fileID: 0}
+  logsMenuFirstButton: {fileID: 0}
+  levelSelectMenuFirstButton: {fileID: 0}
+  logEntryFirstButton: {fileID: 0}
 --- !u!1 &4027600829548060109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,14 +1820,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4027600829667444075}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.7800035, y: 3.7800035, z: 3.7800035}
   m_Children:
   - {fileID: 4027600831289138075}
   - {fileID: 4027600830341704786}
   - {fileID: 4027600829902116322}
-  m_Father: {fileID: 4027600830913241984}
+  m_Father: {fileID: 774739456751163748}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5180,7 +5222,7 @@ RectTransform:
   - {fileID: 4027600830152174112}
   - {fileID: 4027600830218478693}
   m_Father: {fileID: 4027600830913241984}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5255,9 +5297,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4027600831304371631}
-  - {fileID: 4027600829667444072}
   - {fileID: 4027600830851579692}
-  - {fileID: 8963133017585781468}
+  - {fileID: 774739456751163748}
   m_Father: {fileID: 4027600830372599791}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7361,6 +7402,9 @@ MonoBehaviour:
   logDisplayText: {fileID: 4027600830152174113}
   pointsText: {fileID: 4027600829745017631}
   closeButton: {fileID: 4027600830218478692}
+  nextPageButton: {fileID: 0}
+  prevPageButton: {fileID: 0}
+  logTabBar: {fileID: 0}
   logScrollView: {fileID: 4027600829667444075}
   backButton: {fileID: 4027600831304371630}
   tutorialTabButton: {fileID: 654298757272307640}
@@ -7368,22 +7412,26 @@ MonoBehaviour:
   cynthiaTabButton: {fileID: 220179699861405388}
   stevenTabButton: {fileID: 5978948520709679505}
   logEntries:
-  - title: Steve Test
+  - id: 
+    title: Steve Test
     content: Testing Steve
     pointsRequired: 1
     unlocked: 0
     category: 3
-  - title: Cynthia Test
+  - id: 
+    title: Cynthia Test
     content: Testing Synthia
     pointsRequired: 1
     unlocked: 0
     category: 2
-  - title: John Test
+  - id: 
+    title: John Test
     content: Testing John
     pointsRequired: 1
     unlocked: 0
     category: 1
-  - title: Tutorial Test
+  - id: 
+    title: Tutorial Test
     content: Testing Tutorial
     pointsRequired: 1
     unlocked: 0
