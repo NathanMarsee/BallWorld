@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739378528, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: upwardBoost
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7178554455689864545, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -349,6 +349,10 @@ PrefabInstance:
     - target: {fileID: 6414794097799614124, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: m_Name
       value: hoopfinal Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: pointsToAward
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
@@ -855,7 +859,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739378528, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: upwardBoost
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7178554455689864545, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1237,11 +1241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRigidbody: {fileID: 4978827025352815194}
+  cam: {fileID: 4978827024769461218}
+  screenAnchor: {fileID: 1117411696}
   minSpeedThreshold: 0.1
   rotationSmoothSpeed: 15
-  screenOffset: {x: 0, y: 0.7, z: 1.5}
-  arrowMesh: {fileID: 0}
-  hideWhenStationary: 0
 --- !u!1001 &677368306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1255,7 +1258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739378528, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: upwardBoost
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7178554455689864545, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1821,6 +1824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hoopfinal Variant (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: pointsToAward
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
 --- !u!4 &941526493 stripped
@@ -2007,6 +2014,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hoopfinal Variant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: pointsToAward
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
 --- !u!4 &1029362426 stripped
@@ -2027,7 +2038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739378528, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: upwardBoost
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7178554455689864545, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2246,7 +2257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739378528, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: upwardBoost
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7178554455689864545, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2306,6 +2317,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
+--- !u!1 &1117411695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117411696}
+  m_Layer: 0
+  m_Name: DirectionAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117411696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117411695}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4978827024769461216}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1132423657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e745924547c94574386e30533e17fc15, type: 3}
@@ -2690,6 +2731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hoopfinal Variant (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: pointsToAward
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
 --- !u!4 &1285635242 stripped
@@ -3001,7 +3046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 739378528, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: upwardBoost
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7178554455689864545, guid: e3c04deac8ce5a94f8d979b2168428a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3744,7 +3789,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978827024768576362}
-  - component: {fileID: 4978827024768576373}
   - component: {fileID: 4978827024768576364}
   m_Layer: 0
   m_Name: CamPos
@@ -3762,28 +3806,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4978827024768576363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d25231fa2a7cf49bc53d847381309e, type: 3}
+  m_Script: {fileID: 11500000, guid: 72e94730c1289624584c8759ffe3de2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4978827025352815192}
---- !u!114 &4978827024768576373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4978827024768576363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36683b44bf316974db2129a70a37172e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraPlaneGuide: {fileID: 4978827023950612540}
-  defaultZ: -12
+  target: {fileID: 4978827023445728567}
+  followBehind: {fileID: 4978827024291409252}
   zoomInZ: -4
   zoomOutZ: -18
-  zoomSpeed: 1.5
-  holdThreshold: 1
+  zoomSpeed: 1
+  holdThreshold: 0
 --- !u!4 &4978827024769461216
 Transform:
   m_ObjectHideFlags: 0
@@ -3796,6 +3827,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 597594574}
+  - {fileID: 1117411696}
   m_Father: {fileID: 4978827023728864714}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
@@ -3922,15 +3954,15 @@ MonoBehaviour:
   maxAgularVelocity: 20
   gravMag: 17
   killplane: -140
-  slowDownRatio: 1
+  slowDownRatio: 0.1
   collisions: 0
-  airSoarMultiplier: 0.8
+  airSoarMultiplier: 0.7
   airPlummetMultiplier: 2
-  airStrafeForce: 20
+  airStrafeForce: 40
   airForwardBoost: 2
   airBackwardFloat: 2
-  controlAcceleration: 50
-  controlDecay: 80
+  controlAcceleration: 65
+  controlDecay: 75
 --- !u!54 &4978827025352815194
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3959,10 +3991,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b993783d3082dc44fa22de283df08492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideOffset: 0.5
+  sideOffset: 0.475
   verticalOffset: 0
   maxTrailLength: 2
-  minSpeed: 2
+  minSpeed: 4
 --- !u!33 &4978827025352815204
 MeshFilter:
   m_ObjectHideFlags: 0

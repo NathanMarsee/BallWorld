@@ -2,48 +2,35 @@ using UnityEngine;
 
 public class DirectionArrow : MonoBehaviour
 {
-    [Header("Target Ball")]
     public Rigidbody targetRigidbody;
+    public Camera cam;                   // Main Camera
+    public Transform screenAnchor;      // Empty object at top-center of screen
 
-    [Header("Arrow Settings")]
     public float minSpeedThreshold = 0.1f;
-    public float rotationSmoothSpeed = 15f;
-    public Vector3 screenOffset = new Vector3(0f, 0.3f, 2f); // center-top of screen, 2 units forward
-
-    [Header("Arrow Mesh")]
-    public GameObject arrowMesh;
-    public bool hideWhenStationary = true;
-
-    private Camera mainCam;
-
-    void Start()
-    {
-        mainCam = Camera.main;
-        if (mainCam == null)
-        {
-            Debug.LogError("DirectionArrow: No Main Camera found.");
-        }
-    }
+    public float rotationSmoothSpeed = 10f;
 
     void LateUpdate()
     {
-        if (targetRigidbody == null || mainCam == null) return;
+        if (targetRigidbody == null || cam == null || screenAnchor == null) return;
 
-        // Always stay in front of camera (top center)
-        transform.position = mainCam.transform.position +
-                             mainCam.transform.forward * screenOffset.z +
-                             mainCam.transform.up * screenOffset.y +
-                             mainCam.transform.right * screenOffset.x;
+        // Always pin the arrow to the top-center of the screen
+        transform.position = screenAnchor.position;
 
         Vector3 velocity = targetRigidbody.velocity;
-        Vector3 direction = velocity.magnitude > minSpeedThreshold
-            ? velocity.normalized
-            : targetRigidbody.transform.forward;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        Quaternion targetRotation;
+
+        if (velocity.magnitude > minSpeedThreshold)
+        {
+            // Rotate to match velocity direction in 3D space
+            targetRotation = Quaternion.LookRotation(velocity.normalized, screenAnchor.up);
+        }
+        else
+        {
+            // If not moving, point "forward" in camera view
+            targetRotation = screenAnchor.rotation;
+        }
+
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSmoothSpeed);
-
-        if (arrowMesh != null)
-            arrowMesh.SetActive(!hideWhenStationary || velocity.magnitude > minSpeedThreshold);
     }
 }
