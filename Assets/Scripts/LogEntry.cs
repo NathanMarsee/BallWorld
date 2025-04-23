@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public enum LogCategory
 {
@@ -10,9 +12,10 @@ public enum LogCategory
 [System.Serializable]
 public class LogEntry
 {
-    public string id;                  
+    public string id;
     public string title;
-    public string content;
+    [TextArea(5, 20)]
+    public string content;  // Use "[PAGE]" to separate pages
     public int pointsRequired;
     public bool unlocked = false;
     public LogCategory category;

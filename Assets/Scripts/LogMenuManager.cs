@@ -13,7 +13,9 @@ public class LogMenuManager : MonoBehaviour
     public TMP_Text logDisplayText;
     public TMP_Text pointsText;
     public GameObject closeButton;
-    public GameObject logTabBar; // ✅ Added reference for tab bar
+    public GameObject nextPageButton;
+    public GameObject prevPageButton;
+    public GameObject logTabBar;
 
     [Header("Background Elements to Disable")]
     public GameObject logScrollView;
@@ -31,6 +33,9 @@ public class LogMenuManager : MonoBehaviour
     private PointManager pointManager;
     private LogCategory currentCategory = LogCategory.Tutorial;
 
+    private string[] currentPages;
+    private int currentPageIndex = 0;
+
     void OnEnable()
     {
         pointManager = PointManager.Instance ?? FindObjectOfType<PointManager>();
@@ -41,9 +46,8 @@ public class LogMenuManager : MonoBehaviour
             return;
         }
 
-        LoadUnlockedLogs(); 
-
         SetupTabButtons();
+        LoadUnlockedLogs();
         ResetLogView();
         RefreshLogList();
         UpdatePointsUI();
@@ -72,9 +76,7 @@ public class LogMenuManager : MonoBehaviour
     public void RefreshLogList()
     {
         foreach (Transform child in logListParent)
-        {
             Destroy(child.gameObject);
-        }
 
         var filteredLogs = logEntries
             .Where(log => log.category == currentCategory && log.unlocked);
@@ -92,19 +94,46 @@ public class LogMenuManager : MonoBehaviour
 
     public void ShowLog(string content)
     {
-        logDisplayText.text = content;
-        logDisplayPanel.SetActive(true);
+        currentPages = content.Split(new[] { "[PAGE]" }, System.StringSplitOptions.None);
+        currentPageIndex = 0;
 
-        if (logScrollView != null) logScrollView.SetActive(false);
-        if (backButton != null) backButton.SetActive(false);
-        if (closeButton != null) closeButton.SetActive(true);
-        if (logTabBar != null) logTabBar.SetActive(false); // ✅ Hide tab bar
+        DisplayCurrentPage();
+
+        logDisplayPanel.SetActive(true);
+        logScrollView?.SetActive(false);
+        backButton?.SetActive(false);
+        closeButton?.SetActive(true);
+        logTabBar?.SetActive(false);
+
+        FindObjectOfType<MenuManager>()?.SetFirstLogEntryButton(); // Controller focus
     }
 
-    public void SelectTutorialTab() => ChangeCategory(LogCategory.Tutorial);
-    public void SelectJohnTab() => ChangeCategory(LogCategory.Character_John);
-    public void SelectCynthiaTab() => ChangeCategory(LogCategory.Character_Cynthia);
-    public void SelectStevenTab() => ChangeCategory(LogCategory.Character_Steven);
+    void DisplayCurrentPage()
+    {
+        if (currentPages != null && currentPageIndex >= 0 && currentPageIndex < currentPages.Length)
+            logDisplayText.text = currentPages[currentPageIndex].Trim();
+
+        prevPageButton?.SetActive(currentPageIndex > 0);
+        nextPageButton?.SetActive(currentPages != null && currentPageIndex < currentPages.Length - 1);
+    }
+
+    public void NextPage()
+    {
+        if (currentPages != null && currentPageIndex < currentPages.Length - 1)
+        {
+            currentPageIndex++;
+            DisplayCurrentPage();
+        }
+    }
+
+    public void PreviousPage()
+    {
+        if (currentPageIndex > 0)
+        {
+            currentPageIndex--;
+            DisplayCurrentPage();
+        }
+    }
 
     public void CloseLogDisplay()
     {
@@ -114,14 +143,17 @@ public class LogMenuManager : MonoBehaviour
     public void ResetLogView()
     {
         logDisplayPanel.SetActive(false);
-        if (closeButton != null) closeButton.SetActive(false);
-        if (logScrollView != null) logScrollView.SetActive(true);
-        if (backButton != null) backButton.SetActive(true);
-        if (logTabBar != null) logTabBar.SetActive(true); // ✅ Restore tab bar
+        closeButton?.SetActive(false);
+        nextPageButton?.SetActive(false);
+        prevPageButton?.SetActive(false);
+        logScrollView?.SetActive(true);
+        backButton?.SetActive(true);
+        logTabBar?.SetActive(true);
     }
 
     public void Refresh()
     {
+        LoadUnlockedLogs();
         RefreshLogList();
         UpdatePointsUI();
     }

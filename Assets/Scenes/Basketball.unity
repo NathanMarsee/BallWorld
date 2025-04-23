@@ -786,8 +786,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338777472}
-  m_LocalRotation: {x: 0.15107839, y: 0.22903726, z: 0.03600881, w: 0.9609478}
-  m_LocalPosition: {x: 400, y: 425, z: 505}
+  m_LocalRotation: {x: 0.14441152, y: 0.36353526, z: 0.057151183, w: 0.9185429}
+  m_LocalPosition: {x: 176, y: 434, z: 439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 139426013}
@@ -799,7 +799,7 @@ Transform:
   - {fileID: 1285635242}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 15.894, y: 27.969, z: 8.274}
+  m_LocalEulerAnglesHint: {x: 12.929, y: 44.6, z: 12.442}
 --- !u!1 &452286944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,8 +2610,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238876470}
-  m_LocalRotation: {x: 0.15107587, y: -0.22903651, z: -0.036006965, w: 0.9609484}
-  m_LocalPosition: {x: -400, y: 425, z: 505}
+  m_LocalRotation: {x: 0.14440906, y: -0.36353907, z: -0.057152845, w: 0.9185417}
+  m_LocalPosition: {x: -176, y: 434, z: 439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1229338974}
@@ -2623,7 +2623,7 @@ Transform:
   - {fileID: 879645770}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 15.894, y: -27.969, z: -8.274}
+  m_LocalEulerAnglesHint: {x: 12.929, y: -44.6, z: -12.442}
 --- !u!1 &1259448416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,7 +3135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970460949}
   m_LocalRotation: {x: 0.15531039, y: -0, z: -0, w: 0.9878658}
-  m_LocalPosition: {x: 0, y: 499, z: 741}
+  m_LocalPosition: {x: 0, y: 469, z: 415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1526177860}
@@ -3952,17 +3952,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeGuide: {fileID: 0}
   maxAgularVelocity: 20
-  gravMag: 17
+  gravMag: 9
   killplane: -140
   slowDownRatio: 0.1
   collisions: 0
-  airSoarMultiplier: 0.7
+  airSoarMultiplier: 0.9
   airPlummetMultiplier: 2
   airStrafeForce: 40
   airForwardBoost: 2
   airBackwardFloat: 2
-  controlAcceleration: 65
-  controlDecay: 75
+  controlAcceleration: 100
+  controlDecay: 110
 --- !u!54 &4978827025352815194
 Rigidbody:
   m_ObjectHideFlags: 0

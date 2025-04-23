@@ -23,6 +23,17 @@ public class PauseManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        int index = PlayerPrefs.GetInt("ResolutionIndex", -1);
+        if (index >= 0)
+        {
+            Resolution[] resolutions = Screen.resolutions;
+            if (index < resolutions.Length)
+            {
+                var res = resolutions[index];
+                Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+            }
+        }
     }
 
     void OnDestroy()

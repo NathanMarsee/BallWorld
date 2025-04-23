@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
     public GameObject optionsMenuFirstButton;
     public GameObject logsMenuFirstButton;
     public GameObject levelSelectMenuFirstButton;
+    public GameObject logEntryFirstButton; // ✅ New: For log entry display (e.g. Close Button)
 
     private Coroutine popupCoroutine;
 
@@ -110,6 +111,14 @@ public class MenuManager : MonoBehaviour
                 StopCoroutine(popupCoroutine);
 
             popupCoroutine = StartCoroutine(HidePopupAfterDelay(popupDuration));
+        }
+    }
+
+    public void SetFirstLogEntryButton()
+    {
+        if (logEntryFirstButton != null)
+        {
+            SetSelected(logEntryFirstButton); // ✅ Controller focus on close or page button
         }
     }
 

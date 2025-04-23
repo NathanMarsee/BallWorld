@@ -34,7 +34,6 @@ public class PointManager : MonoBehaviour
         playerPoints++;
         SavePoints();
         UpdatePointsUI();
-        NotifyLogMenu();
 
         SoundManager.Instance?.PlayPointSound();
         NotificationManager.Instance?.ShowNotification("You gained 1 point!");
@@ -49,7 +48,6 @@ public class PointManager : MonoBehaviour
         playerPoints += amount;
         SavePoints();
         UpdatePointsUI();
-        NotifyLogMenu();
 
         SoundManager.Instance?.PlayPointSound();
         NotificationManager.Instance?.ShowNotification($"You gained {amount} point{(amount == 1 ? "" : "s")}!");
