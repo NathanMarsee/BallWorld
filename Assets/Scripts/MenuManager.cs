@@ -22,9 +22,26 @@ public class MenuManager : MonoBehaviour
     public GameObject optionsMenuFirstButton;
     public GameObject logsMenuFirstButton;
     public GameObject levelSelectMenuFirstButton;
-    public GameObject logEntryFirstButton; // ✅ New: For log entry display (e.g. Close Button)
+    public GameObject logEntryFirstButton;
+
+    [Header("Scene-Specific UI")]
+    public GameObject basketballCanvas;
 
     private Coroutine popupCoroutine;
+
+    void OnEnable()
+    {
+        UpdateBasketballCanvas();
+    }
+
+    void UpdateBasketballCanvas()
+    {
+        bool isBasketballScene = SceneManager.GetActiveScene().name == "Basketball";
+        bool otherMenusOpen = optionsMenu.activeSelf || logsMenu.activeSelf || levelSelectMenu.activeSelf;
+
+        if (basketballCanvas != null)
+            basketballCanvas.SetActive(isBasketballScene && !otherMenusOpen);
+    }
 
     private void SetSelected(GameObject button)
     {
@@ -39,6 +56,7 @@ public class MenuManager : MonoBehaviour
         logsMenu.SetActive(false);
         levelSelectMenu.SetActive(false);
 
+        UpdateBasketballCanvas();
         SetSelected(mainMenuFirstButton);
     }
 
@@ -47,6 +65,7 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         optionsMenu.SetActive(true);
 
+        UpdateBasketballCanvas();
         SetSelected(optionsMenuFirstButton);
     }
 
@@ -55,6 +74,7 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         logsMenu.SetActive(true);
 
+        UpdateBasketballCanvas();
         SetSelected(logsMenuFirstButton);
     }
 
@@ -63,6 +83,7 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         levelSelectMenu.SetActive(true);
 
+        UpdateBasketballCanvas();
         SetSelected(levelSelectMenuFirstButton);
     }
 
@@ -71,23 +92,13 @@ public class MenuManager : MonoBehaviour
         levelSelectMenu.SetActive(false);
         mainMenu.SetActive(true);
 
+        UpdateBasketballCanvas();
         SetSelected(mainMenuFirstButton);
     }
 
-    public void LoadSampleScene()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
-
-    public void LoadInfiniteRunnerScene()
-    {
-        SceneManager.LoadScene("InfiniteRunner");
-    }
-
-    public void LoadBasketballScene()
-    {
-        SceneManager.LoadScene("Basketball");
-    }
+    public void LoadSampleScene() => SceneManager.LoadScene("SampleScene");
+    public void LoadInfiniteRunnerScene() => SceneManager.LoadScene("InfiniteRunner");
+    public void LoadBasketballScene() => SceneManager.LoadScene("Basketball");
 
     public void ExitGame()
     {
@@ -117,9 +128,7 @@ public class MenuManager : MonoBehaviour
     public void SetFirstLogEntryButton()
     {
         if (logEntryFirstButton != null)
-        {
-            SetSelected(logEntryFirstButton); // ✅ Controller focus on close or page button
-        }
+            SetSelected(logEntryFirstButton);
     }
 
     private System.Collections.IEnumerator HidePopupAfterDelay(float delay)

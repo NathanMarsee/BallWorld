@@ -29,31 +29,29 @@ public class PointManager : MonoBehaviour
         UpdatePointsUI();
     }
 
-    public void AddPoint()
-    {
-        playerPoints++;
-        SavePoints();
-        UpdatePointsUI();
-
-        SoundManager.Instance?.PlayPointSound();
-        NotificationManager.Instance?.ShowNotification("You gained 1 point!");
-
-        CheckForUnlocks(); 
-    }
-
     public void AddPoints(int amount)
-    {
-        if (amount <= 0) return;
+{
+    if (amount <= 0) return;
 
-        playerPoints += amount;
-        SavePoints();
-        UpdatePointsUI();
+    float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+    int adjusted = Mathf.RoundToInt(amount * multiplier);
 
-        SoundManager.Instance?.PlayPointSound();
-        NotificationManager.Instance?.ShowNotification($"You gained {amount} point{(amount == 1 ? "" : "s")}!");
+    playerPoints += adjusted;
+    SavePoints();
+    UpdatePointsUI();
 
-        CheckForUnlocks(); 
-    }
+    SoundManager.Instance?.PlayPointSound();
+    NotificationManager.Instance?.ShowNotification($"You gained {adjusted} point{(adjusted == 1 ? "" : "s")}!");
+
+    CheckForUnlocks();
+}
+
+public void AddPoint()
+{
+    AddPoints(1); // Just delegate to the real method
+}
+
+
 
     public void ResetPoints()
     {

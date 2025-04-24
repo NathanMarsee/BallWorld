@@ -18,15 +18,16 @@ public class HoopMover : MonoBehaviour
 
     void Update()
     {
-        float offset = Mathf.Sin(Time.time * moveSpeed) * moveDistance;
+        float multiplier = DifficultyManager.Instance?.GetMovementMultiplier() ?? 0f;
+
+        if (multiplier <= 0f)
+            return;
+
+        float offset = Mathf.Sin(Time.time * moveSpeed) * moveDistance * multiplier;
 
         if (moveDirection == MoveDirection.Vertical)
-        {
             transform.position = new Vector3(startPos.x, startPos.y + offset, startPos.z);
-        }
-        else if (moveDirection == MoveDirection.Horizontal)
-        {
+        else
             transform.position = new Vector3(startPos.x + offset, startPos.y, startPos.z);
-        }
     }
 }
