@@ -96,7 +96,7 @@ public class MenuManager : MonoBehaviour
         SetSelected(mainMenuFirstButton);
     }
 
-    public void LoadSampleScene() => SceneManager.LoadScene("SampleScene");
+    public void LoadTutorial() => SceneManager.LoadScene("Tutorial");
     public void LoadInfiniteRunnerScene() => SceneManager.LoadScene("InfiniteRunner");
     public void LoadBasketballScene() => SceneManager.LoadScene("Basketball");
 

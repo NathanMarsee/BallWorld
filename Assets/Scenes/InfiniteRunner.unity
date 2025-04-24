@@ -647,6 +647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soccer
       objectReference: {fileID: 0}
+    - target: {fileID: 7074948992791993279, guid: dc9c860c0461534488018ebede9b5f12, type: 3}
+      propertyPath: m_TagString
+      value: Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 8527729748016212629, guid: dc9c860c0461534488018ebede9b5f12, type: 3}
       propertyPath: m_RootOrder
       value: 0
