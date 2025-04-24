@@ -12,6 +12,7 @@ public class BallControl : MonoBehaviour
     public float killplane;
     public float slowDownRatio;
     public int collisions;
+    public bool infiniteMode = false;
     /*public float spinMag;
     private float inputIntensity;*/
     //private float offset;
@@ -58,6 +59,8 @@ public class BallControl : MonoBehaviour
         else if (rb.velocity.magnitude < lastVelocity)
             rb.velocity = rb.velocity + (lastVelocityVector * ((Mathf.Clamp(lastVelocity, minSpeedForMomentum, maxSpeedForMomentum) - minSpeedForMomentum) / (maxSpeedForMomentum - minSpeedForMomentum)));
         */
+        if (infiniteMode)
+            killplane = transform.position.z / -25 - 10;
         if (transform.position.y < killplane)
         {
             transform.position = new Vector3(0, 0.5f, 0);
