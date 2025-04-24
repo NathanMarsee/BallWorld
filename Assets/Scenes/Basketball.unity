@@ -4013,7 +4013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b993783d3082dc44fa22de283df08492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideOffset: 0.475
+  sideOffset: 0.1
   verticalOffset: 0
   maxTrailLength: 2
   minSpeed: 4
