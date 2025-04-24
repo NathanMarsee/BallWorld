@@ -2,12 +2,19 @@ using UnityEngine;
 
 public class HoopMover : MonoBehaviour
 {
-    public enum MoveDirection { Vertical, Horizontal }
+    public enum MoveDirection { None, Vertical, Horizontal }
 
-    [Header("Movement Settings")]
-    public MoveDirection moveDirection = MoveDirection.Vertical;
-    public float moveDistance = 2f;
-    public float moveSpeed = 1f;
+    [System.Serializable]
+    public class DifficultyMovementSettings
+    {
+        public float moveDistance = 2f;
+        public float moveSpeed = 1f;
+    }
+
+    [Header("Settings Per Difficulty")]
+    public DifficultyMovementSettings normalSettings = new DifficultyMovementSettings();
+    public DifficultyMovementSettings hardSettings = new DifficultyMovementSettings();
+    public DifficultyMovementSettings veryHardSettings = new DifficultyMovementSettings();
 
     private Vector3 startPos;
 
@@ -18,14 +25,36 @@ public class HoopMover : MonoBehaviour
 
     void Update()
     {
-        float multiplier = DifficultyManager.Instance?.GetMovementMultiplier() ?? 0f;
+        var difficulty = DifficultyManager.Instance?.currentDifficulty ?? DifficultyLevel.Normal;
 
-        if (multiplier <= 0f)
+        // Choose settings and direction based on difficulty
+        DifficultyMovementSettings settings;
+        MoveDirection direction;
+
+        switch (difficulty)
+        {
+            case DifficultyLevel.Hard:
+                settings = hardSettings;
+                direction = MoveDirection.Vertical;
+                break;
+            case DifficultyLevel.VeryHard:
+                settings = veryHardSettings;
+                direction = MoveDirection.Horizontal;
+                break;
+            default:
+                settings = normalSettings;
+                direction = MoveDirection.None;
+                break;
+        }
+
+        // Exit if no movement should occur
+        if (direction == MoveDirection.None || settings.moveDistance == 0f || settings.moveSpeed == 0f)
             return;
 
-        float offset = Mathf.Sin(Time.time * moveSpeed) * moveDistance * multiplier;
+        // Compute movement offset
+        float offset = Mathf.Sin(Time.time * settings.moveSpeed) * settings.moveDistance;
 
-        if (moveDirection == MoveDirection.Vertical)
+        if (direction == MoveDirection.Vertical)
             transform.position = new Vector3(startPos.x, startPos.y + offset, startPos.z);
         else
             transform.position = new Vector3(startPos.x + offset, startPos.y, startPos.z);
