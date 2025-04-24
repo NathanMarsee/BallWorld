@@ -786,13 +786,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracks:
-  - {fileID: 8300000, guid: b776f8ebde50b5148995dda4c4b1928e, type: 3}
+  - {fileID: 8300000, guid: e76088c67018e254aacae7f8de201586, type: 3}
   - {fileID: 8300000, guid: 050f9ed9abf1bdb469d961a39c01d233, type: 3}
   - {fileID: 8300000, guid: a81881752533a1545acab20071a952d2, type: 3}
   - {fileID: 8300000, guid: 7ca463fbf3b1cf54e95956afd7a07d23, type: 3}
-  - {fileID: 8300000, guid: e76088c67018e254aacae7f8de201586, type: 3}
+  - {fileID: 8300000, guid: b776f8ebde50b5148995dda4c4b1928e, type: 3}
   audioSource: {fileID: 885132276}
   loopPlaylist: 1
+  shuffle: 0
 --- !u!1 &889598497
 GameObject:
   m_ObjectHideFlags: 0

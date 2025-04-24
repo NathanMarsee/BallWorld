@@ -281,6 +281,21 @@ MonoBehaviour:
   pointsToAward: 10
   delayBeforeRestart: 3
   pointsLabel: {fileID: 4452671230098218986}
+--- !u!114 &9074934640614640576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414794097799614124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090e3118fe4f3fa44ab58003f8c9ca2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDirection: 0
+  moveDistance: 0
+  moveSpeed: 0
 --- !u!64 &505075701
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -347,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e04e251ab4bdc5349bf75a7cb3cc7c72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 542
+      value: 542.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e04e251ab4bdc5349bf75a7cb3cc7c72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -395,6 +410,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: be31224625b60e548947d91b1b12444f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e04e251ab4bdc5349bf75a7cb3cc7c72, type: 3}
+--- !u!1 &6414794097799614124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e04e251ab4bdc5349bf75a7cb3cc7c72, type: 3}
+  m_PrefabInstance: {fileID: 6180210752143717373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5930745457242149910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e04e251ab4bdc5349bf75a7cb3cc7c72, type: 3}
