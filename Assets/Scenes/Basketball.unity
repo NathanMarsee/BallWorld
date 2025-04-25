@@ -2999,8 +2999,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978827023728864714}
-  - component: {fileID: 4978827023728864724}
-  - component: {fileID: 4978827023728864725}
+  - component: {fileID: 4978827023728864717}
+  - component: {fileID: 4978827023728864716}
   m_Layer: 0
   m_Name: OrbRotationGuide
   m_TagString: Untagged
@@ -3008,7 +3008,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4978827023728864724
+--- !u!114 &4978827023728864716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3017,24 +3017,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4978827023728864715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d25231fa2a7cf49bc53d847381309e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 4978827025352815192}
---- !u!114 &4978827023728864725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4978827023728864715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e170723fe8e764aabb98f90992cb90, type: 3}
+  m_Script: {fileID: 11500000, guid: 32fff57936b55104db9aa5758959dfcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4978827025352815192}
   direction: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4978827023728864717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978827023728864715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e237eceace011741beb9ee643bb5c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4978827025352815192}
 --- !u!1 &4978827023950612540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3183,7 +3183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978827024291409252}
-  - component: {fileID: 4978827024291409255}
+  - component: {fileID: 4978827024291409254}
   m_Layer: 0
   m_Name: GlobalPlaneGuide (1)
   m_TagString: Untagged
@@ -3191,7 +3191,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4978827024291409255
+--- !u!114 &4978827024291409254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3200,7 +3200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4978827024291409253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ec168862146974991f5203ae659d58, type: 3}
+  m_Script: {fileID: 11500000, guid: dabe72b1c6627504ba15043ba6ad4b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4978827024769461217}
@@ -3395,7 +3395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5017dbfab71f1104ab0af0e6e5e963ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeGuide: {fileID: 0}
+  planeGuide: {fileID: 4978827024291409252}
   maxAgularVelocity: 20
   gravMag: 15
   killplane: -140
@@ -3408,6 +3408,7 @@ MonoBehaviour:
   airBackwardFloat: 2
   controlAcceleration: 106
   controlDecay: 110
+  alive: 1
 --- !u!54 &4978827025352815194
 Rigidbody:
   m_ObjectHideFlags: 0

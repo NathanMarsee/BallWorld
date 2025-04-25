@@ -31,23 +31,39 @@ public class BallControlAirEnhanced : MonoBehaviour
     private float currentBackwardForce = 0f;
     private float currentStrafeForce = 0f;
 
+    [Header("Ball State")]
+    public bool alive = true; // Required by external scripts
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("BallControlAirEnhanced: No Rigidbody found!");
+            return;
+        }
+
         rb.maxAngularVelocity = maxAgularVelocity * 2f;
 
         if (planeGuide == null)
         {
-            var foundGuide = GameObject.FindObjectOfType<RotateToInputPlusCamera>();
+            RotateToInputPlusCamera foundGuide = GameObject.FindObjectOfType<RotateToInputPlusCamera>();
             if (foundGuide != null)
+            {
                 planeGuide = foundGuide.transform;
+            }
             else
-                Debug.LogWarning("BallControl: PlaneGuide not assigned and could not be found.");
+            {
+                Debug.LogWarning("BallControlAirEnhanced: PlaneGuide not assigned and could not be found.");
+            }
         }
     }
 
     void FixedUpdate()
     {
+        if (!alive || rb == null || planeGuide == null)
+            return;
+
         lastVelocity = rb.velocity.magnitude;
         gravDirection = -planeGuide.up;
 
@@ -55,14 +71,12 @@ public class BallControlAirEnhanced : MonoBehaviour
 
         if (collisions == 0) // airborne
         {
-            var inputSource = planeGuide.GetComponent<RotateToInputPlusCamera>();
+            RotateToInputPlusCamera inputSource = planeGuide.GetComponent<RotateToInputPlusCamera>();
             if (inputSource != null)
             {
                 Vector2 moveInput = inputSource.move;
+                float velocityScale = Mathf.Clamp01(rb.velocity.magnitude / 10f);
 
-                float velocityScale = Mathf.Clamp01(rb.velocity.magnitude / 10f); // More speed = more control
-
-                // --- Forward soar ---
                 if (moveInput.y > 0.1f)
                 {
                     gravityForce *= airSoarMultiplier;
@@ -77,7 +91,6 @@ public class BallControlAirEnhanced : MonoBehaviour
                     currentForwardForce = Mathf.MoveTowards(currentForwardForce, 0f, controlDecay * Time.fixedDeltaTime);
                 }
 
-                // --- Backward dive ---
                 if (moveInput.y < -0.1f)
                 {
                     gravityForce *= airPlummetMultiplier;
@@ -92,7 +105,6 @@ public class BallControlAirEnhanced : MonoBehaviour
                     currentBackwardForce = Mathf.MoveTowards(currentBackwardForce, 0f, controlDecay * Time.fixedDeltaTime);
                 }
 
-                // --- Strafe ---
                 if (Mathf.Abs(moveInput.x) > 0.1f)
                 {
                     float targetStrafe = moveInput.x * airStrafeForce * velocityScale;
@@ -103,7 +115,6 @@ public class BallControlAirEnhanced : MonoBehaviour
                     currentStrafeForce = Mathf.MoveTowards(currentStrafeForce, 0f, controlDecay * Time.fixedDeltaTime);
                 }
 
-                // Apply smoothed air forces
                 Vector3 forwardDir = planeGuide.forward;
                 Vector3 rightDir = planeGuide.right;
 
@@ -111,7 +122,6 @@ public class BallControlAirEnhanced : MonoBehaviour
                 rb.AddForce(-forwardDir * currentBackwardForce, ForceMode.Acceleration);
                 rb.AddForce(rightDir * currentStrafeForce, ForceMode.Acceleration);
 
-                // 🔻 Velocity damping
                 Vector3 flatVel = rb.velocity;
                 flatVel.y = 0;
 
@@ -151,6 +161,8 @@ public class BallControlAirEnhanced : MonoBehaviour
 
     void OnCollisionStay()
     {
+        if (planeGuide == null || rb == null) return;
+
         gravDirection = -planeGuide.up;
         rb.AddForce(gravDirection * gravMag * 0.5f);
 
