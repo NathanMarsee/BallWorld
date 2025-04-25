@@ -1356,7 +1356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978827023497460784}
-  - component: {fileID: 4978827023497460787}
+  - component: {fileID: 4978827023497460786}
   m_Layer: 0
   m_Name: GlobalPlaneGuide (1)
   m_TagString: Untagged
@@ -1364,7 +1364,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4978827023497460787
+--- !u!114 &4978827023497460786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4978827023497460785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9ec168862146974991f5203ae659d58, type: 3}
+  m_Script: {fileID: 11500000, guid: dabe72b1c6627504ba15043ba6ad4b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4978827025043225269}
@@ -1507,33 +1507,6 @@ Transform:
   m_Father: {fileID: 4978827023497460784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -217.526, y: -1088.4509, z: -14.562988}
---- !u!114 &4978827024003382400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4978827024003382431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d25231fa2a7cf49bc53d847381309e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 4978827024558433036}
---- !u!114 &4978827024003382401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4978827024003382431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30e170723fe8e764aabb98f90992cb90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 4978827024558433036}
-  direction: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &4978827024003382430
 Transform:
   m_ObjectHideFlags: 0
@@ -1560,8 +1533,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4978827024003382430}
-  - component: {fileID: 4978827024003382400}
-  - component: {fileID: 4978827024003382401}
+  - component: {fileID: 4978827024003382433}
+  - component: {fileID: 4978827024003382432}
   m_Layer: 0
   m_Name: OrbRotationGuide
   m_TagString: Untagged
@@ -1569,6 +1542,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4978827024003382432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978827024003382431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fff57936b55104db9aa5758959dfcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4978827024558433036}
+  direction: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4978827024003382433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978827024003382431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e237eceace011741beb9ee643bb5c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4978827024558433036}
 --- !u!1 &4978827024244558944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0ed5e203fce5e4195695bd2ce266c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeGuide: {fileID: 0}
+  planeGuide: {fileID: 4978827023497460784}
   maxAgularVelocity: 9999
   gravMag: 10
   killplane: -200
