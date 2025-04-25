@@ -15,9 +15,16 @@ public class HoopScoreTrigger : MonoBehaviour
 
     private void Start()
     {
+        UpdatePointsLabel();
+    }
+
+    private void UpdatePointsLabel()
+    {
         if (pointsLabel != null)
         {
-            pointsLabel.text = $"{pointsToAward}";
+            float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+            int actualPoints = Mathf.RoundToInt(pointsToAward * multiplier);
+            pointsLabel.text = $"{actualPoints}";
         }
         else
         {
@@ -32,8 +39,14 @@ public class HoopScoreTrigger : MonoBehaviour
 
         triggered = true;
 
-        (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(pointsToAward);
+        // Get difficulty multiplier and apply it
+        float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+        int actualPoints = Mathf.RoundToInt(pointsToAward * multiplier);
 
+        // Add points
+        (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(actualPoints);
+
+        // Stop rotation and follow on score
         GameObject rotationGuide = GameObject.Find("OrbRotationGuide");
         if (rotationGuide != null)
         {
@@ -48,14 +61,13 @@ public class HoopScoreTrigger : MonoBehaviour
             Debug.LogWarning("OrbRotationGuide not found in scene.");
         }
 
-        // Show popup if available
+        // Show popup with actual awarded score
         MenuManager menu = FindObjectOfType<MenuManager>();
         if (menu != null)
         {
-            menu.ShowScorePopup(pointsToAward);
+            menu.ShowScorePopup(actualPoints);
         }
 
-        // Restart level after short delay
         Invoke(nameof(RestartLevel), delayBeforeRestart);
     }
 
