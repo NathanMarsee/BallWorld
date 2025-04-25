@@ -16,6 +16,7 @@ public class FollowObject : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
+        if (target.GetComponent<BallControl>().alive)
+            transform.position = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z);
     }
 }

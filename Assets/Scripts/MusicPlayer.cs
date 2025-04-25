@@ -4,7 +4,9 @@ using System.Collections.Generic;
 public class MusicPlayer : MonoBehaviour
 {
     [Header("Playlist")]
-    public AudioClip[] tracks;
+    public AudioClip[] menuTracks;
+    public AudioClip[] levelTracks;
+    private AudioClip[] tracks;
 
     [Header("Settings")]
     public AudioSource audioSource;
@@ -16,14 +18,29 @@ public class MusicPlayer : MonoBehaviour
 
     void Start()
     {
+        tracks = menuTracks;
         if (tracks.Length == 0 || audioSource == null)
         {
             Debug.LogWarning("MusicPlayer: No tracks or AudioSource assigned.");
             return;
         }
-
         BuildPlaylist();
         PlayTrack(currentTrackIndex);
+    }
+
+    public void SwapToLevelPlaylist()
+    {
+        audioSource.Stop();
+        tracks = levelTracks;
+        BuildPlaylist();
+        audioSource.Stop();
+    }
+    public void SwapToMenuPlaylist()
+    {
+        audioSource.Stop();
+        tracks = menuTracks;
+        BuildPlaylist();
+        audioSource.Stop();
     }
 
     void Update()

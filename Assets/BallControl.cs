@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallControl : MonoBehaviour
 {
@@ -13,12 +14,24 @@ public class BallControl : MonoBehaviour
     public float slowDownRatio;
     public int collisions;
     public bool infiniteMode = false;
-    /*public float spinMag;
-    private float inputIntensity;*/
-    //private float offset;
-    //private Vector2 move;
+    public bool alive = true;
+    public int rollGraceFrames = 5;
+
+    [Header("Sound Settings")]
+    public float minVelocityForRollSound = 0.5f;
+    public float collisionImpactThreshold = 2f;
+    public float lowVelocityAngularThreshold = 0.1f;
+    [SerializeField] private AudioSource rollingSoundSource; // Made serialized
+    [SerializeField] private AudioSource bonkSoundSource; // Made serialized
+    public AudioClip defaultRollSound;
+    public float rollVolumeScaleFactor = 0.1f;
+    public AudioClip collisionSound;
+
     private Vector3 gravDirection;
     private float lastVelocity;
+    private bool isRolling = false;
+    private int framesSinceGround;
+
     //private float baseMass;
     //private Vector3 spinDirection;
     // Start is called before the first frame update
@@ -28,21 +41,39 @@ public class BallControl : MonoBehaviour
         rb.maxAngularVelocity = maxAgularVelocity * 2f;
         //baseMass = rb.mass;
 
-    if (planeGuide == null)
-    {
-        var foundGuide = GameObject.FindObjectOfType<RotateToInputPlusCamera>();
-        if (foundGuide != null)
-            planeGuide = foundGuide.transform;
-        else
-            Debug.LogWarning("BallControl: PlaneGuide not assigned and could not be found.");
-    };
-}
+        if (planeGuide == null)
+        {
+            var foundGuide = GameObject.FindObjectOfType<RotateToInputPlusCamera>();
+            if (foundGuide != null)
+                planeGuide = foundGuide.transform;
+            else
+                Debug.LogWarning("BallControl: PlaneGuide not assigned and could not be found.");
+        };
+        // Ensure an AudioSource exists for rolling sounds if not assigned in Inspector
+        if (rollingSoundSource == null)
+        {
+            GameObject rollingSoundObject = new GameObject("RollingSound");
+            rollingSoundSource = rollingSoundObject.AddComponent<AudioSource>();
+            rollingSoundSource.loop = true;
+            rollingSoundSource.playOnAwake = false;
+            rollingSoundSource.transform.SetParent(transform);
+            rollingSoundSource.transform.localPosition = Vector3.zero;
+        }
+
+        if (defaultRollSound != null && rollingSoundSource.clip == null) // Only set if no clip is already assigned
+        {
+            rollingSoundSource.clip = defaultRollSound;
+        }
+    }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (collisions == 0)
+        {
+            framesSinceGround++;
+        }
 
         lastVelocity = rb.velocity.magnitude;
         Vector3 lastVelocityVector = rb.velocity;
@@ -54,23 +85,48 @@ public class BallControl : MonoBehaviour
             gravityForce = gravityForce * 0.8f;
         rb.AddForce(gravityForce);
 
-        /*if (rb.velocity.magnitude < lastVelocity && collisions == 0)
-            rb.velocity = rb.velocity + lastVelocityVector;
-        else if (rb.velocity.magnitude < lastVelocity)
-            rb.velocity = rb.velocity + (lastVelocityVector * ((Mathf.Clamp(lastVelocity, minSpeedForMomentum, maxSpeedForMomentum) - minSpeedForMomentum) / (maxSpeedForMomentum - minSpeedForMomentum)));
-        */
+        // Play/Stop rolling sound based on velocity
+        if (rb.velocity.magnitude > minVelocityForRollSound && collisions > 0)
+        {
+            if (!isRolling)
+            {
+                rollingSoundSource.Play();
+                isRolling = true;
+            }
+            float volume = rb.velocity.magnitude / 25f;
+            volume = Mathf.Clamp(volume, 0, 0.8f);
+            rollingSoundSource.volume = volume;
+            float pitch = rb.velocity.magnitude / 30f;
+            if (pitch < 0.3)
+            {
+                pitch = 0.3f;
+            }
+            rollingSoundSource.pitch = pitch; // Adjust pitch based on speed
+        }
+        else
+        {
+            if (isRolling && framesSinceGround > rollGraceFrames)
+            {
+                rollingSoundSource.Pause();
+                isRolling = false;
+            }
+        }
+
         if (infiniteMode)
             killplane = transform.position.z / -25 - 10;
         if (transform.position.y < killplane)
         {
-            transform.position = new Vector3(0, 0.5f, 0);
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            SoundManager.Instance?.PlayLevelResetSound();
+            //SoundManager.Instance?.PlayLevelResetSound();
+            StartCoroutine(Die());
         }
         if (rb.velocity.magnitude < 0.2)
         {
             rb.angularVelocity *= 0.98f;
+            if (rb.angularVelocity.magnitude < lowVelocityAngularThreshold && isRolling && framesSinceGround > rollGraceFrames)
+            {
+                rollingSoundSource.Pause();
+                isRolling = false;
+            }
         }
         if (rb.angularVelocity.magnitude * rb.angularVelocity.magnitude > Math.Sqrt(rb.velocity.magnitude / 2))
         {
@@ -110,9 +166,33 @@ public class BallControl : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         collisions++;
+        framesSinceGround = 0;
+        if (collisionSound != null && lastVelocity > 1.3 * rb.velocity.magnitude)
+        {
+            bonkSoundSource.volume = Mathf.Clamp((lastVelocity - rb.velocity.magnitude) * 0.03f, 0, 0.5f);
+            bonkSoundSource.pitch = Mathf.Clamp(lastVelocity / 15f, 0.8f, 3) * 0.3f + 0.3f;
+            bonkSoundSource.Play();
+            //AudioSource.PlayClipAtPoint(collisionSound, collision.contacts[0].point,);
+        }
     }
     private void OnCollisionExit(Collision collision)
     {
         collisions--;
+        if (collisions <= 0 && rb.velocity.magnitude < minVelocityForRollSound && framesSinceGround > rollGraceFrames)
+        {
+            rollingSoundSource.Pause();
+            isRolling = false;
+        }
+    }
+
+    IEnumerator Die()
+    {
+        alive = false;
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        /*transform.position = new Vector3(0, 0.5f, 0);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        alive = true;*/
     }
 }

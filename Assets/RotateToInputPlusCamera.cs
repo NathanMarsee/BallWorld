@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class RotateToInputPlusCamera : MonoBehaviour
 {
     public GameObject cam;
+    public GameObject player;
     private PlayerControls controls;
 
     public float offset;
@@ -19,23 +21,33 @@ public class RotateToInputPlusCamera : MonoBehaviour
     public float inputIntensity;
     // Start is called before the first frame update
     void Start()
-{
-    controls = new PlayerControls();
-    controls.Enable();
-
-    if (cam == null)
     {
-        cam = Camera.main?.gameObject;
+        controls = new PlayerControls();
+        controls.Enable();
+
+        if (player == null)
+        {
+            player = transform.parent?.gameObject;
+            if (player == null)
+            {
+                Debug.LogWarning("RotateToInputPlusCamera: No player assigned and no parent found.");
+                return;
+            }
+        }
+
         if (cam == null)
-            Debug.LogWarning("RotateToInputPlusCamera: Camera not assigned and could not find MainCamera.");
+        {
+            cam = Camera.main?.gameObject;
+            if (cam == null)
+                Debug.LogWarning("RotateToInputPlusCamera: Camera not assigned and could not find MainCamera.");
+        }
     }
-}
 
     void FixedUpdate()
     {
         thisAngle = transform.rotation;
         var gamepad = controls.Gameplay.Move.ReadValue<Vector2>();
-        if (gamepad == null)
+        if (gamepad == null || !player.GetComponent<BallControl>().alive)
             return;
 
         move = controls.Gameplay.Move.ReadValue<Vector2>();
@@ -63,9 +75,9 @@ public class RotateToInputPlusCamera : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(finalInputX / -6, transform.rotation.y, finalInputY / -6, transform.rotation.w), Time.deltaTime * 8f);
     }
     void OnDestroy()
-{
-    controls.Disable();
-}
+    {
+        controls.Disable();
+    }
 
 
 }
