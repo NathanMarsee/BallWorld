@@ -5788,42 +5788,405 @@ PrefabInstance:
       objectReference: {fileID: 41448177}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.size
-      value: 5
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].id
-      value: steve_test
+      value: john1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].id
-      value: cynth_test
+      value: steve1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].id
-      value: john_test
+      value: cynthia1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[3].id
-      value: tut_test
+      value: steve2
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[4].id
+      value: john2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[5].id
+      value: steve3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[6].id
+      value: cynthia2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[7].id
+      value: steve4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[8].id
+      value: john3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[9].id
+      value: steve5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[10].id
+      value: cynthia3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[11].id
+      value: steve6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[12].id
+      value: john4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[13].id
+      value: steve7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[14].id
+      value: cynthia4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[15].id
+      value: steve8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[16].id
+      value: steve9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[17].id
       value: basketball_message
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[0].title
+      value: John First
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[1].title
+      value: Steve First
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[2].title
+      value: Cynthia First
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[3].title
+      value: Steve Second
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[4].title
+      value: John Second
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[5].title
+      value: Steve Third
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[6].title
+      value: Cynthia Second
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[7].title
+      value: Steve Fourth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[8].title
+      value: John Third
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[9].title
+      value: Steve Fifth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[10].title
+      value: Cynthia Third
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[11].title
+      value: Steve Sixth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[12].title
+      value: John Fourth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[13].title
+      value: Steve Seventh
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[14].title
+      value: Cynthia Four
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[15].title
+      value: Steve Eight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[16].title
+      value: Steve Final
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[17].title
       value: Basketball Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[0].content
+      value: "Hello! Thanks for checking out the logs! I would wonder why you\u2019d
+        be reading something so boring, but I get it, you just saw how great my game
+        was and wanted to see where all of that charm came from. Honestly, I can\u2019t
+        take all of the credit, my wife helped!\r\n\r\nCynthia and I started up the
+        company after college, and currently, we\u2019re working on our first game,
+        Ballworld! We\u2019ll keep updating these, they are of historic importance,
+        of course.\r\n\r\nJohn Balls, 1998."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].content
-      value: 'Testing Synthia [PAGE]
-
-        Did it work?
-
-'
+      value: "Yo, I\u2019m Steve. If you downloaded this off the forum, I\u2019m
+        Steveo88, I am the original uploader, so you should be good. If you got this
+        game from **anywhere** else, it\u2019s a fake.\r\n\r\nAnyway, yeah like I
+        said there, my parents were indie devs back in the day. They started their
+        own game studio around the same time they had me.\r\n\r\nI\u2019m gonna keep
+        digging, trying to pull levels and assets, and pin the forum page to get
+        updates!\r\n\r\nLike you saw, Dad was an interesting guy. My grandma never
+        really seemed to like him. Both of my parents disappeared around the same
+        time. Some of you suggested I may be looking for them in these logs. I won\u2019t
+        say that isn\u2019t what I\u2019m doing, but my hopes ain\u2019t high.\r\n\r\nSteve
+        Balls, 2024."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[2].content
+      value: "Today, I set up a bunch of menu systems. John was complaining about
+        the UI being too slow, and honestly, I do not know what that means. I did
+        get the menus working. They work in a sort of recursive, enclosed system.
+        It\u2019s all one instance that controls what level the scene is in. I\u2019m
+        actually pretty proud of it!\r\n\r\nI didn\u2019t really want to write logs.
+        Honestly John is way more into this part of the dev stuff\u2014logging, documenting,
+        etc. I just wish he would do a little coding! I don\u2019t know how I\u2019m
+        going to make this game **and** pay off the three loans John took out for
+        the studio. I don\u2019t even know what it was for, he won\u2019t tell me
+        what he spent it on. God, wish me luck!\r\n\r\nCynthia Spheres, 1998."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[3].content
+      value: "My Mom actually kept a lot of journals while she was in college. My
+        Grandma gave them to me when I was maybe 12? She caught me doing the same
+        and showed them to me.\r\n\r\nShe was such a hard worker\u2014even a leisurely
+        activity like journaling, she wrote so much every day. Even though I don\u2019t
+        remember her, I definitely miss her.\r\n\r\nBut I got some progress going!
+        Apparently they left the Basketball level looking like a tornado went through
+        it. I need to realign the hoops and mess with the ball's gravity. I think
+        if I work on it a bit, I can get something playable out!\r\n\r\nKeep an eye
+        out. I\u2019ve got a lot more to dig through and I\u2019m not sure how much
+        I want to share with everyone.\r\n\r\nSteve Balls, 2024."
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[4].content
+      value: "The game is going great! I\u2019ve got it pretty under control now.
+        Cynthia has been toiling away on the UI, and I\u2019ve been looking into
+        advertising. I called up id software, (yeah, the Quake guys) and told them
+        about the game. They said they\u2019d call me back when they have a game
+        release window! They were so excited, I swear they were laughing!\r\n\r\nOh
+        yeah, Cynthia\u2019s pregnant. She was working on the gravity in the Basketball
+        level, (I don\u2019t know what the hell is taking so long) and suddenly threw
+        up everywhere. Thankfully, she\u2019s just pregnant.\r\n\r\nJohn Balls, 1998."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[5].content
+      value: "I should be a bit more honest. Some of you have found the articles
+        from when it happened, and yes, these are the same John Balls and Cynthia
+        Spheres who went missing. I wanted to address it since some of you had guessed.\r\n\r\nThey
+        went missing about two years after this last log. My Dad was the prime suspect,
+        they suspected he took them both out somewhere nobody could find them. As
+        you could probably guess from these logs, he wasn\u2019t\u2026 the best.
+        I\u2019m not exploiting them or their story for clout or anything. I genuinely
+        need help with this stuff guys, I\u2019m not some super hacker.\r\n\r\nMajorT0m
+        is another user on here who\u2019s been working with me on this. He\u2019s
+        an indie dev, so he actually knows what he\u2019s doing. I\u2019ll update
+        you guys once we find anything else, but thanks for all of the support.\r\n\r\nSteve
+        Balls, 2025."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[6].content
+      value: "John hasn\u2019t done anything, and it\u2019s driving me crazy. I told
+        him he was going to have to pick up the pace since in a few months here I
+        won\u2019t be able to work on the game nearly as much. You would\u2019ve
+        thought I told him I was taking away Christmas\u2014did he not think about
+        this?\r\n\r\nI want to call Mom and talk about it, but I don\u2019t want
+        to hear \u201CI told you so!\u201D\r\n\r\nWhatever, I\u2019ve been through
+        worse. The game is coming out pretty good! If I can make this game, **maybe**
+        something good can come out of all of this. I am really excited to meet the
+        baby. I was thinking Sam for a girl, and Steve for a girl.\r\n\r\nCynthia
+        Spheres, 1999."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[7].content
+      value: "As far as I can tell, my Dad barely did anything in the game. There\u2019s
+        some asset folder called \u201CTransfer\u201D that I cannot seem to get into.
+        MajorT0m has been dealing with it for the past few days, but we\u2019re both
+        stumped. I guess I\u2019ll update you once I have an answer.\r\n\r\nThe last
+        time anybody heard or saw my parents, they were yelling at each other as
+        they went into the garage. It blew up later that night, but no bodies were
+        inside. I was with my grandparents, so I have no idea what happened. The
+        garage was repaired, and my grandparents moved in to take care of me. I eventually
+        started digging through their old stuff and found Ballworld.\r\n\r\nSorry,
+        got a bit lost in the weeds. Yeah that\u2019s about it for now, I forgot
+        last time\u2014happy new years everyone! Thanks for being so supportive!
+        I\u2019ll be back within the month with more updates.\r\n\r\nSteve Balls,
+        2025."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[8].content
+      value: "I figured it out. Cynthia was **wrong** and I knew it!\r\n\r\nAbout
+        a week ago, I had another brainblast! I thought to myself, \u201CWhat if
+        the balls were **real**!\u201D That\u2019s right\u2014the first game with
+        actual balls in it! Honestly, I scare myself with my own genius.\r\n\r\nI
+        told Cynthia, and of course she didn\u2019t get it. She never was all that
+        clever, but I\u2019ll show her! She\u2019s at the doctor for **another**
+        ultrasound. We already know what the baby looks like! Have you ever seen
+        a real ball in a game?\r\n\r\nI got into contact with some people, some hard
+        metal components! Look, I know I\u2019m an idea guy, but this is an **idea**!
+        All the parts should come in from __Albania__! Doesn\u2019t that sound fancy?\r\n\r\nJohn
+        Balls, 1999."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[9].content
+      value: "Gee, thanks Dad.\r\n\r\nI have absolutely no idea what the hell he\u2019s
+        talking about here. He seemed the type to just go on and on about some bullshit.
+        Probably got scammed into buying some fancy Albanian oven. I guess he inherited
+        the house from his parents, but I couldn\u2019t find too much info on them.
+        When I asked my Grandma, she said she hadn\u2019t met them before they passed.\r\n\r\nI\u2019m
+        interested in where this is going. I hope Mom got away.\r\n\r\nSteve Balls,
+        2025."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[0].category
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[0].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[10].content
+      value: "What the fuck.\r\n\r\nI went out to the garage today. John and I hadn\u2019t
+        been speaking in about a week. Once his stupid fucking $5,000 Albanian Oven
+        arrived, I almost killed him. I screamed and screamed and screamed, but I
+        know he didn\u2019t hear a word of it.\r\n\r\nI opened the door slowly. I
+        could hear the PC inside, but nobody reacted to me opening the door. I thought
+        he wasn\u2019t in there at first, until I heard the moaning. That\u2019s
+        when I saw him\u2014slouched forward in the creaky computer chair.\r\n\r\n\u201CJohn!\u201D
+        I shrieked, ripping the chair in my direction. I was shocked when the machine
+        came with him, stopping him from furiously wheeling towards me. I pulled
+        his head up, and I almost passed out in shock.\r\n\r\nJohn had stuffed maybe
+        six cords up his nose. His eyes had rolled backwards, and he was moaning
+        and foaming at the mouth. I thought he was dead. I yelled as loud as my lungs
+        would let me\u2014a horrible wail of grief.\r\n\r\nSuddenly, his eyes snapped
+        forward. \u201CWhat?\u201D I could see his stupid look through my tears.
+        What? He plugged his pea-brain into the Mac and acts like I\u2019m the crazy
+        one?\r\n\r\nOnce I realized what was going on\u2014that the man I betrothed
+        myself to hadn\u2019t just fried his head\u2014I stormed away. John was babbling
+        some bullshit about \u201CBeing a ball in the game!\u201D I don\u2019t care.
+        I have to get out of here.\r\n\r\nCynthia Spheres, 2000."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[11].content
+      value: "Honestly, I don\u2019t know what to say.\r\n\r\nSteve Balls, 2025.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[12].content
+      value: "\"I did it. It\u2019s done.\r\n\r\nAbout a month ago, I had my first
+        success. Yes, I got a real golf ball inside of Ballworld! Using the Albanian
+        technology I cleverly invested in, I accomplished this with my large intellect.\r\n\r\nAbout
+        two weeks later, I moved on to mice. Why mice? Why would a game where you
+        control a ball around a track need a real mouse? What use would a real mouse
+        have in the game?\r\n\r\nAnyways, I did it! It\u2019s been two weeks of melting
+        mice, but I finally have a mouse in the game! He\u2019s inside of the infinite
+        runner! Like a giant mouse wheel!\r\n\r\nJohn Balls, 2000.\"\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[13].content
+      value: "I\u2019m starting to wonder if these are out of order. My best guess
+        about the wires in the nose would be he was trying to put himself in the
+        game? I\u2019m not sure. I wonder if he was on something at the time.\r\n\r\nMy
+        Grandma said she didn\u2019t think he was an addict, but she wouldn\u2019t
+        put it past him.\r\n\r\nI flew down to Texas to meet up with MajorT0m. I
+        hadn\u2019t been before, but it\u2019s pretty cool! I got a cowboy hat.\r\n\r\nT0m
+        managed to bust into the code. It seems to be the code my Dad used to turn
+        his Albanian oven into a teleportation machine. Neither of us have ever seen
+        the language before\u2014it uses some English, but then some other symbols
+        I\u2019ve never seen before.\r\n\r\nI\u2019m still in Texas. We\u2019ll keep
+        working on this over the weekend!\r\n\r\nSteve Balls, 2025."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[14].content
+      value: "I\u2019m leaving tonight. I\u2019m going to get Steve from my parents
+        and run. John is just crazy\u2014there is no convincing him. He has lost
+        it.\r\n\r\nHe won\u2019t leave the garage, and when he does, he darts around
+        in the shadows like some smelly Nosferatu. I don\u2019t know what the hell
+        he does out there\u2014I do not care.\r\n\r\nI\u2019m going to try and leave
+        tonight. I have my bags packed in the car. It\u2019s over.\r\n\r\nCynthia
+        Spheres, 2000."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[15].content
+      value: "We managed to bust into the whole system. When we did, at first we
+        thought nothing of interest was in there. Mostly text files and pictures,
+        seemingly design documents.\r\n\r\nWe did find one audio recording. We listened
+        to it. It wasn\u2019t great.\r\n\r\nThey get into the garage, already yelling
+        at each other. The fight went on for a while\u2014almost an hour and a half.
+        I could tell T0m was uncomfortable. Eventually, my Dad must\u2019ve attacked
+        her.\r\n\r\nThe recording stopped there. I mean, I just don\u2019t know right
+        now.\r\n\r\nT0m and I drank the rest of the night. There are more files and
+        stuff to sift through, but I\u2019m done for the night. T0m said he has a
+        lead, but I don\u2019t have much hope.\r\n\r\nJohn Balls, 2025."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[16].content
+      value: "I woke up this morning with little hope. T0m told me he was contacted
+        by somebody on the forums who may have a lead. I didn\u2019t think it was
+        going to go anywhere. I was **very** wrong.\r\n\r\nT0m drove us in his truck.
+        They wanted to meet at a fast food place (McDonald\u2019s). I guess some
+        girl from Arizona had seen the post and thought her Mom might know something.
+        T0m kept asking why her Mom would know something, but she was dodgy on that.\r\n\r\nShe
+        offered to meet us in Houston, which is quite the trip. T0m and I agreed
+        that if she was willing to travel all that way she must\u2019ve been pretty
+        sure. As soon as we got inside, I could see why.\r\n\r\nI have very few memories
+        of my Mother\u2014she disappeared when I was so young. I actually felt guilty
+        for not remembering her face very well. I\u2019ve looked at pictures and
+        stuff, but that\u2019s not the same thing.\r\n\r\nHer face hadn\u2019t changed
+        much. Even after twenty years, I recognized my Mom as soon as we met eyes.
+        I almost fell on my ass. After about half an hour of dry heaving, I demanded
+        an explanation.\r\n[PAGE]\r\nThey had been fighting. I guess over time my
+        Dad had gotten even worse. Whatever he thought he was doing with those runes
+        and that oven was wasting him away. She begged him to stop, but he refused
+        to listen. He was sure he was going to put a ball in the game(?). I asked
+        her what that meant, but she just moved on.\r\n\r\nShe said they did get
+        into a fight that night, and that he did attack her. Thing was, he was ninety
+        pounds wet. My Mom pretty easily defended herself, pushing away from him
+        and into his oven. He slammed against it, which I guess was that piece of
+        shit\u2019s last straw.\r\n\r\nMom said as soon as he hit the metal, it combusted.
+        She thinks Dad blocked the blast from hitting her (accidentally, of course),
+        but she still got sent flying. I guess they found her miles away, and she
+        had lost her memories. She had also broken almost every bone in her body,
+        so the full body cast made identifying her difficult.\r\n\r\nFunny thing
+        is, she fell in love with one of her nurses. She didn\u2019t know she had
+        a son, so they moved away together and had my half-sister, Jessica. Jess
+        was reading the forum, and told Mom about it. I guess hearing \u201CSteven
+        Balls\u201D brought it all back.\r\n[PAGE]\r\nHonestly, I\u2019m just glad
+        she\u2019s okay. I can\u2019t believe this stupid ball game led me to finding
+        my Mom. It\u2019s a lot to take in, but I\u2019m happy.\r\n\r\nI have a sister
+        now too! I wanted to thank everybody on here. Without you guys, we wouldn\u2019t
+        have been able to bust into the code and piece this all together.\r\n\r\nI
+        hope you guys enjoy the game! Since you\u2019re seeing this log, that means
+        you\u2019ve unlocked everything! Congratulations!\r\n\r\nSteven Balls, 2025."
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[17].content
       value: Hello, and welcome to Basketball!  Shoot down the ramp, angle yourself,
         and shoot some hoops! The ball can be controlled with the Left Stick, WASD,
         or D-Pad. You can shift gravity and manipulate the ball, use this level to
@@ -5833,44 +6196,192 @@ PrefabInstance:
         Can you hit all of them? Use these points to unlock dev logs and skins.
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[0].unlocked
-      value: 1
+      propertyPath: logEntries.Array.data[1].category
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].unlocked
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[2].category
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].unlocked
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[3].category
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[3].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[4].category
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[4].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[5].category
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[5].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[6].category
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[6].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[7].category
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[7].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[8].category
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[8].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[9].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[10].category
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[10].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[11].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[12].category
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[12].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[13].category
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[13].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[14].category
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[14].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[15].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[16].category
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[16].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[17].unlocked
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].pointsRequired
-      value: 1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].pointsRequired
-      value: 2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].pointsRequired
-      value: 3
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[3].pointsRequired
-      value: 4
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[4].pointsRequired
-      value: 0
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[5].pointsRequired
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[6].pointsRequired
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[7].pointsRequired
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[8].pointsRequired
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[9].pointsRequired
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[10].pointsRequired
+      value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[11].pointsRequired
+      value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[12].pointsRequired
+      value: 7000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[13].pointsRequired
+      value: 7000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[14].pointsRequired
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[15].pointsRequired
+      value: 8000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[16].pointsRequired
+      value: 9000
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831491843000, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
