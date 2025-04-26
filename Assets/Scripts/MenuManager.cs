@@ -136,4 +136,10 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(delay);
         scorePopup.SetActive(false);
     }
+
+    // 🔥🔥 NEW BUTTON FUNCTION
+    public void ReturnToMainMenuScene()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
