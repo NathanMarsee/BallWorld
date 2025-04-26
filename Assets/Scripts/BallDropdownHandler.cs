@@ -135,25 +135,31 @@ public class BallDropdownHandler : MonoBehaviour
     }
 
     void ShowPreview(int index)
+{
+    if (SceneManager.GetActiveScene().name != "MainMenu") return;
+
+    if (currentPreview != null)
+        Destroy(currentPreview);
+
+    var ball = ballDatabase.balls[index];
+    if (ball.prefab == null)
     {
-        if (SceneManager.GetActiveScene().name != "MainMenu") return;
-
-        if (currentPreview != null)
-            Destroy(currentPreview);
-
-        var ball = ballDatabase.balls[index];
-        if (ball.prefab == null)
-        {
-            Debug.LogWarning($"BallDropdownHandler: Missing prefab at index {index}");
-            return;
-        }
-
-        currentPreview = Instantiate(ball.prefab, previewAnchor.position, Quaternion.identity);
-        currentPreview.transform.SetParent(previewAnchor, worldPositionStays: false);
-        currentPreview.transform.localScale = Vector3.one * previewScale;
-        currentPreview.transform.localRotation = Quaternion.identity;
-        currentPreview.name = $"PreviewBall_{ball.prefab.name}";
+        Debug.LogWarning($"BallDropdownHandler: Missing prefab at index {index}");
+        return;
     }
+
+    currentPreview = Instantiate(ball.prefab, previewAnchor.position, Quaternion.identity);
+    currentPreview.transform.SetParent(previewAnchor, worldPositionStays: false);
+    currentPreview.transform.localPosition = Vector3.zero;
+    currentPreview.transform.localRotation = Quaternion.identity;
+
+    // ✅ Keep original prefab scale, don't override
+    // If you want to slightly "enlarge" it still, you can multiply like below:
+    // currentPreview.transform.localScale = ball.prefab.transform.localScale * previewScale;
+
+    currentPreview.name = $"PreviewBall_{ball.prefab.name}";
+}
+
 
     void Update()
     {
