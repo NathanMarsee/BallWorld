@@ -39,12 +39,18 @@ public class BallSelector : MonoBehaviour
 
         selectedBallIndex = Mathf.Clamp(index, 0, database.balls.Length - 1);
         SaveSelectedBall();
-        ApplySelectionNow();
+
+        // 🔥 Only apply the new selection immediately if NOT in Tutorial
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+        {
+            ApplySelectionNow();
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "MainMenu" || scene.name == "Tutorial") return;
+
         ApplySelectionNow();
     }
 
@@ -66,7 +72,6 @@ public class BallSelector : MonoBehaviour
             return;
         }
 
-        // Save current ball transform info
         Transform parent = existingBall.transform.parent;
         Vector3 localPos = existingBall.transform.localPosition;
         Quaternion localRot = existingBall.transform.localRotation;
@@ -74,7 +79,6 @@ public class BallSelector : MonoBehaviour
 
         Destroy(existingBall);
 
-        // Instantiate new ball
         GameObject newBall = Instantiate(prefab);
         newBall.transform.SetParent(parent, false);
         newBall.transform.localPosition = localPos;
@@ -88,6 +92,7 @@ public class BallSelector : MonoBehaviour
     public void ApplySelectionNow()
     {
         string sceneName = SceneManager.GetActiveScene().name;
+
         if (sceneName == "MainMenu" || sceneName == "Tutorial") return;
 
         ReplaceBallInScene(sceneName);

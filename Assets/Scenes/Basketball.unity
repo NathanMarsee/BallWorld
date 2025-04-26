@@ -817,7 +817,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5a0115aed1c1b05479b3cc75e30749e2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 10e30fbf04399284a802c7d2a7ed8983, type: 2}
+      objectReference: {fileID: 2100000, guid: 4b5297d1256f6864895daef1c45e196f, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a0115aed1c1b05479b3cc75e30749e2, type: 3}
       propertyPath: m_Name
       value: arrow
@@ -3108,7 +3108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e94730c1289624584c8759ffe3de2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4978827023445728567}
+  target: {fileID: 4978827025352815207}
   followBehind: {fileID: 4978827024291409252}
   zoomInZ: -4
   zoomOutZ: -18
@@ -3251,15 +3251,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeGuide: {fileID: 4978827024291409252}
   maxAgularVelocity: 20
-  gravMag: 11
-  killplane: -170
+  gravMag: 11.5
+  killplane: -180
   slowDownRatio: 0.1
   collisions: 0
   airSoarMultiplier: 0.8
-  airPlummetMultiplier: 4
+  airPlummetMultiplier: 8
   airStrafeForce: 6
-  airForwardBoost: 2
-  airBackwardFloat: 2.2
+  airForwardBoost: 3
+  airBackwardFloat: 3
   controlAcceleration: 110
   controlDecay: 100
   alive: 1
@@ -3348,7 +3348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &6876631050882666070
 MeshCollider:
   m_ObjectHideFlags: 0
