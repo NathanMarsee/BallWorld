@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject logsPanel;
     public GameObject levelSelectPanel;
+    public GameObject basketballDifficultyMenu; // 🔥 NEW
 
     [Header("Managers")]
     public MenuManager menuManager;
@@ -18,6 +19,7 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isMainMenu = false;
+    private bool suppressNextPauseInput = false; // 🔥 NEW
 
     void Awake()
     {
@@ -43,7 +45,6 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
-        // Initial scene setup
         HandleScene(SceneManager.GetActiveScene().name);
     }
 
@@ -51,10 +52,16 @@ public class PauseManager : MonoBehaviour
     {
         if (isMainMenu) return;
 
+        if (suppressNextPauseInput) // 🔥 NEW: Skip one frame after unpausing manually
+        {
+            suppressNextPauseInput = false;
+            return;
+        }
+
         if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current?.startButton.wasPressedThisFrame == true)
         {
             if (isPaused)
-                ResumeGame();
+                ResumeGameAndCloseMenus(); // 🔥 Now uses full close
             else
                 PauseGame();
         }
@@ -100,14 +107,25 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1.2f;
     }
 
+    public void ResumeGameAndCloseMenus() // 🔥 NEW
+    {
+        CloseAllPanels();
+        DisablePauseMenu();
+        isPaused = false;
+        Time.timeScale = 1.2f;
+        suppressNextPauseInput = true; // 🔥 Skip pause button for 1 frame
+    }
+
     private void EnablePauseMenu()
     {
-        if (canvas != null) canvas.SetActive(true);
+        if (canvas != null)
+            canvas.SetActive(true);
     }
 
     private void DisablePauseMenu()
     {
-        if (canvas != null) canvas.SetActive(false);
+        if (canvas != null)
+            canvas.SetActive(false);
     }
 
     private void CloseAllPanels()
@@ -116,5 +134,6 @@ public class PauseManager : MonoBehaviour
         if (optionsPanel != null) optionsPanel.SetActive(false);
         if (logsPanel != null) logsPanel.SetActive(false);
         if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
+        if (basketballDifficultyMenu != null) basketballDifficultyMenu.SetActive(false); // 🔥 Added
     }
 }

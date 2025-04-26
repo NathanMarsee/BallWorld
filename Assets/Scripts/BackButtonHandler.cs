@@ -5,6 +5,7 @@ public class BackButtonHandler : MonoBehaviour
 {
     private PlayerControls controls;
     public MenuManager menuManager;
+    public PauseManager pauseManager;
 
     [Header("Optional Canvas References")]
     public GameObject basketballCanvas; // 🔁 Assign in Inspector
@@ -27,25 +28,31 @@ public class BackButtonHandler : MonoBehaviour
 
     void HandleBack()
     {
-        if (menuManager == null) return;
+        if (menuManager == null || pauseManager == null) return;
 
-        // Close basketballCanvas if it's open
+        if (Time.timeScale == 0f) // 🔥 If paused
+        {
+            pauseManager.ResumeGameAndCloseMenus(); // ✅ CORRECT METHOD
+            return;
+        }
+
+        // Not paused, handle basketballCanvas
         if (basketballCanvas != null && basketballCanvas.activeSelf)
         {
             basketballCanvas.SetActive(false);
             return;
         }
 
-        // Handle submenus
-        if (menuManager.optionsMenu.activeSelf || 
-            menuManager.logsMenu.activeSelf || 
+        // Handle submenus normally if needed
+        if (menuManager.optionsMenu.activeSelf ||
+            menuManager.logsMenu.activeSelf ||
             menuManager.levelSelectMenu.activeSelf)
         {
             menuManager.ShowMainMenu();
         }
         else if (menuManager.mainMenu.activeSelf)
         {
-            Debug.Log("Already in Main Menu");
+            pauseManager.ResumeGameAndCloseMenus();
         }
     }
 }
