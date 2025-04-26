@@ -23,10 +23,7 @@ public class BallDropdownHandler : MonoBehaviour
 
     void OnEnable()
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            TryReconnectReferences();
-        }
+        TryReconnectReferences(); // 🔥 Always reconnect!
     }
 
     void TryReconnectReferences()
@@ -52,18 +49,29 @@ public class BallDropdownHandler : MonoBehaviour
 
         if (ballDropdown != null)
         {
+            ballDropdown.onValueChanged.RemoveAllListeners();
             ballDropdown.onValueChanged.AddListener(OnBallSelected);
+
             PopulateDropdown();
             LoadUnlockedBalls();
 
             int savedIndex = PlayerPrefs.GetInt(SelectedBallKey, 0);
             ballDropdown.value = savedIndex;
-            ShowPreview(savedIndex);
+
             UpdateBuyEquipButton(savedIndex);
+
+            // 🔥 Only show ball preview in MainMenu
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                ShowPreview(savedIndex);
+            }
         }
 
         if (buyEquipButton != null)
+        {
+            buyEquipButton.onClick.RemoveAllListeners();
             buyEquipButton.onClick.AddListener(BuyOrEquipSelectedBall);
+        }
     }
 
     void PopulateDropdown()
@@ -82,7 +90,9 @@ public class BallDropdownHandler : MonoBehaviour
     void OnBallSelected(int index)
     {
         UpdateBuyEquipButton(index);
-        ShowPreview(index);
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+            ShowPreview(index); // 🔥 Only in MainMenu!
     }
 
     void UpdateBuyEquipButton(int index)
@@ -135,31 +145,25 @@ public class BallDropdownHandler : MonoBehaviour
     }
 
     void ShowPreview(int index)
-{
-    if (SceneManager.GetActiveScene().name != "MainMenu") return;
-
-    if (currentPreview != null)
-        Destroy(currentPreview);
-
-    var ball = ballDatabase.balls[index];
-    if (ball.prefab == null)
     {
-        Debug.LogWarning($"BallDropdownHandler: Missing prefab at index {index}");
-        return;
+        if (SceneManager.GetActiveScene().name != "MainMenu") return;
+
+        if (currentPreview != null)
+            Destroy(currentPreview);
+
+        var ball = ballDatabase.balls[index];
+        if (ball.prefab == null)
+        {
+            Debug.LogWarning($"BallDropdownHandler: Missing prefab at index {index}");
+            return;
+        }
+
+        currentPreview = Instantiate(ball.prefab, previewAnchor.position, Quaternion.identity);
+        currentPreview.transform.SetParent(previewAnchor, worldPositionStays: false);
+        currentPreview.transform.localPosition = Vector3.zero;
+        currentPreview.transform.localRotation = Quaternion.identity;
+        currentPreview.name = $"PreviewBall_{ball.prefab.name}";
     }
-
-    currentPreview = Instantiate(ball.prefab, previewAnchor.position, Quaternion.identity);
-    currentPreview.transform.SetParent(previewAnchor, worldPositionStays: false);
-    currentPreview.transform.localPosition = Vector3.zero;
-    currentPreview.transform.localRotation = Quaternion.identity;
-
-    // ✅ Keep original prefab scale, don't override
-    // If you want to slightly "enlarge" it still, you can multiply like below:
-    // currentPreview.transform.localScale = ball.prefab.transform.localScale * previewScale;
-
-    currentPreview.name = $"PreviewBall_{ball.prefab.name}";
-}
-
 
     void Update()
     {
