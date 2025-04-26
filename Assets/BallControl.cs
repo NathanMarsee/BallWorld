@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class BallControl : MonoBehaviour
 {
     public Transform planeGuide;
+    public GameObject scoreScreen;
     private Rigidbody rb;
     public float maxAgularVelocity;
     public float gravMag;
@@ -15,7 +17,7 @@ public class BallControl : MonoBehaviour
     public int collisions;
     public bool infiniteMode = false;
     public bool alive = true;
-    public int rollGraceFrames = 5;
+    public float rollGraceSeconds = 0.12f;
 
     [Header("Sound Settings")]
     public float minVelocityForRollSound = 0.5f;
@@ -30,13 +32,18 @@ public class BallControl : MonoBehaviour
     private Vector3 gravDirection;
     private float lastVelocity;
     private bool isRolling = false;
-    private int framesSinceGround;
+    private float timeSinceGround;
+
+    private PlayerControls controls;
+    private bool controlsFound = false;
+    public bool restartActive = false;
 
     //private float baseMass;
     //private Vector3 spinDirection;
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody>();
         rb.maxAngularVelocity = maxAgularVelocity * 2f;
         //baseMass = rb.mass;
@@ -70,79 +77,94 @@ public class BallControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (collisions == 0)
+        if (restartActive)
         {
-            framesSinceGround++;
-        }
-
-        lastVelocity = rb.velocity.magnitude;
-        Vector3 lastVelocityVector = rb.velocity;
-        //rb.angularVelocity = new Vector3(rb.angularVelocity.x * 0.99f, rb.angularVelocity.y * 0.9f, rb.angularVelocity.z * 0.99f);
-
-        gravDirection = -planeGuide.up;
-        Vector3 gravityForce = gravDirection * gravMag;
-        if (collisions == 0)
-            gravityForce = gravityForce * 0.8f;
-        rb.AddForce(gravityForce);
-
-        // Play/Stop rolling sound based on velocity
-        if (rb.velocity.magnitude > minVelocityForRollSound && collisions > 0)
-        {
-            if (!isRolling)
-            {
-                rollingSoundSource.Play();
-                isRolling = true;
-            }
-            float volume = rb.velocity.magnitude / 25f;
-            volume = Mathf.Clamp(volume, 0, 0.8f);
-            rollingSoundSource.volume = volume;
-            float pitch = rb.velocity.magnitude / 30f;
-            if (pitch < 0.3)
-            {
-                pitch = 0.3f;
-            }
-            rollingSoundSource.pitch = pitch; // Adjust pitch based on speed
+            if (controls.UI.Submit.ReadValue<float>() > 0.5f)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
-            if (isRolling && framesSinceGround > rollGraceFrames)
+
+            if (!controlsFound)
             {
-                rollingSoundSource.Pause();
-                isRolling = false;
+                controls = planeGuide.gameObject.GetComponent<RotateToInputPlusCamera>().controls;
+                if (controls != null)
+                    controlsFound = true;
             }
-        }
 
-        if (infiniteMode)
-            killplane = transform.position.z / -25 - 10;
-        if (transform.position.y < killplane)
-        {
-            //SoundManager.Instance?.PlayLevelResetSound();
-            StartCoroutine(Die());
-        }
-        if (rb.velocity.magnitude < 0.2)
-        {
-            rb.angularVelocity *= 0.98f;
-            if (rb.angularVelocity.magnitude < lowVelocityAngularThreshold && isRolling && framesSinceGround > rollGraceFrames)
+            if (collisions == 0)
             {
-                rollingSoundSource.Pause();
-                isRolling = false;
+                timeSinceGround += Time.deltaTime;
             }
-        }
-        if (rb.angularVelocity.magnitude * rb.angularVelocity.magnitude > Math.Sqrt(rb.velocity.magnitude / 2))
-        {
-            rb.angularVelocity *= 0.99f;
-        }
 
-        /*if (rb.velocity.magnitude > minSpeedForMass)
-        {
-            float extraMass = Mathf.Clamp(rb.velocity.magnitude, minSpeedForMass, maxSpeedForMass) - minSpeedForMass;
-            extraMass = extraMass / (maxSpeedForMass - minSpeedForMass);
-            rb.mass = baseMass + extraMass;
-        } else
-        {
-            rb.mass = baseMass;
-        }*/
+            lastVelocity = rb.velocity.magnitude;
+            Vector3 lastVelocityVector = rb.velocity;
+            //rb.angularVelocity = new Vector3(rb.angularVelocity.x * 0.99f, rb.angularVelocity.y * 0.9f, rb.angularVelocity.z * 0.99f);
 
+            gravDirection = -planeGuide.up;
+            Vector3 gravityForce = gravDirection * gravMag;
+            if (collisions == 0)
+                gravityForce = gravityForce * 0.8f;
+            rb.AddForce(gravityForce);
+
+            // Play/Stop rolling sound based on velocity
+            if (rb.velocity.magnitude > minVelocityForRollSound && collisions > 0)
+            {
+                if (!isRolling)
+                {
+                    rollingSoundSource.Play();
+                    isRolling = true;
+                }
+                float volume = rb.velocity.magnitude / 25f;
+                volume = Mathf.Clamp(volume, 0, 0.8f);
+                rollingSoundSource.volume = volume;
+                float pitch = rb.velocity.magnitude / 30f;
+                if (pitch < 0.3)
+                {
+                    pitch = 0.3f;
+                }
+                rollingSoundSource.pitch = pitch; // Adjust pitch based on speed
+            }
+            else
+            {
+                if (isRolling && timeSinceGround > rollGraceSeconds)
+                {
+                    rollingSoundSource.Pause();
+                    isRolling = false;
+                }
+            }
+
+            if (infiniteMode)
+                killplane = transform.position.z / -25 - 10;
+            if (transform.position.y < killplane)
+            {
+                //SoundManager.Instance?.PlayLevelResetSound();
+                StartCoroutine(Die());
+            }
+            if (rb.velocity.magnitude < 0.2)
+            {
+                rb.angularVelocity *= 0.98f;
+                if (rb.angularVelocity.magnitude < lowVelocityAngularThreshold && isRolling && timeSinceGround > rollGraceSeconds)
+                {
+                    rollingSoundSource.Pause();
+                    isRolling = false;
+                }
+            }
+            if (rb.angularVelocity.magnitude * rb.angularVelocity.magnitude > Math.Sqrt(rb.velocity.magnitude / 2))
+            {
+                rb.angularVelocity *= 0.99f;
+            }
+
+            /*if (rb.velocity.magnitude > minSpeedForMass)
+            {
+                float extraMass = Mathf.Clamp(rb.velocity.magnitude, minSpeedForMass, maxSpeedForMass) - minSpeedForMass;
+                extraMass = extraMass / (maxSpeedForMass - minSpeedForMass);
+                rb.mass = baseMass + extraMass;
+            } else
+            {
+                rb.mass = baseMass;
+            }*/
+        }
     }
     void OnCollisionStay()
     {
@@ -166,7 +188,7 @@ public class BallControl : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         collisions++;
-        framesSinceGround = 0;
+        timeSinceGround = 0;
         if (collisionSound != null && lastVelocity > 1.3 * rb.velocity.magnitude)
         {
             bonkSoundSource.volume = Mathf.Clamp((lastVelocity - rb.velocity.magnitude) * 0.03f, 0, 0.5f);
@@ -178,7 +200,7 @@ public class BallControl : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         collisions--;
-        if (collisions <= 0 && rb.velocity.magnitude < minVelocityForRollSound && framesSinceGround > rollGraceFrames)
+        if (collisions <= 0 && rb.velocity.magnitude < minVelocityForRollSound && timeSinceGround > rollGraceSeconds)
         {
             rollingSoundSource.Pause();
             isRolling = false;
@@ -189,7 +211,20 @@ public class BallControl : MonoBehaviour
     {
         alive = false;
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        scoreScreen.SetActive(true);
+        restartActive = true;
+        rb.isKinematic = true;
+        /*bool done = false;
+        while (!done) // essentially a "while true", but with a bool to break out naturally
+        {
+            rb.velocity = Vector3.zero;
+            if (controls.UI.Submit.ReadValue<float>() > 0.5f)
+            {
+                done = true; // breaks the loop
+            }
+            yield return null; // wait until next frame, then continue execution from here (loop continues)
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);*/
         /*transform.position = new Vector3(0, 0.5f, 0);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

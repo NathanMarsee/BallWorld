@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class CoinMovement : MonoBehaviour
 {
-
+    public bool infiniteRunner = true;
+    public int pointValue = 20;
     [Header("Rotation Settings")]
     [Tooltip("Speed of rotation around the specified axis in degrees per second.")]
     public float rotationSpeed = 30f;
@@ -55,6 +56,12 @@ public class CoinMovement : MonoBehaviour
         {
             audioSource.PlayOneShot(collisionSound, collisionVolume);
         }
+
+        
+        if (infiniteRunner)
+            FindObjectOfType<InfiniteRunnerManager>().CoinGet(pointValue);
+        else
+            (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(pointValue);
 
         // Destroy this object when it collides with another object
         Destroy(gameObject);

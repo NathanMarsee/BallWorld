@@ -1,18 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InfiniteRunnerManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] chunkList;
     public GameObject[] pillarList;
+    public GameObject distanceText;
+    public GameObject speedText;
+    public GameObject coinsText;
+    public GameObject totalScoreText;
     public int spawnDistrance = 8;
+    public int pointsPerChunk = 5;
+    private float TimeInChunk = 0;
     private int chunksCompleted = 0;
     private int nextChunk = 1;
     private int offsetX = 0;
     private int lastInstantiated = 0;
+    private int distanceScore = 0;
+    private int speedBonus = 0;
+    private int coinCount = 0;
+    private int coinsScore = 0;
+    private bool scored = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +36,40 @@ public class InfiniteRunnerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.z > chunksCompleted * 50)
+        TimeInChunk += Time.deltaTime;
+        if (player.transform.position.z > chunksCompleted * 50 + 50 && player.GetComponent<BallControl>().alive)
         {
             chunksCompleted++;
+            if(TimeInChunk > 0)
+            {
+                distanceScore += pointsPerChunk;
+                speedBonus += Mathf.Clamp((int)(Mathf.Ceil((TimeInChunk * 220) / -100.0f + 5) * 5), 0, 10);
+                //(PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(pointsPerChunk + tempSpeedBonus);
+                distanceText.GetComponent<TMP_Text>().SetText(distanceScore + " points");
+                speedText.GetComponent<TMP_Text>().SetText(speedBonus + " points");
+                coinsText.GetComponent<TMP_Text>().SetText(coinCount + " = " + coinsScore + " points");
+                totalScoreText.GetComponent<TMP_Text>().SetText(distanceScore + speedBonus + (coinCount * 20) + " points");
+            }
+            //print((int) TimeInChunk * 220);
+            TimeInChunk = 0;
         }
         if (nextChunk < chunksCompleted + spawnDistrance)
         {
             spawnChunk();
             nextChunk++;
         }
+
+        if (player.GetComponent<BallControl>().restartActive && !scored)
+        {
+            (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(distanceScore + speedBonus + coinsScore);
+            scored = true;
+        }
+    }
+
+    public void CoinGet(int score)
+    {
+        coinCount++;
+        coinsScore += score;
     }
 
     private void spawnChunk()

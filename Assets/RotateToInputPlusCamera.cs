@@ -8,7 +8,7 @@ public class RotateToInputPlusCamera : MonoBehaviour
 {
     public GameObject cam;
     public GameObject player;
-    private PlayerControls controls;
+    public PlayerControls controls;
 
     public float offset;
     public Vector2 move;
@@ -76,7 +76,7 @@ public class RotateToInputPlusCamera : MonoBehaviour
     }
     void OnDestroy()
     {
-        controls.Disable();
+        //controls.Disable();
     }
 
 
