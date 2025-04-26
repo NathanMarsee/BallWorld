@@ -273,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -285,11 +285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
-      value: 175
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
@@ -375,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1321,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1333,11 +1333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
-      value: 175
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
@@ -1418,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1430,11 +1430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
-      value: 175
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
@@ -1515,7 +1515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1527,11 +1527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7073934e429f65d42952454ede1af61a, type: 3}
@@ -1612,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1624,7 +1624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1709,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1721,7 +1721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1811,7 +1811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1823,7 +1823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1981,7 +1981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1993,7 +1993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
