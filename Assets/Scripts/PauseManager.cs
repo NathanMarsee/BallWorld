@@ -10,7 +10,7 @@ public class PauseManager : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject logsPanel;
     public GameObject levelSelectPanel;
-    public GameObject basketballDifficultyMenu; // 🔥 NEW
+    public GameObject basketballDifficultyMenu;
 
     [Header("Managers")]
     public MenuManager menuManager;
@@ -19,7 +19,7 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isMainMenu = false;
-    private bool suppressNextPauseInput = false; // 🔥 NEW
+    private bool suppressNextPauseInput = false;
 
     void Awake()
     {
@@ -52,7 +52,7 @@ public class PauseManager : MonoBehaviour
     {
         if (isMainMenu) return;
 
-        if (suppressNextPauseInput) // 🔥 NEW: Skip one frame after unpausing manually
+        if (suppressNextPauseInput)
         {
             suppressNextPauseInput = false;
             return;
@@ -61,7 +61,7 @@ public class PauseManager : MonoBehaviour
         if (Keyboard.current.escapeKey.wasPressedThisFrame || Gamepad.current?.startButton.wasPressedThisFrame == true)
         {
             if (isPaused)
-                ResumeGameAndCloseMenus(); // 🔥 Now uses full close
+                ResumeGameAndCloseMenus();
             else
                 PauseGame();
         }
@@ -86,7 +86,7 @@ public class PauseManager : MonoBehaviour
         else
         {
             DisablePauseMenu();
-            CloseAllPanels(); // Clean slate
+            CloseAllPanels();
             isPaused = false;
             Time.timeScale = 1.2f;
         }
@@ -94,6 +94,8 @@ public class PauseManager : MonoBehaviour
 
     public void PauseGame()
     {
+        if (isMainMenu) return;
+
         EnablePauseMenu();
         menuManager?.ShowMainMenu();
         isPaused = true;
@@ -102,18 +104,22 @@ public class PauseManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        if (isMainMenu) return;
+
         DisablePauseMenu();
         isPaused = false;
         Time.timeScale = 1.2f;
     }
 
-    public void ResumeGameAndCloseMenus() // 🔥 NEW
+    public void ResumeGameAndCloseMenus()
     {
+        if (isMainMenu) return;
+
         CloseAllPanels();
         DisablePauseMenu();
         isPaused = false;
         Time.timeScale = 1.2f;
-        suppressNextPauseInput = true; // 🔥 Skip pause button for 1 frame
+        suppressNextPauseInput = true;
     }
 
     private void EnablePauseMenu()
@@ -134,6 +140,6 @@ public class PauseManager : MonoBehaviour
         if (optionsPanel != null) optionsPanel.SetActive(false);
         if (logsPanel != null) logsPanel.SetActive(false);
         if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
-        if (basketballDifficultyMenu != null) basketballDifficultyMenu.SetActive(false); // 🔥 Added
+        if (basketballDifficultyMenu != null) basketballDifficultyMenu.SetActive(false);
     }
 }

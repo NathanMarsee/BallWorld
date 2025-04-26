@@ -11,6 +11,8 @@ public class BallSelector : MonoBehaviour
     [Header("Default Selection")]
     public int selectedBallIndex = 0;
 
+    private const string SelectedBallKey = "SelectedBallIndex"; // 🔥 Save key
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,12 +24,15 @@ public class BallSelector : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        LoadSelectedBall(); // 🔥 Load on game startup
     }
 
     public void SelectBall(int index)
     {
         selectedBallIndex = Mathf.Clamp(index, 0, database.ballPrefabs.Length - 1);
-        ApplySelectionNow(); // 🔥 Apply instantly when selected
+        SaveSelectedBall(); // 🔥 Save immediately
+        ApplySelectionNow(); // 🔥 Apply instantly
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -63,11 +68,21 @@ public class BallSelector : MonoBehaviour
         newBall.name = newBall.name.Replace("(Clone)", "");
     }
 
-    // 🔁 Call this if you want to apply selection without scene reload
     public void ApplySelectionNow()
     {
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName == "MainMenu" || sceneName == "Tutorial") return;
         ReplaceBallInScene(sceneName);
+    }
+
+    private void SaveSelectedBall()
+    {
+        PlayerPrefs.SetInt(SelectedBallKey, selectedBallIndex);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadSelectedBall()
+    {
+        selectedBallIndex = PlayerPrefs.GetInt(SelectedBallKey, 0); // 🔥 Default to 0 if no saved data
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class BackButtonHandler : MonoBehaviour
@@ -50,9 +51,10 @@ public class BackButtonHandler : MonoBehaviour
         {
             menuManager.ShowMainMenu();
         }
-        else if (menuManager.mainMenu.activeSelf)
+        else if (menuManager.mainMenu.activeSelf && SceneManager.GetActiveScene().name != "MainMenu")
         {
             pauseManager.ResumeGameAndCloseMenus();
         }
+
     }
 }
