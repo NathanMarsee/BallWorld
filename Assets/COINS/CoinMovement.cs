@@ -34,13 +34,13 @@ public class CoinMovement : MonoBehaviour
         timeElapsed = 0f;
 
         // Add an AudioSource component to the GameObject
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponentInParent<AudioSource>();
     }
 
     void Update()
     {
         // Rotate the object around the specified axis
-        transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime);
+        transform.Rotate(rotationAxis, rotationSpeed * Time.deltaTime, Space.Self);
 
         // Calculate vertical movement using a sine wave, centered around the initial Y position
         timeElapsed += Time.deltaTime;
@@ -48,7 +48,7 @@ public class CoinMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, initialPosition.y + verticalOffset, transform.position.z);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         // Play the collision sound
         if (collisionSound != null)
@@ -58,5 +58,6 @@ public class CoinMovement : MonoBehaviour
 
         // Destroy this object when it collides with another object
         Destroy(gameObject);
+        //gameObject.SetActive(false);
     }
 }
