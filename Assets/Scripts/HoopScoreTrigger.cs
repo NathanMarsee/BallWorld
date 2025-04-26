@@ -12,16 +12,16 @@ public class HoopScoreTrigger : MonoBehaviour
     public TextMeshPro pointsLabel;
 
     private bool triggered = false;
-    private float lastMultiplier = -1f; // 🔥 Track last multiplier
+    private float lastMultiplier = -1f; // 🔥 Track the last multiplier separately
 
     private void Start()
     {
-        UpdatePointsLabel();
+        UpdatePointsLabel(); // Always call this at start
     }
 
     private void Update()
     {
-        // 🔥 If multiplier changed, refresh label
+        // 🔥 Constantly check if difficulty multiplier changed
         float currentMultiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
         if (!Mathf.Approximately(currentMultiplier, lastMultiplier))
         {
@@ -30,19 +30,23 @@ public class HoopScoreTrigger : MonoBehaviour
     }
 
     private void UpdatePointsLabel()
+{
+    if (pointsLabel != null)
     {
-        if (pointsLabel != null)
-        {
-            float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
-            int actualPoints = Mathf.RoundToInt(pointsToAward * multiplier);
-            pointsLabel.text = $"{actualPoints}";
-            lastMultiplier = multiplier; // 🔥 Save current multiplier
-        }
-        else
-        {
-            Debug.LogWarning("Points label not assigned in inspector.");
-        }
+        float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+        float points = pointsToAward;
+
+        float actualPoints = points * multiplier;
+        pointsLabel.text = $"{actualPoints:0}"; // show no decimal places, but don't RoundToInt
+        lastMultiplier = multiplier;
     }
+    else
+    {
+        Debug.LogWarning("HoopScoreTrigger: Points label not assigned in inspector.");
+    }
+}
+
+
 
     private void OnTriggerEnter(Collider other)
     {

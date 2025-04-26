@@ -17,9 +17,9 @@ public class DifficultyManager : MonoBehaviour
     {
         if (Instance == null)
         {
+            LoadDifficulty(); // 🔥 Load difficulty FIRST
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadDifficulty();
         }
         else
         {
@@ -55,12 +55,15 @@ public class DifficultyManager : MonoBehaviour
     {
         return currentDifficulty switch
         {
-            DifficultyLevel.Normal => 1f,
-            DifficultyLevel.Hard => 1.5f,
-            DifficultyLevel.VeryHard => 2f,
+            DifficultyLevel.Normal => 1f,     // 🔥 x1
+            DifficultyLevel.Hard => 2f,       // 🔥 x2
+            DifficultyLevel.VeryHard => 3f,   // 🔥 x3
             _ => 1f
         };
     }
 
-    public int GetSavedDifficultyIndex() => (int)currentDifficulty;
+    public int GetSavedDifficultyIndex()
+    {
+        return (int)currentDifficulty;
+    }
 }

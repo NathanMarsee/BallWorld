@@ -273,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -285,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -375,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1321,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1333,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1418,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1430,7 +1430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1515,7 +1515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1527,7 +1527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1612,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1624,7 +1624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1709,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1721,7 +1721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1811,7 +1811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1823,7 +1823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1981,7 +1981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: hardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveSpeed
@@ -1993,7 +1993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
-      value: 12
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -3146,7 +3146,7 @@ MonoBehaviour:
   planeGuide: {fileID: 4978827024291409252}
   maxAgularVelocity: 20
   gravMag: 11
-  killplane: -140
+  killplane: -170
   slowDownRatio: 0.1
   collisions: 0
   airSoarMultiplier: 0.8
