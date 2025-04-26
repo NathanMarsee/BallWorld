@@ -27,13 +27,12 @@ public class BallSelector : MonoBehaviour
     public void SelectBall(int index)
     {
         selectedBallIndex = Mathf.Clamp(index, 0, database.ballPrefabs.Length - 1);
+        ApplySelectionNow(); // 🔥 Apply instantly when selected
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 🛑 Skip ball replacement in MainMenu and Tutorial scenes
         if (scene.name == "MainMenu" || scene.name == "Tutorial") return;
-
         ReplaceBallInScene(scene.name);
     }
 
@@ -62,5 +61,13 @@ public class BallSelector : MonoBehaviour
 
         newBall.tag = "Ball";
         newBall.name = newBall.name.Replace("(Clone)", "");
+    }
+
+    // 🔁 Call this if you want to apply selection without scene reload
+    public void ApplySelectionNow()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "MainMenu" || sceneName == "Tutorial") return;
+        ReplaceBallInScene(sceneName);
     }
 }
