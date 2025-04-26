@@ -288,6 +288,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
       value: 200
       objectReference: {fileID: 0}
@@ -388,6 +392,10 @@ PrefabInstance:
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -515,6 +523,10 @@ PrefabInstance:
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1336,6 +1348,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
       value: 200
       objectReference: {fileID: 0}
@@ -1431,6 +1447,10 @@ PrefabInstance:
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1530,6 +1550,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
       value: 300
       objectReference: {fileID: 0}
@@ -1625,6 +1649,10 @@ PrefabInstance:
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1725,7 +1753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: basePoints
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1828,6 +1856,10 @@ PrefabInstance:
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -1998,6 +2030,10 @@ PrefabInstance:
     - target: {fileID: 9074934640614640576, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: veryHardSettings.moveDistance
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
@@ -2534,19 +2570,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hello, and welcome to Basketball!
-
-
-    Shoot down the ramp, angle yourself,
-    and shoot some hoops! The ball can be controlled with the Left Stick, WASD, or
-    D-Pad. You can shift gravity and manipulate the ball, use this level to practice
-    your angles, build points, and get used to your gravity bending abilities!
-
-
-    Once
-    you master the static hoops, try your hand at hard mode, where the hoops become
-    far more challenging, but are worth far more points! Can you hit all of them?
-    Use these points to unlock dev logs and skins.'
+  m_text: "Welcome to Basketball! \n\nYou're playing hoops, in space! Gravity works
+    differently here, think of yourself more as a meteorite slamming into the backboard! 
+    \n  \nUsing the Left Stick, WASD, or the D-Pad to fly through space! Use the
+    ramp to determine your starting speed, and along the way, you can control your
+    course. \n\n Pushing forward will allow you to soar longer and stay up. Pulling
+    back drops you straight down, try to plummet into the ring! Once you get the
+    hang of it, try turning up the difficulty in the pause menu, you'll gain more
+    points!\n \nUse the points you gain here to buy skins, and unlock more dev logs!\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2573,10 +2604,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
+  m_fontSize: 21.05
   m_fontSizeBase: 20
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2609,7 +2640,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 35.023224, y: 118.15158, z: 35.50818, w: 43.16121}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2655,10 +2686,10 @@ RectTransform:
   m_Father: {fileID: 734693602358480773}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 38}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -212}
+  m_SizeDelta: {x: 800, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2825758434756506198
 GameObject:
@@ -3246,7 +3277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &6876631050882666070
 MeshCollider:
   m_ObjectHideFlags: 0

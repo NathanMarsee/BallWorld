@@ -2186,9 +2186,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 15960e3ff8ef6d6498f3cb9fa90c6f46, type: 3}
   - {fileID: 8300000, guid: 5847afdb814f7324fb84d5bffa839972, type: 3}
   - {fileID: 8300000, guid: e44b3811a52a9b94fb5f15a981eae661, type: 3}
+  basketballTracks:
+  - {fileID: 8300000, guid: e76088c67018e254aacae7f8de201586, type: 3}
+  - {fileID: 8300000, guid: 7ca463fbf3b1cf54e95956afd7a07d23, type: 3}
+  - {fileID: 8300000, guid: a81881752533a1545acab20071a952d2, type: 3}
+  - {fileID: 8300000, guid: b776f8ebde50b5148995dda4c4b1928e, type: 3}
+  - {fileID: 8300000, guid: 050f9ed9abf1bdb469d961a39c01d233, type: 3}
   audioSource: {fileID: 885132276}
   loopPlaylist: 1
-  shuffle: 0
+  shuffle: 1
 --- !u!1 &889598497
 GameObject:
   m_ObjectHideFlags: 0
@@ -6674,13 +6680,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[17].content
-      value: Hello, and welcome to Basketball!  Shoot down the ramp, angle yourself,
-        and shoot some hoops! The ball can be controlled with the Left Stick, WASD,
-        or D-Pad. You can shift gravity and manipulate the ball, use this level to
-        practice your angles, build points, and get used to your gravity bending
-        abilities!  Once you master the static hoops, try your hand at hard mode,
-        where the hoops become far more challenging, but are worth far more points!
-        Can you hit all of them? Use these points to unlock dev logs and skins.
+      value: "Welcome to Basketball! \n\nYou're playing hoops, in space! Gravity
+        works differently here, think of yourself more as a meteorite slamming into
+        the backboard!  \n  \nUsing the Left Stick, WASD, or the D-Pad to fly through
+        space! Use the ramp to determine your starting speed, and along the way,
+        you can control your course. \n\n Pushing forward will allow you to soar
+        longer and stay up. Pulling back drops you straight down, try to plummet
+        into the ring! Once you get the hang of it, try turning up the difficulty
+        in the pause menu, you'll gain more points!\n \nUse the points you gain here
+        to buy skins, and unlock more dev logs!\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].category
