@@ -6434,7 +6434,7 @@ PrefabInstance:
       objectReference: {fileID: 41448177}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.size
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].id
@@ -6513,6 +6513,18 @@ PrefabInstance:
       value: tutorial_message
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[19].id
+      value: story_progression
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[20].id
+      value: skins
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[21].id
+      value: story_progression
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].title
       value: John First
       objectReference: {fileID: 0}
@@ -6587,6 +6599,18 @@ PrefabInstance:
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[18].title
       value: Eyean the Eyeball
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[19].title
+      value: Story Progression
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[20].title
+      value: Skins
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[21].title
+      value: Story Progression
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].content
@@ -6861,12 +6885,72 @@ PrefabInstance:
         before he dries out!?"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[19].content
+      value: "Ballworld tell's it's story within these text logs. If you'll look
+        above, you will see the four different types of logs. These include Tutorial,
+        John, Cynthia, and Steve. Tutorial contains tutorial messages and other information,
+        and the other three tabs are dedicated the the main characters of the story. 
+        \n  \nThe points needed to complete the story are as needed:  \n1. jonh1
+        - 1,000 Points\n2. steve1 - 1,000 Points\n3. cynthia1 - 2,000 Points\n4.
+        steve2 - 2,000 Points\n5. john2 - 3,000 Points\n6. steve3 - 3,000 Points\n7.
+        cynthia2 - 4,000 Points\n8. steve4 - 4,000 Points\n9. john3 - 5,000 Points\n10.
+        steve5 - 5,000 Points\n11. cynthia3 - 6,000 Points\n12. steve6 - 6,000 Points\n13.
+        john4 - 7,000 Points\n14. steve7 - 7,000 Points\n15. cynthia4 - 8,000 Points\n16.
+        steve8 - 8,000 Points\n17. steve9 - 9,000 Points\n\n[PAGE]\n\nTo unlock these
+        logs, you just need to hit the points threshold. Once you have, the log will
+        be unlocked and stay unlocked in the logs. \n\nFollow the story in the order
+        listed, as the story follows a protagonist in 2025, investigating his parent's
+        disappearance in 2000. Once you have read the log titled \"Steve Final\",
+        you have completed the story of the game!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].category
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[1].unlocked
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[20].content
+      value: "Skins can be unlocked and apllied to the players ball. To do this,
+        go inside of the Options submenu in the Main menu, you will see an option
+        that show's which ball the player has equipped. If it is your first time
+        in this menu, it will likely say \"Soccer\".  \n  \nYou may look through
+        the options listed. If you are in the Main Menu, you will see a preview of
+        the ball, if you are inside of Infinite or Basketball, you will not see a
+        preview, but the ball will be changed as soon as you purchase or equip a
+        new ball. Inside of the tutorial level, you may change what ball you have
+        equipped, but it will not change until entering one of the aforementioned
+        levels.\n\nThe list of skin is as follows:\n1. Soccer - 0 Points (Already
+        unlocked/equipped)\n2. Volleyball - 250 Points\n3. Basketball - 500 Points\n5.
+        Tennis - 750 Points\n6. Football - 1,000 Points\n7. Baseball - 1,000 Points\n8.
+        Golf - 2,000 Points\n9. Eyeball - 3,500 Points  \n  \n[PAGE]\n\nThe points
+        are priced in order of how much they break the geometry and physics of the
+        game. For example, Soccer works very well on every level, but Tennis is a
+        bit too small, and looks a bit funny.  \n  \nBalls like \"EyeBall\" are too
+        large, and will not work correctly on the levels. This is intentional, as
+        these can sometimes even make the game easier, and thus, serve as a good
+        reward for points!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[21].content
+      value: "Ballworld tell's it's story within these text logs. If you'll look
+        above, you will see the four different types of logs. These include Tutorial,
+        John, Cynthia, and Steve. Tutorial contains tutorial messages and other information,
+        and the other three tabs are dedicated the the main characters of the story. 
+        \n  \nThe points needed to complete the story are as needed:  \n1. jonh1
+        - 1,000 Points\n2. steve1 - 1,000 Points\n3. cynthia1 - 2,000 Points\n4.
+        steve2 - 2,000 Points\n5. john2 - 3,000 Points\n6. steve3 - 3,000 Points\n7.
+        cynthia2 - 4,000 Points\n8. steve4 - 4,000 Points\n9. john3 - 5,000 Points\n10.
+        steve5 - 5,000 Points\n11. cynthia3 - 6,000 Points\n12. steve6 - 6,000 Points\n13.
+        john4 - 7,000 Points\n14. steve7 - 7,000 Points\n15. cynthia4 - 8,000 Points\n16.
+        steve8 - 8,000 Points\n17. steve9 - 9,000 Points\n\n[PAGE]\n\nTo unlock these
+        logs, you just need to hit the points threshold. Once you have, the log will
+        be unlocked and stay unlocked in the logs. \n\nFollow the story in the order
+        listed, as the story follows a protagonist in 2025, investigating his parent's
+        disappearance in 2000. Once you have read the log titled \"Steve Final\",
+        you have completed the story of the game!"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].category
@@ -6994,6 +7078,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[18].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[19].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[20].unlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[21].unlocked
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
