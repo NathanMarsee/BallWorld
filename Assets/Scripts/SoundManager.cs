@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip levelResetSound;
     public AudioClip pointSound;
     public AudioClip unlockSound;
+    public AudioClip errorSound; // 🔥 NEW - Error sound
+
     private AudioSource audioSource;
 
     void Awake()
@@ -45,5 +47,17 @@ public class SoundManager : MonoBehaviour
     public void PlayUnlockSound()
     {
         audioSource.PlayOneShot(unlockSound);
+    }
+
+    public void PlayErrorSound() // 🔥 NEW
+    {
+        if (errorSound != null)
+        {
+            audioSource.PlayOneShot(errorSound);
+        }
+        else
+        {
+            Debug.LogWarning("SoundManager: No errorSound assigned.");
+        }
     }
 }

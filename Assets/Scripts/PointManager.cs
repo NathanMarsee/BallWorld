@@ -30,28 +30,26 @@ public class PointManager : MonoBehaviour
     }
 
     public void AddPoints(int amount)
-{
-    if (amount <= 0) return;
+    {
+        if (amount <= 0) return;
 
-    float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
-    int adjusted = Mathf.RoundToInt(amount * multiplier);
+        float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+        int adjusted = Mathf.RoundToInt(amount * multiplier);
 
-    playerPoints += adjusted;
-    SavePoints();
-    UpdatePointsUI();
+        playerPoints += adjusted;
+        SavePoints();
+        UpdatePointsUI();
 
-    SoundManager.Instance?.PlayPointSound();
-    NotificationManager.Instance?.ShowNotification($"You gained {adjusted} point{(adjusted == 1 ? "" : "s")}!");
+        SoundManager.Instance?.PlayPointSound();
+        NotificationManager.Instance?.ShowNotification($"You gained {adjusted} point{(adjusted == 1 ? "" : "s")}!");
 
-    CheckForUnlocks();
-}
+        CheckForUnlocks();
+    }
 
-public void AddPoint()
-{
-    AddPoints(1); // Just delegate to the real method
-}
-
-
+    public void AddPoint()
+    {
+        AddPoints(1); // Delegate to the real method
+    }
 
     public void ResetPoints()
     {
@@ -65,17 +63,16 @@ public void AddPoint()
     }
 
     void UpdatePointsUI()
-{
-    if (pointsText != null)
     {
-        pointsText.text = $"Points: {playerPoints}";
+        if (pointsText != null)
+        {
+            pointsText.text = $"Points: {playerPoints}";
+        }
+        else
+        {
+            Debug.Log("PointManager: pointsText is not assigned in this scene. Skipping UI update.");
+        }
     }
-    else
-    {
-        Debug.Log("PointManager: pointsText is not assigned in this scene. Skipping UI update.");
-    }
-}
-
 
     void SavePoints()
     {
@@ -87,25 +84,55 @@ public void AddPoint()
     {
         playerPoints = PlayerPrefs.GetInt("PlayerPoints", 0);
     }
+
     public void ResetAllData()
-{
-    PlayerPrefs.DeleteAll();       
-    playerPoints = 0;
-    UpdatePointsUI();              
+    {
+        PlayerPrefs.DeleteAll();
+        playerPoints = 0;
+        UpdatePointsUI();
 
-    NotificationManager.Instance?.ShowNotification("Game data has been reset.");
-    SoundManager.Instance?.PlayPointResetSound();
+        NotificationManager.Instance?.ShowNotification("Game data has been reset.");
+        SoundManager.Instance?.PlayPointResetSound();
 
-    FindObjectOfType<LogMenuManager>()?.Refresh();
-}
-
+        FindObjectOfType<LogMenuManager>()?.Refresh();
+    }
 
     void NotifyLogMenu()
-{
-    var logMenu = FindObjectOfType<LogMenuManager>();
-    if (logMenu != null)
     {
-        bool changesMade = false;
+        var logMenu = FindObjectOfType<LogMenuManager>();
+        if (logMenu != null)
+        {
+            bool changesMade = false;
+
+            foreach (var log in logMenu.logEntries)
+            {
+                if (!log.unlocked && playerPoints >= log.pointsRequired)
+                {
+                    log.unlocked = true;
+
+                    if (log.pointsRequired > 0)
+                    {
+                        NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
+                        SoundManager.Instance?.PlayUnlockSound();
+                    }
+
+                    changesMade = true;
+                }
+            }
+
+            if (changesMade)
+            {
+                logMenu.RefreshLogList();
+            }
+        }
+    }
+
+    private void CheckForUnlocks()
+    {
+        var logMenu = FindObjectOfType<LogMenuManager>();
+        if (logMenu == null) return;
+
+        bool unlockedAny = false;
 
         foreach (var log in logMenu.logEntries)
         {
@@ -113,54 +140,45 @@ public void AddPoint()
             {
                 log.unlocked = true;
 
-                
+                logMenu.SaveUnlockedLog(log);
+
                 if (log.pointsRequired > 0)
                 {
                     NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
                     SoundManager.Instance?.PlayUnlockSound();
                 }
 
-                changesMade = true;
+                unlockedAny = true;
             }
         }
 
-        if (changesMade)
+        if (unlockedAny && logMenu.isActiveAndEnabled)
         {
-            logMenu.RefreshLogList(); 
-        }
-    }
-}
-
-
-    private void CheckForUnlocks()
-{
-    var logMenu = FindObjectOfType<LogMenuManager>();
-    if (logMenu == null) return;
-
-    bool unlockedAny = false;
-
-    foreach (var log in logMenu.logEntries)
-    {
-        if (!log.unlocked && playerPoints >= log.pointsRequired)
-        {
-            log.unlocked = true;
-
-            logMenu.SaveUnlockedLog(log); 
-
-            if (log.pointsRequired > 0)
-            {
-                NotificationManager.Instance?.ShowNotification($"New log unlocked: \"{log.title}\"");
-                SoundManager.Instance?.PlayUnlockSound();
-            }
-
-            unlockedAny = true;
+            logMenu.RefreshLogList();
         }
     }
 
-    if (unlockedAny && logMenu.isActiveAndEnabled)
+    // 🔥 NEW: Spend Points Safely
+    public bool SpendPoints(int amount)
     {
-        logMenu.RefreshLogList();
-    }
-}
+        if (amount <= 0) return false;
 
+        if (playerPoints >= amount)
+        {
+            playerPoints -= amount;
+            SavePoints();
+            UpdatePointsUI();
+
+            SoundManager.Instance?.PlayPointSound(); // Optional: reuse point sound
+            NotificationManager.Instance?.ShowNotification($"You spent {amount} point{(amount == 1 ? "" : "s")}!");
+
+            return true;
+        }
+        else
+        {
+            NotificationManager.Instance?.ShowNotification("Not enough points!");
+            SoundManager.Instance?.PlayErrorSound(); // Optional if you have an error sound
+            return false;
+        }
+    }
 }

@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f516f0e431d70479e7560e2299a371, type: 3}
   m_Name: BallDatabase
   m_EditorClassIdentifier: 
-  ballPrefabs:
-  - {fileID: 919132149155446097, guid: c19c4d581da21544d8650aa084ac1bd8, type: 3}
-  - {fileID: 919132149155446097, guid: 3405ec22bef4339439b628ee6e6bdb36, type: 3}
-  - {fileID: 919132149155446097, guid: 2b3788a0f64f23449a9c118bcd1db04d, type: 3}
-  - {fileID: 3978156976444542998, guid: a8b1655a90145094bbbfdb3ddd350367, type: 3}
-  - {fileID: 2099316281507514234, guid: 2fbb6c85cd0b18a409dfae33e4319200, type: 3}
-  - {fileID: 89156558108113759, guid: 3384463bb3a16c049bd57c0306467a4c, type: 3}
-  - {fileID: 105043930715447782, guid: 5eccef45d591a6b4f8e332a6882dc5e5, type: 3}
-  - {fileID: 3169090002416453430, guid: 9b087ad3ee72dbd408584ba96bc2cc57, type: 3}
+  balls:
+  - prefab: {fileID: 7074948992791993279, guid: dc9c860c0461534488018ebede9b5f12, type: 3}
+    cost: 0
+  - prefab: {fileID: 89156558108113759, guid: 3384463bb3a16c049bd57c0306467a4c, type: 3}
+    cost: 250
+  - prefab: {fileID: 7441440908871300343, guid: 052f0d9a551166b458c44593c6566808, type: 3}
+    cost: 500
+  - prefab: {fileID: 4350874406377604858, guid: db6cb79803d99de41ae15f15a875d281, type: 3}
+    cost: 750
+  - prefab: {fileID: 3978156976444542998, guid: a8b1655a90145094bbbfdb3ddd350367, type: 3}
+    cost: 1000
+  - prefab: {fileID: 3169090002416453430, guid: 9b087ad3ee72dbd408584ba96bc2cc57, type: 3}
+    cost: 1000
+  - prefab: {fileID: 2099316281507514234, guid: 2fbb6c85cd0b18a409dfae33e4319200, type: 3}
+    cost: 2000
+  - prefab: {fileID: 105043930715447782, guid: 5eccef45d591a6b4f8e332a6882dc5e5, type: 3}
+    cost: 3500
