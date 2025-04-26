@@ -41,7 +41,15 @@ public class BallDropdownHandler : MonoBehaviour
         {
             var anchorObj = GameObject.Find("PreviewAnchor");
             if (anchorObj != null)
+            {
                 previewAnchor = anchorObj.transform;
+
+                // 🔥 Make it persistent!
+                if (previewAnchor != null && previewAnchor.parent == null)
+                {
+                    DontDestroyOnLoad(previewAnchor.gameObject);
+                }
+            }
         }
 
         if (ballDatabase == null)
