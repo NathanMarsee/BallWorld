@@ -12,10 +12,21 @@ public class HoopScoreTrigger : MonoBehaviour
     public TextMeshPro pointsLabel;
 
     private bool triggered = false;
+    private float lastMultiplier = -1f; // 🔥 Track last multiplier
 
     private void Start()
     {
         UpdatePointsLabel();
+    }
+
+    private void Update()
+    {
+        // 🔥 If multiplier changed, refresh label
+        float currentMultiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+        if (!Mathf.Approximately(currentMultiplier, lastMultiplier))
+        {
+            UpdatePointsLabel();
+        }
     }
 
     private void UpdatePointsLabel()
@@ -25,6 +36,7 @@ public class HoopScoreTrigger : MonoBehaviour
             float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
             int actualPoints = Mathf.RoundToInt(pointsToAward * multiplier);
             pointsLabel.text = $"{actualPoints}";
+            lastMultiplier = multiplier; // 🔥 Save current multiplier
         }
         else
         {
@@ -39,14 +51,11 @@ public class HoopScoreTrigger : MonoBehaviour
 
         triggered = true;
 
-        // Get difficulty multiplier and apply it
         float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
         int actualPoints = Mathf.RoundToInt(pointsToAward * multiplier);
 
-        // Add points
         (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(actualPoints);
 
-        // Stop rotation and follow on score
         GameObject rotationGuide = GameObject.Find("OrbRotationGuide");
         if (rotationGuide != null)
         {
@@ -61,7 +70,6 @@ public class HoopScoreTrigger : MonoBehaviour
             Debug.LogWarning("OrbRotationGuide not found in scene.");
         }
 
-        // Show popup with actual awarded score
         MenuManager menu = FindObjectOfType<MenuManager>();
         if (menu != null)
         {
