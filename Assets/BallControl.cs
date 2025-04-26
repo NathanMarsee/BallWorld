@@ -170,7 +170,7 @@ public class BallControl : MonoBehaviour
         if (collisionSound != null && lastVelocity > 1.3 * rb.velocity.magnitude)
         {
             bonkSoundSource.volume = Mathf.Clamp((lastVelocity - rb.velocity.magnitude) * 0.03f, 0, 0.5f);
-            bonkSoundSource.pitch = Mathf.Clamp(lastVelocity / 15f, 0.8f, 3) * 0.3f + 0.3f;
+            bonkSoundSource.pitch = Mathf.Clamp(lastVelocity / 15f, 0.8f, 3) * -0.3f + 1.5f;
             bonkSoundSource.Play();
             //AudioSource.PlayClipAtPoint(collisionSound, collision.contacts[0].point,);
         }
