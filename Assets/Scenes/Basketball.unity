@@ -3107,8 +3107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedThreshold: 15
-  maxShakeMagnitude: 0.3
-  shakeFrequency: 4
+  maxShakeMagnitude: 0.1
+  shakeFrequency: 6
   smoothTime: 0.7
 --- !u!1 &4978827025352815192
 GameObject:
