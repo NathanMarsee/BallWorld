@@ -48,30 +48,45 @@ public class PointManager : MonoBehaviour
 
     public void AddPoint()
     {
-        AddPoints(1); // Delegate to the real method
+        AddPoints(1);
     }
 
     public void ResetPoints()
     {
-        playerPoints = 0;
-        SavePoints();
-        UpdatePointsUI();
-        NotifyLogMenu();
+        // 🔥 TRUE FULL RESET
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
 
+        // 🔥 RECREATE new player data defaults
+        playerPoints = 0;
+        PlayerPrefs.SetInt("PlayerPoints", playerPoints);
+
+        // 🔥 Unlock only default ball (index 0)
+        PlayerPrefs.SetString("UnlockedBalls", "0");
+
+        // 🔥 Reset Selected Ball to default (index 0)
+        PlayerPrefs.SetInt("SelectedBall", 0);
+        PlayerPrefs.SetInt("SelectedBallIndex", 0);
+
+        PlayerPrefs.Save(); // Save all the new clean data
+
+        // 🔥 Update UI
+        UpdatePointsUI();
+
+        // 🔥 Notify user
+        NotificationManager.Instance?.ShowNotification("Game data has been fully reset!");
         SoundManager.Instance?.PlayPointResetSound();
-        NotificationManager.Instance?.ShowNotification("Points have been reset.");
+
+        // 🔥 Refresh the log menu visually
+        FindObjectOfType<LogMenuManager>()?.Refresh();
     }
 
     void UpdatePointsUI()
     {
         if (pointsText != null)
-        {
             pointsText.text = $"Points: {playerPoints}";
-        }
         else
-        {
             Debug.Log("PointManager: pointsText is not assigned in this scene. Skipping UI update.");
-        }
     }
 
     void SavePoints()
@@ -83,18 +98,6 @@ public class PointManager : MonoBehaviour
     void LoadPoints()
     {
         playerPoints = PlayerPrefs.GetInt("PlayerPoints", 0);
-    }
-
-    public void ResetAllData()
-    {
-        PlayerPrefs.DeleteAll();
-        playerPoints = 0;
-        UpdatePointsUI();
-
-        NotificationManager.Instance?.ShowNotification("Game data has been reset.");
-        SoundManager.Instance?.PlayPointResetSound();
-
-        FindObjectOfType<LogMenuManager>()?.Refresh();
     }
 
     void NotifyLogMenu()
@@ -121,9 +124,7 @@ public class PointManager : MonoBehaviour
             }
 
             if (changesMade)
-            {
                 logMenu.RefreshLogList();
-            }
         }
     }
 
@@ -139,7 +140,6 @@ public class PointManager : MonoBehaviour
             if (!log.unlocked && playerPoints >= log.pointsRequired)
             {
                 log.unlocked = true;
-
                 logMenu.SaveUnlockedLog(log);
 
                 if (log.pointsRequired > 0)
@@ -153,12 +153,9 @@ public class PointManager : MonoBehaviour
         }
 
         if (unlockedAny && logMenu.isActiveAndEnabled)
-        {
             logMenu.RefreshLogList();
-        }
     }
 
-    // 🔥 NEW: Spend Points Safely
     public bool SpendPoints(int amount)
     {
         if (amount <= 0) return false;
@@ -169,7 +166,7 @@ public class PointManager : MonoBehaviour
             SavePoints();
             UpdatePointsUI();
 
-            SoundManager.Instance?.PlayPointSound(); // Optional: reuse point sound
+            SoundManager.Instance?.PlayPointSound();
             NotificationManager.Instance?.ShowNotification($"You spent {amount} point{(amount == 1 ? "" : "s")}!");
 
             return true;
@@ -177,7 +174,7 @@ public class PointManager : MonoBehaviour
         else
         {
             NotificationManager.Instance?.ShowNotification("Not enough points!");
-            SoundManager.Instance?.PlayErrorSound(); // Optional if you have an error sound
+            SoundManager.Instance?.PlayErrorSound();
             return false;
         }
     }
