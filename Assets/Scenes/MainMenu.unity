@@ -2828,7 +2828,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 129}
+  m_AnchoredPosition: {x: 0, y: 66.99999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215145922
@@ -3422,7 +3422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 34.000015}
+  m_AnchoredPosition: {x: 0, y: -27.999992}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406183081
@@ -4925,12 +4925,24 @@ PrefabInstance:
       value: 0.7843138
       objectReference: {fileID: 0}
     - target: {fileID: 686551651807694091, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 686551651807694091, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 686551651807694091, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 686551651807694091, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 686551651807694091, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -153.00003
+      value: -215.00003
       objectReference: {fileID: 0}
     - target: {fileID: 774739456751163748, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_RootOrder
@@ -4945,12 +4957,24 @@ PrefabInstance:
       value: Buy/EquipButton
       objectReference: {fileID: 0}
     - target: {fileID: 2508414170426377008, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508414170426377008, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508414170426377008, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508414170426377008, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2508414170426377008, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -84
+      value: -117
       objectReference: {fileID: 0}
     - target: {fileID: 2997821707374040132, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_IsActive
@@ -5862,7 +5886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831469648256, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logTabBar
@@ -6569,6 +6593,14 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4441896475883196218, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441896475883196218, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4607841350436780359, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6625,6 +6657,20 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 7106048162548774838, guid: 5afed6587327b774091f31bc292e2422, type: 2}
+    - target: {fileID: 5978113934165793079, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_text
+      value: 'Reset Game
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978113934165793079, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978113934165793079, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5978948520709679505, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
       value: 0
