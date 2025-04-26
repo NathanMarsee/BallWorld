@@ -33,15 +33,13 @@ public class PointManager : MonoBehaviour
     {
         if (amount <= 0) return;
 
-        float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
-        int adjusted = Mathf.RoundToInt(amount * multiplier);
-
-        playerPoints += adjusted;
+        // 🔥 No more double multiplier here
+        playerPoints += amount;
         SavePoints();
         UpdatePointsUI();
 
         SoundManager.Instance?.PlayPointSound();
-        NotificationManager.Instance?.ShowNotification($"You gained {adjusted} point{(adjusted == 1 ? "" : "s")}!");
+        NotificationManager.Instance?.ShowNotification($"You gained {amount} point{(amount == 1 ? "" : "s")}!");
 
         CheckForUnlocks();
     }
@@ -53,40 +51,35 @@ public class PointManager : MonoBehaviour
 
     public void ResetPoints()
     {
-        // 🔥 TRUE FULL RESET
+        // 🔥 Full reset
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
 
-        // 🔥 RECREATE new player data defaults
         playerPoints = 0;
         PlayerPrefs.SetInt("PlayerPoints", playerPoints);
-
-        // 🔥 Unlock only default ball (index 0)
         PlayerPrefs.SetString("UnlockedBalls", "0");
-
-        // 🔥 Reset Selected Ball to default (index 0)
         PlayerPrefs.SetInt("SelectedBall", 0);
         PlayerPrefs.SetInt("SelectedBallIndex", 0);
+        PlayerPrefs.Save();
 
-        PlayerPrefs.Save(); // Save all the new clean data
-
-        // 🔥 Update UI
         UpdatePointsUI();
 
-        // 🔥 Notify user
         NotificationManager.Instance?.ShowNotification("Game data has been fully reset!");
         SoundManager.Instance?.PlayPointResetSound();
 
-        // 🔥 Refresh the log menu visually
         FindObjectOfType<LogMenuManager>()?.Refresh();
     }
 
     void UpdatePointsUI()
     {
         if (pointsText != null)
+        {
             pointsText.text = $"Points: {playerPoints}";
+        }
         else
-            Debug.Log("PointManager: pointsText is not assigned in this scene. Skipping UI update.");
+        {
+            Debug.LogWarning("PointManager: pointsText not assigned. Skipping UI update.");
+        }
     }
 
     void SavePoints()
@@ -124,7 +117,9 @@ public class PointManager : MonoBehaviour
             }
 
             if (changesMade)
+            {
                 logMenu.RefreshLogList();
+            }
         }
     }
 
@@ -153,7 +148,9 @@ public class PointManager : MonoBehaviour
         }
 
         if (unlockedAny && logMenu.isActiveAndEnabled)
+        {
             logMenu.RefreshLogList();
+        }
     }
 
     public bool SpendPoints(int amount)

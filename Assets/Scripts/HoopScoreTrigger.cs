@@ -5,23 +5,24 @@ using TMPro;
 public class HoopScoreTrigger : MonoBehaviour
 {
     [Header("Scoring")]
-    public int pointsToAward = 10;
-    public float delayBeforeRestart = 0.5f;
+    public int basePoints = 10;                 // Base unmodified points
+    public float delayBeforeRestart = 0.5f;      // Delay before reload after scoring
 
     [Header("Visual Label")]
     public TextMeshPro pointsLabel;
 
     private bool triggered = false;
-    private float lastMultiplier = -1f; // 🔥 Track the last multiplier separately
+    private float lastMultiplier = -1f;
+    private int pointsToAward = 0;               // ✅ Pre-calculated, correct points to award
 
     private void Start()
     {
-        UpdatePointsLabel(); // Always call this at start
+        UpdatePointsLabel();
     }
 
     private void Update()
     {
-        // 🔥 Constantly check if difficulty multiplier changed
+        // Constantly check if difficulty changed
         float currentMultiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
         if (!Mathf.Approximately(currentMultiplier, lastMultiplier))
         {
@@ -30,23 +31,19 @@ public class HoopScoreTrigger : MonoBehaviour
     }
 
     private void UpdatePointsLabel()
-{
-    if (pointsLabel != null)
     {
-        float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
-        float points = pointsToAward;
-
-        float actualPoints = points * multiplier;
-        pointsLabel.text = $"{actualPoints:0}"; // show no decimal places, but don't RoundToInt
-        lastMultiplier = multiplier;
+        if (pointsLabel != null)
+        {
+            float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
+            pointsToAward = Mathf.RoundToInt(basePoints * multiplier); // 🔥 Store correct award points
+            pointsLabel.text = $"{pointsToAward}";
+            lastMultiplier = multiplier;
+        }
+        else
+        {
+            Debug.LogWarning("HoopScoreTrigger: Points label not assigned in inspector.");
+        }
     }
-    else
-    {
-        Debug.LogWarning("HoopScoreTrigger: Points label not assigned in inspector.");
-    }
-}
-
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -55,10 +52,8 @@ public class HoopScoreTrigger : MonoBehaviour
 
         triggered = true;
 
-        float multiplier = DifficultyManager.Instance?.GetPointMultiplier() ?? 1f;
-        int actualPoints = Mathf.RoundToInt(pointsToAward * multiplier);
-
-        (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(actualPoints);
+        // ✅ Just use pre-calculated pointsToAward without re-multiplying
+        (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(pointsToAward);
 
         GameObject rotationGuide = GameObject.Find("OrbRotationGuide");
         if (rotationGuide != null)
@@ -77,7 +72,7 @@ public class HoopScoreTrigger : MonoBehaviour
         MenuManager menu = FindObjectOfType<MenuManager>();
         if (menu != null)
         {
-            menu.ShowScorePopup(actualPoints);
+            menu.ShowScorePopup(pointsToAward);
         }
 
         Invoke(nameof(RestartLevel), delayBeforeRestart);

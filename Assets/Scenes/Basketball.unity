@@ -1724,6 +1724,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
+      propertyPath: basePoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9198289282420408102, guid: 7073934e429f65d42952454ede1af61a, type: 3}
       propertyPath: pointsToAward
       value: 150
       objectReference: {fileID: 0}
