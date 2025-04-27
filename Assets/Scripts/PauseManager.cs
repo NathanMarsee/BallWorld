@@ -104,29 +104,26 @@ public class PauseManager : MonoBehaviour
         menuManager?.ShowMainMenu();
         isPaused = true;
 
-        List<AudioSource> allSounds = (FindObjectsOfType(typeof(AudioSource)) as AudioSource[]).ToList();
-        foreach (var t in allSounds)
+        // 🔥 FIX: Use FindObjectsOfType<AudioSource>() safely
+        soundsToPause = new List<AudioSource>();
+        foreach (var source in FindObjectsOfType<AudioSource>())
         {
-            if (t.outputAudioMixerGroup.name == "SFX" && t.isPlaying) 
-            { 
-                t.Pause();
-                soundsToPause.Add(t);
+            if (source != null && source.outputAudioMixerGroup != null &&
+                source.outputAudioMixerGroup.name == "SFX" && source.isPlaying)
+            {
+                source.Pause();
+                soundsToPause.Add(source);
             }
         }
 
         Time.timeScale = 0f;
-
     }
 
     public void ResumeGame()
     {
         if (isMainMenu) return;
 
-        foreach (var t in soundsToPause)
-        {
-            t.UnPause();
-        }
-        soundsToPause = new List<AudioSource>();
+        UnpauseAllSounds();
 
         DisablePauseMenu();
         isPaused = false;
@@ -138,17 +135,27 @@ public class PauseManager : MonoBehaviour
     {
         if (isMainMenu) return;
 
-        foreach (var t in soundsToPause)
-        {
-            t.UnPause();
-        }
-        soundsToPause = new List<AudioSource>();
+        UnpauseAllSounds();
 
         CloseAllPanels();
         DisablePauseMenu();
         isPaused = false;
         Time.timeScale = 1.2f;
         suppressNextPauseInput = true;
+    }
+
+    private void UnpauseAllSounds()
+    {
+        // 🔥 FIX: Safely unpause sounds only if soundsToPause has anything
+        if (soundsToPause != null)
+        {
+            foreach (var source in soundsToPause)
+            {
+                if (source != null)
+                    source.UnPause();
+            }
+            soundsToPause.Clear();
+        }
     }
 
     private void EnablePauseMenu()
