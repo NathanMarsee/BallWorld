@@ -39,7 +39,7 @@ public class PointManager : MonoBehaviour
         UpdatePointsUI();
 
         SoundManager.Instance?.PlayPointSound();
-        NotificationManager.Instance?.ShowNotification($"You gained {amount} point{(amount == 1 ? "" : "s")}!");
+        NotificationManager.Instance?.ShowNotification($"+{amount} Point{(amount == 1 ? "" : "s")}!");
 
         CheckForUnlocks();
     }
@@ -60,6 +60,7 @@ public class PointManager : MonoBehaviour
         PlayerPrefs.SetString("UnlockedBalls", "0");
         PlayerPrefs.SetInt("SelectedBall", 0);
         PlayerPrefs.SetInt("SelectedBallIndex", 0);
+        PlayerPrefs.SetInt("InfiniteRunnerHighScore", 0);
         PlayerPrefs.Save();
 
         UpdatePointsUI();

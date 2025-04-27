@@ -10,10 +10,13 @@ public class InfiniteRunnerManager : MonoBehaviour
     public GameObject player;
     public GameObject[] chunkList;
     public GameObject[] pillarList;
+    public GameObject currentDistanceText;
+    public GameObject currentCoinsText;
     public GameObject distanceText;
     public GameObject speedText;
     public GameObject coinsText;
     public GameObject totalScoreText;
+    public GameObject highScoreText;
     public int spawnDistrance = 8;
     public int pointsPerChunk = 5;
     private float TimeInChunk = 0;
@@ -48,9 +51,9 @@ public class InfiniteRunnerManager : MonoBehaviour
                 distanceText.GetComponent<TMP_Text>().SetText(distanceScore + " points");
                 speedText.GetComponent<TMP_Text>().SetText(speedBonus + " points");
                 coinsText.GetComponent<TMP_Text>().SetText(coinCount + " = " + coinsScore + " points");
-                totalScoreText.GetComponent<TMP_Text>().SetText(distanceScore + speedBonus + (coinCount * 20) + " points");
+                totalScoreText.GetComponent<TMP_Text>().SetText(distanceScore + speedBonus + coinsScore + " points");
             }
-            //print((int) TimeInChunk * 220);
+            currentDistanceText.GetComponent<TMP_Text>().SetText("Distance: " + distanceScore);
             TimeInChunk = 0;
         }
         if (nextChunk < chunksCompleted + spawnDistrance)
@@ -61,7 +64,14 @@ public class InfiniteRunnerManager : MonoBehaviour
 
         if (player.GetComponent<BallControl>().restartActive && !scored)
         {
-            (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(distanceScore + speedBonus + coinsScore);
+            int finalScore = distanceScore + speedBonus + coinsScore;
+            (PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(finalScore);
+            if (finalScore > PlayerPrefs.GetInt("InfiniteRunnerHighScore"))
+            {
+                PlayerPrefs.SetInt("InfiniteRunnerHighScore", finalScore);
+                totalScoreText.GetComponent<TMP_Text>().SetText(finalScore + " points\nNew High Score!");
+            }
+            highScoreText.GetComponent<TMP_Text>().SetText("High Score: " + PlayerPrefs.GetInt("InfiniteRunnerHighScore"));
             scored = true;
         }
     }
@@ -70,6 +80,7 @@ public class InfiniteRunnerManager : MonoBehaviour
     {
         coinCount++;
         coinsScore += score;
+        currentCoinsText.GetComponent<TMP_Text>().SetText("Coins: " + coinCount);
     }
 
     private void spawnChunk()
