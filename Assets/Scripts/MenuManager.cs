@@ -99,6 +99,7 @@ public class MenuManager : MonoBehaviour
     public void LoadTutorial() => SceneManager.LoadScene("Tutorial");
     public void LoadInfiniteRunnerScene() => SceneManager.LoadScene("InfiniteRunner");
     public void LoadBasketballScene() => SceneManager.LoadScene("Basketball");
+    public void LoadExtractionScene() => SceneManager.LoadScene("Extraction");
 
     public void ExitGame()
     {

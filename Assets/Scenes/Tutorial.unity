@@ -1074,7 +1074,7 @@ MonoBehaviour:
   object2ToDestroy: {fileID: 419617159}
   textScreen: {fileID: 597940579}
   returnButton: {fileID: 0}
-  mainMenuSceneName: Main Menu
+  mainMenuSceneName: MainMenu
 --- !u!1001 &1570408443
 PrefabInstance:
   m_ObjectHideFlags: 0

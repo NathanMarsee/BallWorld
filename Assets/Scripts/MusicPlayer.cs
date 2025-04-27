@@ -4,12 +4,13 @@ using System.Collections.Generic;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [Header("Playlist")]
+    [Header("Playlists")]
     public AudioClip[] menuTracks;
     public AudioClip[] levelTracks;
-    public AudioClip[] basketballTracks; // 🔥 NEW
+    public AudioClip[] basketballTracks;
+    public AudioClip[] testTracks; // 🔥 Used for Extraction scene now
 
-    private AudioClip[] tracks;
+    private AudioClip[] currentTrackList;
 
     [Header("Settings")]
     public AudioSource audioSource;
@@ -19,31 +20,36 @@ public class MusicPlayer : MonoBehaviour
     private List<AudioClip> playlist = new List<AudioClip>();
     private int currentTrackIndex = 0;
 
-    void Start()
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject); // 🔥 optional if you want music across scenes
+    }
+
+    private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         string currentScene = SceneManager.GetActiveScene().name;
         SelectPlaylistForScene(currentScene);
-
         BuildPlaylist();
         PlayTrack(currentTrackIndex);
     }
 
-    void Update()
+    private void Update()
     {
         if (!audioSource.isPlaying && playlist.Count > 0)
         {
-            PlayNextTrack();
+            if (currentTrackIndex < playlist.Count)
+                PlayNextTrack();
         }
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SelectPlaylistForScene(scene.name);
     }
 
-    void SelectPlaylistForScene(string sceneName)
+    private void SelectPlaylistForScene(string sceneName)
     {
         if (sceneName == "Basketball")
         {
@@ -53,13 +59,21 @@ public class MusicPlayer : MonoBehaviour
         {
             SwapToPlaylist(menuTracks);
         }
-        else
+        else if (sceneName == "Extraction") // 🔥 Corrected here
+        {
+            SwapToPlaylist(testTracks);
+        }
+        else if (sceneName == "Infinite" || sceneName == "Tutorial")
         {
             SwapToPlaylist(levelTracks);
         }
+        else
+        {
+            SwapToPlaylist(levelTracks); // fallback
+        }
     }
 
-    void SwapToPlaylist(AudioClip[] newTracks)
+    private void SwapToPlaylist(AudioClip[] newTracks)
     {
         if (newTracks == null || newTracks.Length == 0)
         {
@@ -67,57 +81,48 @@ public class MusicPlayer : MonoBehaviour
             return;
         }
 
-        if (tracks == newTracks) return; // No need to reload same tracks
+        if (currentTrackList == newTracks)
+            return; // already using correct playlist
 
         audioSource.Stop();
-        tracks = newTracks;
+        currentTrackList = newTracks;
         BuildPlaylist();
         PlayTrack(0);
     }
 
-    void BuildPlaylist()
+    private void BuildPlaylist()
     {
         playlist.Clear();
-        playlist.AddRange(tracks);
+        playlist.AddRange(currentTrackList);
 
         if (shuffle)
-        {
             ShufflePlaylist();
-        }
 
         currentTrackIndex = 0;
     }
 
-    void ShufflePlaylist()
+    private void ShufflePlaylist()
     {
-        for (int i = 0; i < playlist.Count - 1; i++)
+        for (int i = 0; i < playlist.Count; i++)
         {
             int j = Random.Range(i, playlist.Count);
-            var temp = playlist[i];
-            playlist[i] = playlist[j];
-            playlist[j] = temp;
+            (playlist[i], playlist[j]) = (playlist[j], playlist[i]);
         }
-
-        if (playlist.Count > 1 && playlist[0] == tracks[currentTrackIndex])
-        {
-            int swapIndex = Random.Range(1, playlist.Count);
-            var temp = playlist[0];
-            playlist[0] = playlist[swapIndex];
-            playlist[swapIndex] = temp;
-        }
-
-        currentTrackIndex = 0;
     }
 
-    void PlayTrack(int index)
+    private void PlayTrack(int index)
     {
-        if (index < 0 || index >= playlist.Count) return;
+        if (index < 0 || index >= playlist.Count)
+        {
+            Debug.LogWarning($"MusicPlayer: Invalid track index {index}");
+            return;
+        }
 
         audioSource.clip = playlist[index];
         audioSource.Play();
     }
 
-    void PlayNextTrack()
+    private void PlayNextTrack()
     {
         currentTrackIndex++;
 
@@ -129,14 +134,17 @@ public class MusicPlayer : MonoBehaviour
                     ShufflePlaylist();
 
                 currentTrackIndex = 0;
+                PlayTrack(currentTrackIndex);
             }
             else
             {
-                return;
+                audioSource.Stop();
             }
         }
-
-        PlayTrack(currentTrackIndex);
+        else
+        {
+            PlayTrack(currentTrackIndex);
+        }
     }
 
     private void OnDestroy()
