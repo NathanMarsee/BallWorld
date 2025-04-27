@@ -107,7 +107,7 @@ public class PauseManager : MonoBehaviour
         List<AudioSource> allSounds = (FindObjectsOfType(typeof(AudioSource)) as AudioSource[]).ToList();
         foreach (var t in allSounds)
         {
-            if (t.outputAudioMixerGroup.name == "SFX" && t.isPlaying) 
+            if (t != null && t?.outputAudioMixerGroup.name == "SFX" && t.isPlaying) 
             { 
                 t.Pause();
                 soundsToPause.Add(t);
@@ -124,7 +124,7 @@ public class PauseManager : MonoBehaviour
 
         foreach (var t in soundsToPause)
         {
-            t.UnPause();
+            t?.UnPause();
         }
         soundsToPause = new List<AudioSource>();
 
