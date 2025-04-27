@@ -71,7 +71,7 @@ public class TutorialPopupController : MonoBehaviour
         if (popupPanel != null)
             popupPanel.SetActive(false);
 
-        Time.timeScale = 1f;
+        Time.timeScale = 1.2f;
         isPopupActive = false;
 
         EventSystem.current.SetSelectedGameObject(null);

@@ -115,8 +115,8 @@ public class BallControl : MonoBehaviour
                     rollingSoundSource.Play();
                     isRolling = true;
                 }
-                float volume = rb.velocity.magnitude / 25f;
-                volume = Mathf.Clamp(volume, 0, 0.8f);
+                float volume = rb.velocity.magnitude / 20f;
+                volume = Mathf.Clamp(volume, 0, 1f);
                 rollingSoundSource.volume = volume;
                 float pitch = rb.velocity.magnitude / 30f;
                 if (pitch < 0.3)

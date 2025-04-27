@@ -1468,9 +1468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0 points
-
-    New High Score!'
+  m_text: 0 points
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90b83f694b37d754c945aff93f5775c1, type: 2}
   m_sharedMaterial: {fileID: 2863871275468669226, guid: 90b83f694b37d754c945aff93f5775c1, type: 2}

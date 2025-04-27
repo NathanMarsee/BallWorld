@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Linq;
 
 public class PauseManager : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class PauseManager : MonoBehaviour
     private bool isPaused = false;
     private bool isMainMenu = false;
     private bool suppressNextPauseInput = false;
+
+    public List<AudioSource> soundsToPause = new List<AudioSource>();
 
     void Awake()
     {
@@ -99,21 +103,46 @@ public class PauseManager : MonoBehaviour
         EnablePauseMenu();
         menuManager?.ShowMainMenu();
         isPaused = true;
+
+        List<AudioSource> allSounds = (FindObjectsOfType(typeof(AudioSource)) as AudioSource[]).ToList();
+        foreach (var t in allSounds)
+        {
+            if (t.outputAudioMixerGroup.name == "SFX" && t.isPlaying) 
+            { 
+                t.Pause();
+                soundsToPause.Add(t);
+            }
+        }
+
         Time.timeScale = 0f;
+
     }
 
     public void ResumeGame()
     {
         if (isMainMenu) return;
 
+        foreach (var t in soundsToPause)
+        {
+            t.UnPause();
+        }
+        soundsToPause = new List<AudioSource>();
+
         DisablePauseMenu();
         isPaused = false;
+
         Time.timeScale = 1.2f;
     }
 
     public void ResumeGameAndCloseMenus()
     {
         if (isMainMenu) return;
+
+        foreach (var t in soundsToPause)
+        {
+            t.UnPause();
+        }
+        soundsToPause = new List<AudioSource>();
 
         CloseAllPanels();
         DisablePauseMenu();
