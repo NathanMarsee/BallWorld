@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
-using System.Collections; // <-- Needed for Coroutine
+using System.Collections; // Needed for Coroutines
 
 public class MenuManager : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
     public GameObject logsMenuFirstButton;
     public GameObject levelSelectMenuFirstButton;
     public GameObject logEntryFirstButton;
-    public GameObject logCloseButton; // 🔥 Close button field
+    public GameObject logCloseButton; // 🔥 Close button for logs
 
     [Header("Scene-Specific UI")]
     public GameObject basketballCanvas;
@@ -51,6 +51,18 @@ public class MenuManager : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    private IEnumerator DelaySelect(GameObject button)
+    {
+        yield return null; // wait 1 frame
+        SetSelected(button);
+    }
+
+    private IEnumerator HidePopupAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        scorePopup.SetActive(false);
     }
 
     public void ShowMainMenu()
@@ -100,6 +112,11 @@ public class MenuManager : MonoBehaviour
         SetSelected(mainMenuFirstButton);
     }
 
+    public void PlayGame()
+    {
+        ShowLevelSelectMenu();
+    }
+
     public void LoadTutorial() => SceneManager.LoadScene("Tutorial");
     public void LoadInfiniteRunnerScene() => SceneManager.LoadScene("InfiniteRunner");
     public void LoadBasketballScene() => SceneManager.LoadScene("Basketball");
@@ -109,11 +126,6 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Game Closed");
-    }
-
-    public void PlayGame()
-    {
-        ShowLevelSelectMenu();
     }
 
     public void ShowScorePopup(int points)
@@ -130,28 +142,54 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void SetFirstLogEntryButton()
-    {
-        if (logEntryFirstButton != null)
-            StartCoroutine(DelaySelect(logEntryFirstButton)); // 🔥 FIX: delay
-    }
-
+    // 🔥 When opening a log, focus the CloseButton
     public void SetLogCloseButton()
     {
         if (logCloseButton != null)
-            StartCoroutine(DelaySelect(logCloseButton)); // 🔥 FIX: delay
+            StartCoroutine(DelaySelect(logCloseButton));
     }
 
-    private IEnumerator DelaySelect(GameObject button)
+    // 🔥 When closing a log, focus back to first Log Button
+    public void HandleLogClose()
     {
-        yield return null; // wait 1 frame
-        SetSelected(button);
+        StartCoroutine(DelaySelectAfterClose());
     }
 
-    private IEnumerator HidePopupAfterDelay(float delay)
+    private IEnumerator DelaySelectAfterClose()
     {
-        yield return new WaitForSecondsRealtime(delay);
-        scorePopup.SetActive(false);
+        yield return null; // Wait 1 frame after hiding panels
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        if (logEntryFirstButton != null && logEntryFirstButton.activeInHierarchy)
+        {
+            SetSelected(logEntryFirstButton);
+        }
+        else
+        {
+            // fallback: find any active button
+            var fallbackButton = FindAnyActiveButton();
+            if (fallbackButton != null)
+                SetSelected(fallbackButton.gameObject);
+        }
+    }
+
+    private Button FindAnyActiveButton()
+    {
+        var allButtons = GameObject.FindObjectsOfType<Button>();
+        foreach (var button in allButtons)
+        {
+            if (button.gameObject.activeInHierarchy && button.interactable)
+                return button;
+        }
+        return null;
+    }
+
+    // 🔥 🔥 In case you ever call this from elsewhere
+    public void SetFirstLogEntryButton()
+    {
+        if (logEntryFirstButton != null)
+            StartCoroutine(DelaySelect(logEntryFirstButton));
     }
 
     public void ReturnToMainMenuScene()
