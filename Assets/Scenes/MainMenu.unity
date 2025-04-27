@@ -2585,11 +2585,6 @@ MonoBehaviour:
   menuManager: {fileID: 540941211}
   pauseManager: {fileID: 952250163}
   basketballCanvas: {fileID: 386512967}
---- !u!1 &1071815688 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4027600830462703941, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-  m_PrefabInstance: {fileID: 1762313041}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1114282913 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4027600830729063047, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
@@ -5387,7 +5382,7 @@ PrefabInstance:
     - target: {fileID: 4027600829517143291, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: levelSelectMenuFirstButton
       value: 
-      objectReference: {fileID: 1071815688}
+      objectReference: {fileID: 2011766124}
     - target: {fileID: 4027600829548756150, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: -1
