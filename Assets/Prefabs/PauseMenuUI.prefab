@@ -142,6 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 774739456751163748}
+  - component: {fileID: 3670157730235547746}
   m_Layer: 5
   m_Name: LogPanelContainer
   m_TagString: Untagged
@@ -170,6 +171,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &3670157730235547746
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810055318681365895}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 999
+  m_TargetDisplay: 0
 --- !u!1 &961508756788773374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1301,7 @@ MonoBehaviour:
   logsMenuFirstButton: {fileID: 0}
   levelSelectMenuFirstButton: {fileID: 0}
   logEntryFirstButton: {fileID: 0}
+  basketballCanvas: {fileID: 0}
 --- !u!1 &4027600829548060109
 GameObject:
   m_ObjectHideFlags: 0
@@ -7400,6 +7423,7 @@ MonoBehaviour:
   logListParent: {fileID: 4027600831004241828}
   logDisplayPanel: {fileID: 4027600830851579695}
   logDisplayText: {fileID: 4027600830152174113}
+  logsHeader: {fileID: 0}
   pointsText: {fileID: 4027600829745017631}
   closeButton: {fileID: 4027600830218478692}
   nextPageButton: {fileID: 0}
@@ -7624,6 +7648,7 @@ MonoBehaviour:
   optionsPanel: {fileID: 4027600831469648256}
   logsPanel: {fileID: 4027600830913241987}
   levelSelectPanel: {fileID: 4027600829647281639}
+  basketballDifficultyMenu: {fileID: 0}
   menuManager: {fileID: 4027600829517143291}
   optionsManager: {fileID: 4027600830975500115}
   logManager: {fileID: 4027600831478805646}
@@ -7918,6 +7943,7 @@ MonoBehaviour:
   levelResetSound: {fileID: 8300000, guid: 48ad4d11e55aa5e42a8ce18b3820d3b2, type: 3}
   pointSound: {fileID: 8300000, guid: bfee834b0fb8bbf439c891624cede63c, type: 3}
   unlockSound: {fileID: 8300000, guid: b574338fc884b4d46829fb7308b321bb, type: 3}
+  errorSound: {fileID: 0}
 --- !u!1 &5136826266264179841
 GameObject:
   m_ObjectHideFlags: 0
