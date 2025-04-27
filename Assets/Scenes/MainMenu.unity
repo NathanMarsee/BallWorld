@@ -5859,6 +5859,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4027600830325378680, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 90b83f694b37d754c945aff93f5775c1, type: 2}
+    - target: {fileID: 4027600830325378680, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4027600830341704786, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6473,7 +6481,7 @@ PrefabInstance:
       objectReference: {fileID: 41448177}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.size
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].id
@@ -6561,7 +6569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[21].id
-      value: story_progression
+      value: infinite_message
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].title
@@ -6649,7 +6657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[21].title
-      value: Story Progression
+      value: Infinite Runner
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].content
@@ -6974,22 +6982,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[21].content
-      value: "Ballworld tell's it's story within these text logs. If you'll look
-        above, you will see the four different types of logs. These include Tutorial,
-        John, Cynthia, and Steve. Tutorial contains tutorial messages and other information,
-        and the other three tabs are dedicated the the main characters of the story. 
-        \n  \nThe points needed to complete the story are as needed:  \n1. jonh1
-        - 1,000 Points\n2. steve1 - 1,000 Points\n3. cynthia1 - 2,000 Points\n4.
-        steve2 - 2,000 Points\n5. john2 - 3,000 Points\n6. steve3 - 3,000 Points\n7.
-        cynthia2 - 4,000 Points\n8. steve4 - 4,000 Points\n9. john3 - 5,000 Points\n10.
-        steve5 - 5,000 Points\n11. cynthia3 - 6,000 Points\n12. steve6 - 6,000 Points\n13.
-        john4 - 7,000 Points\n14. steve7 - 7,000 Points\n15. cynthia4 - 8,000 Points\n16.
-        steve8 - 8,000 Points\n17. steve9 - 9,000 Points\n\n[PAGE]\n\nTo unlock these
-        logs, you just need to hit the points threshold. Once you have, the log will
-        be unlocked and stay unlocked in the logs. \n\nFollow the story in the order
-        listed, as the story follows a protagonist in 2025, investigating his parent's
-        disappearance in 2000. Once you have read the log titled \"Steve Final\",
-        you have completed the story of the game!"
+      value: "Welcome to the Infinte Runner!\n\n\nRoll across an infinitely-generating
+        level, picking up coins along the way. \n\nYour score is based on how far
+        you go, how fast you complete each section, and how many coins you got. Aim
+        for a high score, and compete with your friends!"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].category
