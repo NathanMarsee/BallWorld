@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Collections; // <-- Needed for Coroutine
 
 public class MenuManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class MenuManager : MonoBehaviour
     public GameObject logsMenuFirstButton;
     public GameObject levelSelectMenuFirstButton;
     public GameObject logEntryFirstButton;
+    public GameObject logCloseButton; // 🔥 Close button field
 
     [Header("Scene-Specific UI")]
     public GameObject basketballCanvas;
@@ -45,6 +47,8 @@ public class MenuManager : MonoBehaviour
 
     private void SetSelected(GameObject button)
     {
+        if (button == null) return;
+
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(button);
     }
@@ -129,16 +133,27 @@ public class MenuManager : MonoBehaviour
     public void SetFirstLogEntryButton()
     {
         if (logEntryFirstButton != null)
-            SetSelected(logEntryFirstButton);
+            StartCoroutine(DelaySelect(logEntryFirstButton)); // 🔥 FIX: delay
     }
 
-    private System.Collections.IEnumerator HidePopupAfterDelay(float delay)
+    public void SetLogCloseButton()
+    {
+        if (logCloseButton != null)
+            StartCoroutine(DelaySelect(logCloseButton)); // 🔥 FIX: delay
+    }
+
+    private IEnumerator DelaySelect(GameObject button)
+    {
+        yield return null; // wait 1 frame
+        SetSelected(button);
+    }
+
+    private IEnumerator HidePopupAfterDelay(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
         scorePopup.SetActive(false);
     }
 
-    // 🔥🔥 NEW BUTTON FUNCTION
     public void ReturnToMainMenuScene()
     {
         SceneManager.LoadScene("MainMenu");

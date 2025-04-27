@@ -5415,6 +5415,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4027600829517143291, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logCloseButton
+      value: 
+      objectReference: {fileID: 545606921}
+    - target: {fileID: 4027600829517143291, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: basketballCanvas
       value: 
       objectReference: {fileID: 386512967}
