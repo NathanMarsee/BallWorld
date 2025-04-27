@@ -3254,7 +3254,7 @@ MonoBehaviour:
   planeGuide: {fileID: 4978827024291409252}
   maxAgularVelocity: 20
   gravMag: 11.5
-  killplane: -195
+  killplane: -215
   slowDownRatio: 0.1
   collisions: 0
   airSoarMultiplier: 0.8
