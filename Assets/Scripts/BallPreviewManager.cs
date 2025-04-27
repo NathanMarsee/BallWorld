@@ -19,7 +19,7 @@ public class BallPreviewManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += OnSceneLoaded; // 🔥 Listen for scene loads
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
@@ -32,6 +32,7 @@ public class BallPreviewManager : MonoBehaviour
         TryReconnectReferences();
         LoadSelectedBall();
         SpawnPreview();
+        UpdatePreviewVisibility();
     }
 
     void TryReconnectReferences()
@@ -74,17 +75,18 @@ public class BallPreviewManager : MonoBehaviour
         currentPreview.transform.localPosition = Vector3.zero;
         currentPreview.transform.localRotation = Quaternion.identity;
         currentPreview.name = $"PreviewBall_{ball.prefab.name}";
+
+        UpdatePreviewVisibility(); // 🔥 Make sure visibility is correct immediately after spawn
     }
 
     void Update()
     {
-        if (currentPreview != null && SceneManager.GetActiveScene().name == "MainMenu")
+        if (currentPreview != null && currentPreview.activeSelf)
         {
             currentPreview.transform.Rotate(Vector3.up * spinSpeed * Time.unscaledDeltaTime, Space.World);
         }
     }
 
-    // 🔥 PUBLIC STATIC METHOD TO REFRESH PREVIEW
     public static void RefreshPreview()
     {
         if (Instance == null)
@@ -97,25 +99,32 @@ public class BallPreviewManager : MonoBehaviour
         Instance.SpawnPreview();
     }
 
-    // 🔥🔥 NEW: React to scene loads
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "MainMenu")
-        {
+        if (previewAnchor == null)
             TryReconnectReferences();
 
-            // If the preview object exists but somehow lost its parent, fix it
-            if (currentPreview != null && previewAnchor != null)
-            {
-                currentPreview.transform.SetParent(previewAnchor, false);
-                currentPreview.transform.localPosition = Vector3.zero;
-                currentPreview.transform.localRotation = Quaternion.identity;
-            }
+        UpdatePreviewVisibility();
+
+        if (currentPreview != null && previewAnchor != null)
+        {
+            currentPreview.transform.SetParent(previewAnchor, false);
+            currentPreview.transform.localPosition = Vector3.zero;
+            currentPreview.transform.localRotation = Quaternion.identity;
         }
+    }
+
+    private void UpdatePreviewVisibility()
+    {
+        if (currentPreview == null)
+            return;
+
+        bool isMainMenu = SceneManager.GetActiveScene().name == "MainMenu";
+        currentPreview.SetActive(isMainMenu);
     }
 
     private void OnDestroy()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; // Clean up event listener
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
