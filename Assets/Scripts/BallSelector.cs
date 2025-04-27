@@ -75,7 +75,7 @@ public class BallSelector : MonoBehaviour
         Transform parent = existingBall.transform.parent;
         Vector3 localPos = existingBall.transform.localPosition;
         Quaternion localRot = existingBall.transform.localRotation;
-        Vector3 localScale = existingBall.transform.localScale;
+        //Vector3 localScale = existingBall.transform.localScale;
 
         Destroy(existingBall);
 
@@ -83,7 +83,7 @@ public class BallSelector : MonoBehaviour
         newBall.transform.SetParent(parent, false);
         newBall.transform.localPosition = localPos;
         newBall.transform.localRotation = localRot;
-        newBall.transform.localScale = localScale;
+        //newBall.transform.localScale = localScale;
 
         newBall.tag = "Ball";
         newBall.name = newBall.name.Replace("(Clone)", "");
