@@ -6564,7 +6564,7 @@ PrefabInstance:
       objectReference: {fileID: 41448177}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].id
@@ -6655,6 +6655,10 @@ PrefabInstance:
       value: skins
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[22].id
+      value: credits
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].title
       value: John First
       objectReference: {fileID: 0}
@@ -6741,6 +6745,10 @@ PrefabInstance:
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[21].title
       value: Skins
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[22].title
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].content
@@ -7068,6 +7076,29 @@ PrefabInstance:
         large, and will not work correctly on the levels. This is intentional, as
         these can sometimes even make the game easier, and thus, serve as a good
         reward for points!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[22].content
+      value: "Developers\n\n  - Ethan Guerin\n      - UI and Menu Design, Story writer,
+        Basketball level design and control scheme, Skin system design. Log system
+        design and main story lead. Retrofitted skybox for Tutorial and Basketball. 
+        \n  \n  - Nathan Marsee  \n      - Original control scheme design, Infinite
+        Runner level design and control scheme. Coding of a unique scoring system,
+        and creating an infinite asset spawner, set up a unique skybox inside of
+        the Infinite Runner mode.  \n  \n  - Leo Marlow  \n      - Tutorial level
+        design and control scheme. Acquisitioned the Ball assets we used, as well
+        as creating the \u201CEyeBall\u201D asset. Main game tester and bug snooper.
+        Documentation of design.  \n  \n[PAGE]  \n  \nAssets  \n  \n  - All assets
+        used in this project were either created by the developers of the game, or
+        were taken from the asset store.  \n  - Everything within the game is royalty
+        free, and or given by the creator to be used in projects like this.  \n 
+        - The development team behind this project have no intentions of breaking
+        the copyright of any individual, and we want to respect the larger community
+        dedicated to creating assets for burgeoning game developers.  \n  \n[PAGE] 
+        \n  \nMusic  \n  \n  - Basketball Music  \n      - Ayre - Inverted Variable 
+        \n      - SURVIVAL MODE - Inverted Variable  \n      - Foxxy Dekay - Interstellar
+        Love Story  \n      - ayane fukumi - nostalgic visions  \n      - \u30DE\u30C9\u30ED\u30B9MERCURY
+        - 3DS Internet Settings"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].category
