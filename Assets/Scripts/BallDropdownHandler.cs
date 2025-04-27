@@ -10,20 +10,23 @@ public class BallDropdownHandler : MonoBehaviour
     [Header("References")]
     public TMP_Dropdown ballDropdown;
     public BallDatabase ballDatabase;
-    public Transform previewAnchor;
     public Button buyEquipButton;
     public TMP_Text buyEquipButtonText;
-    public float previewScale = 100f;
-    public float spinSpeed = 20f;
 
-    private GameObject currentPreview;
     private HashSet<int> unlockedBalls = new HashSet<int>();
     private const string UnlockedBallsKey = "UnlockedBalls";
     private const string SelectedBallKey = "SelectedBall";
 
-    void OnEnable()
+    private int currentBallIndex = 0;
+
+    void Awake()
     {
-        TryReconnectReferences(); // 🔥 Always reconnect!
+        DontDestroyOnLoad(this.gameObject); // Persist across menus
+    }
+
+    void Start() 
+    {
+        TryReconnectReferences();
     }
 
     void TryReconnectReferences()
@@ -37,21 +40,6 @@ public class BallDropdownHandler : MonoBehaviour
         if (buyEquipButtonText == null && buyEquipButton != null)
             buyEquipButtonText = buyEquipButton.GetComponentInChildren<TMP_Text>();
 
-        if (previewAnchor == null)
-        {
-            var anchorObj = GameObject.Find("PreviewAnchor");
-            if (anchorObj != null)
-            {
-                previewAnchor = anchorObj.transform;
-
-                // 🔥 Make it persistent!
-                if (previewAnchor != null && previewAnchor.parent == null)
-                {
-                    DontDestroyOnLoad(previewAnchor.gameObject);
-                }
-            }
-        }
-
         if (ballDatabase == null)
             ballDatabase = FindObjectOfType<BallDatabase>();
 
@@ -63,16 +51,9 @@ public class BallDropdownHandler : MonoBehaviour
             PopulateDropdown();
             LoadUnlockedBalls();
 
-            int savedIndex = PlayerPrefs.GetInt(SelectedBallKey, 0);
-            ballDropdown.value = savedIndex;
-
-            UpdateBuyEquipButton(savedIndex);
-
-            // 🔥 Only show ball preview in MainMenu
-            if (SceneManager.GetActiveScene().name == "MainMenu")
-            {
-                ShowPreview(savedIndex);
-            }
+            currentBallIndex = PlayerPrefs.GetInt(SelectedBallKey, 0);
+            ballDropdown.value = currentBallIndex;
+            UpdateBuyEquipButton(currentBallIndex);
         }
 
         if (buyEquipButton != null)
@@ -98,9 +79,12 @@ public class BallDropdownHandler : MonoBehaviour
     void OnBallSelected(int index)
     {
         UpdateBuyEquipButton(index);
+        currentBallIndex = index;
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-            ShowPreview(index); // 🔥 Only in MainMenu!
+        PlayerPrefs.SetInt(SelectedBallKey, index);
+        PlayerPrefs.Save();
+
+        BallPreviewManager.RefreshPreview(); // 🔥 Refresh the already-existing preview
     }
 
     void UpdateBuyEquipButton(int index)
@@ -150,44 +134,6 @@ public class BallDropdownHandler : MonoBehaviour
         }
 
         UpdateBuyEquipButton(index);
-    }
-
-    void ShowPreview(int index)
-    {
-        if (SceneManager.GetActiveScene().name != "MainMenu") return;
-
-        if (currentPreview != null)
-            Destroy(currentPreview);
-
-        var ball = ballDatabase.balls[index];
-        if (ball.prefab == null)
-        {
-            Debug.LogWarning($"BallDropdownHandler: Missing prefab at index {index}");
-            return;
-        }
-
-        currentPreview = Instantiate(ball.prefab, previewAnchor.position, Quaternion.identity);
-        currentPreview.transform.SetParent(previewAnchor, worldPositionStays: false);
-        currentPreview.transform.localPosition = Vector3.zero;
-        currentPreview.transform.localRotation = Quaternion.identity;
-        currentPreview.name = $"PreviewBall_{ball.prefab.name}";
-    }
-
-    void Update()
-    {
-        if (SceneManager.GetActiveScene().name != "MainMenu") return;
-
-        if (currentPreview != null)
-            currentPreview.transform.Rotate(Vector3.up * spinSpeed * Time.unscaledDeltaTime, Space.World);
-    }
-
-    void OnDisable()
-    {
-        if (currentPreview != null)
-        {
-            Destroy(currentPreview);
-            currentPreview = null;
-        }
     }
 
     private void UnlockBall(int index)
