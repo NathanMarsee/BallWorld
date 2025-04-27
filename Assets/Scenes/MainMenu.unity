@@ -6775,9 +6775,9 @@ PrefabInstance:
         actually pretty proud of it!\r\n\r\nI didn\u2019t really want to write logs.
         Honestly John is way more into this part of the dev stuff\u2014logging, documenting,
         etc. I just wish he would do a little coding! I don\u2019t know how I\u2019m
-        going to make this game **and** pay off the three loans John took out for
-        the studio. I don\u2019t even know what it was for, he won\u2019t tell me
-        what he spent it on. God, wish me luck!\r\n\r\nCynthia Spheres, 1998."
+        going to make this game and pay off the three loans John took out for the
+        studio. I don\u2019t even know what it was for, he won\u2019t tell me what
+        he spent it on. God, wish me luck!\r\n\r\nCynthia Spheres, 1998."
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[3].content
@@ -6849,17 +6849,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[8].content
-      value: "I figured it out. Cynthia was **wrong** and I knew it!\r\n\r\nAbout
-        a week ago, I had another brainblast! I thought to myself, \u201CWhat if
-        the balls were **real**!\u201D That\u2019s right\u2014the first game with
-        actual balls in it! Honestly, I scare myself with my own genius.\r\n\r\nI
-        told Cynthia, and of course she didn\u2019t get it. She never was all that
-        clever, but I\u2019ll show her! She\u2019s at the doctor for **another**
-        ultrasound. We already know what the baby looks like! Have you ever seen
-        a real ball in a game?\r\n\r\nI got into contact with some people, some hard
-        metal components! Look, I know I\u2019m an idea guy, but this is an **idea**!
-        All the parts should come in from __Albania__! Doesn\u2019t that sound fancy?\r\n\r\nJohn
-        Balls, 1999."
+      value: "I figured it out. Cynthia was wrong and I knew it!\r\n\r\nAbout a week
+        ago, I had another brainblast! I thought to myself, \u201CWhat if the balls
+        were real!\u201D That\u2019s right\u2014the first game with actual balls
+        in it! Honestly, I scare myself with my own genius.\r\n\r\nI told Cynthia,
+        and of course she didn\u2019t get it. She never was all that clever, but
+        I\u2019ll show her! She\u2019s at the doctor for another ultrasound. We already
+        know what the baby looks like! Have you ever seen a real ball in a game?\r\n\r\nI
+        got into contact with some people, some hard metal components! Look, I know
+        I\u2019m an idea guy, but this is an idea! All the parts should come in from
+        Albania! Doesn\u2019t that sound fancy?\r\n\r\nJohn Balls, 1999."
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[9].content
@@ -6890,16 +6889,16 @@ PrefabInstance:
         when I saw him\u2014slouched forward in the creaky computer chair.\r\n\r\n\u201CJohn!\u201D
         I shrieked, ripping the chair in my direction. I was shocked when the machine
         came with him, stopping him from furiously wheeling towards me. I pulled
-        his head up, and I almost passed out in shock.\r\n\r\nJohn had stuffed maybe
-        six cords up his nose. His eyes had rolled backwards, and he was moaning
-        and foaming at the mouth. I thought he was dead. I yelled as loud as my lungs
-        would let me\u2014a horrible wail of grief.\r\n\r\nSuddenly, his eyes snapped
-        forward. \u201CWhat?\u201D I could see his stupid look through my tears.
-        What? He plugged his pea-brain into the Mac and acts like I\u2019m the crazy
-        one?\r\n\r\nOnce I realized what was going on\u2014that the man I betrothed
-        myself to hadn\u2019t just fried his head\u2014I stormed away. John was babbling
-        some bullshit about \u201CBeing a ball in the game!\u201D I don\u2019t care.
-        I have to get out of here.\r\n\r\nCynthia Spheres, 2000."
+        his head up, and I almost passed out in shock.\r\n\n[PAGE]\n\r\nJohn had
+        stuffed maybe six cords up his nose. His eyes had rolled backwards, and he
+        was moaning and foaming at the mouth. I thought he was dead. I yelled as
+        loud as my lungs would let me\u2014a horrible wail of grief.\r\n\r\nSuddenly,
+        his eyes snapped forward. \u201CWhat?\u201D I could see his stupid look through
+        my tears. What? He plugged his pea-brain into the Mac and acts like I\u2019m
+        the crazy one?\r\n\r\nOnce I realized what was going on\u2014that the man
+        I betrothed myself to hadn\u2019t just fried his head\u2014I stormed away.
+        John was babbling some bullshit about \u201CBeing a ball in the game!\u201D
+        I don\u2019t care. I have to get out of here.\r\n\r\nCynthia Spheres, 2000."
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[11].content
@@ -6907,14 +6906,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[12].content
-      value: "\"I did it. It\u2019s done.\r\n\r\nAbout a month ago, I had my first
+      value: "I did it. It\u2019s done.\r\n\r\nAbout a month ago, I had my first
         success. Yes, I got a real golf ball inside of Ballworld! Using the Albanian
         technology I cleverly invested in, I accomplished this with my large intellect.\r\n\r\nAbout
         two weeks later, I moved on to mice. Why mice? Why would a game where you
         control a ball around a track need a real mouse? What use would a real mouse
         have in the game?\r\n\r\nAnyways, I did it! It\u2019s been two weeks of melting
         mice, but I finally have a mouse in the game! He\u2019s inside of the infinite
-        runner! Like a giant mouse wheel!\r\n\r\nJohn Balls, 2000.\"\r\n"
+        runner! Like a giant mouse wheel!\r\n\r\nJohn Balls, 2000.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[13].content
