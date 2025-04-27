@@ -5349,7 +5349,7 @@ Transform:
   - {fileID: 4291368288909762969}
   - {fileID: 4291368287869374369}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &4291368287413170592
 RectTransform:
@@ -5502,7 +5502,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Whatever you want here!
+  m_text: "Welcome to the Infinte Runner!\n\n\nRoll across an infinitely-generating
+    level, picking up coins along the way. \n\nYour score is based on how far you
+    go, how fast you complete each section, and how many coins you got. Aim for a
+    high score, and compete with your friends!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90b83f694b37d754c945aff93f5775c1, type: 2}
   m_sharedMaterial: {fileID: 2863871275468669226, guid: 90b83f694b37d754c945aff93f5775c1, type: 2}
@@ -5529,7 +5532,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 33.85
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
