@@ -50,7 +50,7 @@ public class NotificationManager : MonoBehaviour
     {
         yield return new WaitForSeconds(bufferTime);
 
-        string message = $"+{pendingPoints} Points Gained!";
+        string message = $"+{pendingPoints} Points!";
         ShowNotification(message);
 
         if (SoundManager.Instance != null)
