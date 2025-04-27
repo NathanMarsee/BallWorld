@@ -6553,23 +6553,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[17].id
-      value: basketball_message
-      objectReference: {fileID: 0}
-    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[18].id
       value: tutorial_message
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[18].id
+      value: infinite_message
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[19].id
-      value: story_progression
+      value: basketball_message
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[20].id
-      value: skins
+      value: story_progression
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[21].id
-      value: infinite_message
+      value: skins
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].title
@@ -6641,23 +6641,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[17].title
-      value: Basketball Tutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[18].title
       value: Eyean the Eyeball
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[18].title
+      value: Infinite Runner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[19].title
-      value: Story Progression
+      value: Basketball
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[20].title
-      value: Skins
+      value: Story Progression
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[21].title
-      value: Infinite Runner
+      value: Skins
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[0].content
@@ -6912,6 +6912,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[17].content
+      value: "Tutorial\n\nHelp Eyean, the Eyeball fix his spaceship! \n\nUse the
+        Left Stick, D-Pad, or WASD, to shift the gravity around and guide Eyean to
+        the parts he needs! Once you get the hang of it, try out the Infinite or
+        Basketball game modes! Gain points to unlock Developer Logs to progress in
+        the story, or purchase skins from the options menu!\n\nCan Eyean get home,
+        before he dries out!?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[18].content
+      value: "Welcome to the Infinte Runner!\n\n\nRoll across an infinitely-generating
+        level, picking up coins along the way. \n\nYour score is based on how far
+        you go, how fast you complete each section, and how many coins you got. Aim
+        for a high score, and compete with your friends!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[19].content
       value: "Welcome to Basketball! \n\nYou're playing hoops, in space! Gravity
         works differently here, think of yourself more as a meteorite slamming into
         the backboard!  \n  \nUsing the Left Stick, WASD, or the D-Pad to fly through
@@ -6923,16 +6939,15 @@ PrefabInstance:
         to buy skins, and unlock more dev logs!\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[18].content
-      value: "Tutorial\n\nHelp Eyean, the Eyeball fix his spaceship! \n\nUse the
-        Left Stick, D-Pad, or WASD, to shift the gravity around and guide Eyean to
-        the parts he needs! Once you get the hang of it, try out the Infinite or
-        Basketball game modes! Gain points to unlock Developer Logs to progress in
-        the story, or purchase skins from the options menu!\n\nCan Eyean get home,
-        before he dries out!?"
+      propertyPath: logEntries.Array.data[1].category
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[19].content
+      propertyPath: logEntries.Array.data[1].unlocked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
+      propertyPath: logEntries.Array.data[20].content
       value: "Ballworld tell's it's story within these text logs. If you'll look
         above, you will see the four different types of logs. These include Tutorial,
         John, Cynthia, and Steve. Tutorial contains tutorial messages and other information,
@@ -6951,15 +6966,7 @@ PrefabInstance:
         you have completed the story of the game!"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[1].category
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[1].unlocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[20].content
+      propertyPath: logEntries.Array.data[21].content
       value: "Skins can be unlocked and apllied to the players ball. To do this,
         go inside of the Options submenu in the Main menu, you will see an option
         that show's which ball the player has equipped. If it is your first time
@@ -6979,13 +6986,6 @@ PrefabInstance:
         large, and will not work correctly on the levels. This is intentional, as
         these can sometimes even make the game easier, and thus, serve as a good
         reward for points!"
-      objectReference: {fileID: 0}
-    - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
-      propertyPath: logEntries.Array.data[21].content
-      value: "Welcome to the Infinte Runner!\n\n\nRoll across an infinitely-generating
-        level, picking up coins along the way. \n\nYour score is based on how far
-        you go, how fast you complete each section, and how many coins you got. Aim
-        for a high score, and compete with your friends!"
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[2].category
