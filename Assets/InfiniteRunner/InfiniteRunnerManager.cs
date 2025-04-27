@@ -46,7 +46,7 @@ public class InfiniteRunnerManager : MonoBehaviour
             if(TimeInChunk > 0)
             {
                 distanceScore += pointsPerChunk;
-                speedBonus += Mathf.Clamp((int)(Mathf.Ceil((TimeInChunk * 220) / -100.0f + 5) * 5), 0, 10);
+                speedBonus += Mathf.Clamp((int)(Mathf.Ceil((TimeInChunk * 200) / -100.0f + 5) * 6), 0, 15);
                 //(PointManager.Instance ?? FindObjectOfType<PointManager>())?.AddPoints(pointsPerChunk + tempSpeedBonus);
                 distanceText.GetComponent<TMP_Text>().SetText(distanceScore + " points");
                 speedText.GetComponent<TMP_Text>().SetText(speedBonus + " points");
