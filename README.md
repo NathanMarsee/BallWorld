@@ -47,6 +47,7 @@ The list of skin is as follows:
   8. Golf - 2,000 Points
   9. Eyeball - 3,500 Points  
 
+The points are priced mostly arbitrarily. However, note that the football will still control like a sphere despite its appearance.
 
 ## Credits
 
