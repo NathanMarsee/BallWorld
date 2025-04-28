@@ -47,9 +47,7 @@ The list of skin is as follows:
   8. Golf - 2,000 Points
   9. Eyeball - 3,500 Points  
 
-The points are priced in order of how much they break the geometry and physics of the game. For example, Soccer works very well on every level, but Tennis is a bit too small, and looks a bit funny.  
-  
-Balls like "EyeBall" are too large, and will not work correctly on the levels. This is intentional, as these can sometimes even make the game easier, and thus, serve as a good reward for points!
+The points are priced mostly arbitrarily. However, note that the football will still control like a sphere despite its appearance.
 
 ## Credits
 
