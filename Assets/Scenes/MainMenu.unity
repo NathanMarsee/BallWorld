@@ -7069,13 +7069,7 @@ PrefabInstance:
         levels.\n\nThe list of skin is as follows:\n1. Soccer - 0 Points (Already
         unlocked/equipped)\n2. Volleyball - 250 Points\n3. Basketball - 500 Points\n5.
         Tennis - 750 Points\n6. Football - 1,000 Points\n7. Baseball - 1,000 Points\n8.
-        Golf - 2,000 Points\n9. Eyeball - 3,500 Points  \n  \n[PAGE]\n\nThe points
-        are priced in order of how much they break the geometry and physics of the
-        game. For example, Soccer works very well on every level, but Tennis is a
-        bit too small, and looks a bit funny.  \n  \nBalls like \"EyeBall\" are too
-        large, and will not work correctly on the levels. This is intentional, as
-        these can sometimes even make the game easier, and thus, serve as a good
-        reward for points!"
+        Golf - 2,000 Points\n9. Eyeball - 3,500 Points  \n  "
       objectReference: {fileID: 0}
     - target: {fileID: 4027600831478805646, guid: 4f5ea153265429840920004ad64bb18a, type: 3}
       propertyPath: logEntries.Array.data[22].content
